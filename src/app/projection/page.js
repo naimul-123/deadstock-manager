@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { saveAs } from 'file-saver';
 
-import { AlignmentType, Document, Packer, Paragraph, TextRun } from 'docx';
+import { AlignmentType, Document, Packer, PageOrientation, Paragraph, TextRun } from 'docx';
 const Projection = () => {
     const [formdata, setFormData] = useState(null)
     const contentRef = useRef()
@@ -34,8 +34,42 @@ const Projection = () => {
             },
             sections: [
                 {
-                    properties: {},
+                    properties: {
+                        page: {
+                            size: {
+                                width: 12240,
+                                height: 20160,
+                            },
+                            margin: {
+                                top: 1440,
+                                right: 1440,
+                                bottom: 1440,
+                                left: 1440
+
+                            },
+                            orientation: PageOrientation.PORTRAIT,
+
+                        }
+                    },
                     children: [
+                        new Paragraph({
+                            alignment: AlignmentType.CENTER,
+                            spacing: { after: 50 },
+                            children: [
+                                new TextRun({
+                                    text: formdata.notingHeading,
+                                    bold: true,
+                                    underline: true,
+                                    font: {
+                                        name: 'sutonnyOMJ'
+                                    },
+                                    color: '#000000',
+                                    size: 28,
+
+
+                                })
+                            ]
+                        }),
                         new Paragraph({
                             alignment: AlignmentType.JUSTIFIED,
                             spacing: { after: 50 },
@@ -133,6 +167,14 @@ const Projection = () => {
                 </div>
                 <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
                     <form className="grid grid-cols-2 gap-4 m-4" onSubmit={handleSubmit(onSubmit)}>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">নোটিং এর শিরোনাম</span>
+                            </label>
+                            <input {...register('notingHeading', { required: true })} type="text" placeholder="নোটিং এর শিরোনাম লিখুন" className="input input-bordered" onKeyDown={handleKeyDown} />
+
+                            {errors.proj_from && <p className='text-red-600 font-bold'>{errors.proj_from}</p>}
+                        </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">যে শাখা থেকে রিকুইজিশন আসছে</span>
