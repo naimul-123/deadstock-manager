@@ -7,6 +7,7 @@ const Navbar = () => {
             <Link className="inline-block py-2 px-4 hover:bg-green-500 text-lg font-bold text-white" href="/">Home</Link>
             <Link className="inline-block py-2 px-4 hover:bg-green-500 text-lg font-bold text-white" href="/projection">Projection</Link>
             <Link className="inline-block py-2 px-4 hover:bg-green-500 text-lg font-bold text-white" href="/purchase_requisition">Purchase Requisition</Link>
+            <Link className="inline-block py-2 px-4 hover:bg-green-500 text-lg font-bold text-white" href="/test">Test</Link>
         </div>
     );
 };

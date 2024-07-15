@@ -5,13 +5,17 @@ import { useForm } from 'react-hook-form';
 import { saveAs } from 'file-saver';
 
 import { AlignmentType, Document, Packer, PageOrientation, Paragraph, TextRun } from 'docx';
+import { benWord, indianNumberFormat } from '@/utils/benword';
 const Projection = () => {
     const [formdata, setFormData] = useState(null)
-    const contentRef = useRef()
+    const [takaInword, setTakaInWord] = useState('')
+    const [formatedPrice, setFormatedPrice] = useState('')
+    const [pdfUrl, setPdfUrl] = useState('')
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         setFormData(data);
-
+        setTakaInWord(benWord(data.total_price))
+        setFormatedPrice(indianNumberFormat(data.total_price))
     }
 
     const handleKeyDown = (event) => {
@@ -19,14 +23,12 @@ const Projection = () => {
         const isNumpadKey = keyCode >= 96 && keyCode <= 105;
         if (isNumpadKey) {
             event.preventDefault();
-            alert('Number pad key is not valid');
+            // alert('Number pad key is not valid');
 
         }
     }
     const handleSaveToWord = async () => {
-        // const content = contentRef.current.innerHTML;
-        // const converted = htmlDocx.asBlob(content);
-        // saveAs(converted, formdata.proj_for)
+
         const doc = new Document({
             compatibility: {
                 doNotExpandShiftReturn: true,
@@ -76,7 +78,7 @@ const Projection = () => {
                             children: [
                                 new TextRun({
                                     text: `\t${formdata.requisitioner} তারিখের  নোটিং এর প্রেক্ষিতে এ অফিসের ${formdata.proj_for} ব্যবহারের জন্য ${formdata.goods_name} ক্রয়ের লক্ষ্যে ইতিবাচক মতামত প্রদান এবং স্থানীয় বাজারদর যাচাইপূর্বক
-    ${formdata.proj_from} ${formdata.total_price} টাকার একটি ব্যয়প্রাক্কলন প্রস্তুত করেছে (প্রাক্কলনের কপি সংযুক্ত) এবং এতদ্সংক্রান্ত পরবর্তী কার্যক্রম সম্পাদনের জন্য জড়সামগ্রী শাখাকে অনুরোধ জানিয়েছে।`,
+    ${formdata.proj_from} ৳${formatedPrice}(${takaInword}) টাকার একটি ব্যয়প্রাক্কলন প্রস্তুত করেছে (প্রাক্কলনের কপি সংযুক্ত) এবং এতদ্সংক্রান্ত পরবর্তী কার্যক্রম সম্পাদনের জন্য জড়সামগ্রী শাখাকে অনুরোধ জানিয়েছে।`,
                                     font: {
                                         name: 'sutonnyOMJ'
                                     },
@@ -109,7 +111,7 @@ const Projection = () => {
                             spacing: { after: 50 },
                             children: [
                                 new TextRun({
-                                    text: `\t\tক. ${formdata.proj_from} কর্তৃক প্রদত্ত ৳${formdata.total_price} টাকার ব্যয়প্রাক্কলনটি অনুমোদন করা যেতে পারে।`,
+                                    text: `\t\tক. ${formdata.proj_from} কর্তৃক প্রদত্ত ৳${formatedPrice}(${takaInword}) টাকার ব্যয়প্রাক্কলনটি অনুমোদন করা যেতে পারে।`,
                                     font: {
                                         name: 'sutonnyOMJ'
                                     },
@@ -153,9 +155,12 @@ const Projection = () => {
                 }
             ]
         })
-        // this.doc.Settings.addCompatibility().doNotExpandShiftReturn();
-        const blob = await Packer.toBlob(doc)
+
+        const buffer = await Packer.toBuffer(doc);
+        const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' })
         saveAs(blob, formdata.proj_for)
+
+
     }
 
     return (
@@ -223,17 +228,19 @@ const Projection = () => {
             </div>
 
             {formdata && <>
-                <div ref={contentRef} style={{ textAlign: 'justify', fontFamily: 'SutonnyOMJ' }}>
+                <div style={{ textAlign: 'justify', fontFamily: 'SutonnyOMJ' }}>
                     <p style={{ textIndent: '40px' }}>{`  ${formdata.requisitioner} তারিখের  নোটিং এর প্রেক্ষিতে এ অফিসের ${formdata.proj_for} ব্যবহারের জন্য ${formdata.goods_name} ক্রয়ের লক্ষ্যে ইতিবাচক মতামত প্রদান এবং স্থানীয় বাজারদর যাচাইপূর্বক
-    ${formdata.proj_from} ${formdata.total_price} টাকার একটি ব্যয়প্রাক্কলন প্রস্তুত করেছে (প্রাক্কলনের কপি সংযুক্ত) এবং এতদ্সংক্রান্ত পরবর্তী কার্যক্রম সম্পাদনের জন্য জড়সামগ্রী শাখাকে অনুরোধ জানিয়েছে।`
+    ${formdata.proj_from} ৳${formatedPrice}/-(${takaInword}) টাকার একটি ব্যয়প্রাক্কলন প্রস্তুত করেছে (প্রাক্কলনের কপি সংযুক্ত) এবং এতদ্সংক্রান্ত পরবর্তী কার্যক্রম সম্পাদনের জন্য জড়সামগ্রী শাখাকে অনুরোধ জানিয়েছে।`
                     }</p>
                     <p style={{ textIndent: '40px' }}>{`এমতাবস্থায়, ${formdata.proj_from} কর্তৃক প্রদত্ত    মতামত ও প্রাক্কলনের প্রেক্ষিতে বর্ণিত ক্রয়কার্যক্রমটি সম্পাদনের জন্য নিম্নরূপ ব্যবস্থা গ্রহণ করা যেতে পারে। `}
-                        <ul style={{ marginLeft: "40px", textIndent: '40px', listStyleType: 'none' }}>
-                            <li style={{ padding: '0', margin: '0' }}>ক. {formdata.proj_from} কর্তৃক প্রদত্ত ৳{formdata.total_price} টাকার ব্যয়প্রাক্কলনটি অনুমোদন করা যেতে পারে।</li>
-                            <li style={{ padding: '0', margin: '0' }}>খ. প্রস্তাব “ক” অনুমোদিত হলে পিপিআর এর ৬৯ নং ধারায় বর্ণিত বিধানের আলোকে RFQ মেথডে এমমডিউল সিস্টেমের মাধ্যমে ক্রয় কার্যক্রমটি সম্পাদন করা যেতে পারে।</li>
-                        </ul>
-
                     </p>
+                    <ul style={{ marginLeft: "40px", textIndent: '40px', listStyleType: 'none' }}>
+
+                        <li style={{ padding: '0', margin: '0' }}>ক. {formdata.proj_from} কর্তৃক প্রদত্ত ৳{formatedPrice}({takaInword}) টাকার ব্যয়প্রাক্কলনটি অনুমোদন করা যেতে পারে।</li>
+                        <li style={{ padding: '0', margin: '0' }}>খ. প্রস্তাব “ক” অনুমোদিত হলে পিপিআর এর ৬৯ নং ধারায় বর্ণিত বিধানের আলোকে RFQ মেথডে এম.এম.মডিউল সিস্টেমের মাধ্যমে ক্রয় কার্যক্রমটি সম্পাদন করা যেতে পারে।</li>
+                    </ul>
+
+
                     <p style={{ textIndent: '40px' }}>সদয় অনুমোদনের জন্য উপস্থাপিত</p>
 
                 </div>
@@ -242,6 +249,10 @@ const Projection = () => {
             </>
 
             }
+
+
+
+
 
         </div>
     );
