@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.51.5",
+    "@tanstack/react-query-devtools": "^5.51.5",
     "axios": "^1.7.2",
     "docx": "^8.5.0",
     "docx-pdf": "^0.0.1",
@@ -17,6 +19,8 @@
     "formidable": "^3.5.1",
     "html-docx-js": "^0.3.1",
     "mammoth": "^1.8.0",
+    "moment": "^2.30.1",
+    "mongodb": "^6.8.0",
     "next": "14.2.5",
     "pdf-lib": "^1.17.1",
     "react": "^18",

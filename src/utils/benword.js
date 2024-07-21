@@ -18,7 +18,8 @@ export function convertBengaliNumerals(bengaliNumeralString) {
 }
 
 
-const toben = (n) => {
+export const benWord = (n) => {
+
     const intPart = parseInt(n);
 
     const words = [
@@ -47,12 +48,12 @@ const toben = (n) => {
     const crorVal = parseInt(((intPart / 1000000000) - parseInt((intPart / 1000000000))) * 100);
     const crorWord = crorVal > 0 ? `${words[crorVal]} কোটি` : ''
 
-    return n > 0 ? `টাকা ${crorWord} ${lakhWord} ${thousWord} ${hundWord} ${tenthWord}  ${decimalWord} মাত্র ` : ''
+    return n > 0 ? `টাকা ${crorWord} ${lakhWord} ${thousWord} ${hundWord} ${tenthWord} ${decimalWord} মাত্র` : ''
 }
 
-export const benWord = (n) => {
-    return toben(convertBengaliNumerals(n))
-}
+// export const benWord = (n) => {
+//     return toben(banglaToDecimal(n))
+// }
 const toeng = (n) => {
     const intPart = parseInt(n);
 
@@ -82,7 +83,7 @@ const toeng = (n) => {
     const crorVal = parseInt(((intPart / 1000000000) - parseInt((intPart / 1000000000))) * 100);
     const crorWord = crorVal > 0 ? `${words[crorVal]} Cror` : ''
 
-    return n > 0 ? `Taka ${crorWord} ${lakhWord} ${thousWord} ${hundWord} ${tenthWord}  ${decimalWord} Only ` : ''
+    return n > 0 ? `Taka ${crorWord} ${lakhWord} ${thousWord} ${hundWord} ${tenthWord}  ${decimalWord} Only` : ''
 }
 
 export const engWord = (n) => {
@@ -90,6 +91,7 @@ export const engWord = (n) => {
 }
 
 export const indianNumberFormat = (n) => {
+    const strNumber = n.toString()
     const bengliToDecimalMap = {
         '০': '0', '১': '1', '২': '2', '৩': '3', '৪': '4', '৫': '5', '৬': '6', '৭': '7', '৮': '8', '৯': '9'
     }
@@ -98,11 +100,11 @@ export const indianNumberFormat = (n) => {
         '0': '০', '1': '১', '2': '২', '3': '৩', '4': '৪', '5': '৫', '6': '৬', '7': '৭', '8': '৮', '9': '৯'
     }
 
-    let decimalNumberString = n.replace(/[০-৯]/g, (match) => {
-        return bengliToDecimalMap[match];
-    })
+    // let decimalNumberString = n.replace(/[০-৯]/g, (match) => {
+    //     return bengliToDecimalMap[match];
+    // })
 
-    let [integerPart, decimalPart] = decimalNumberString.split('.')
+    let [integerPart, decimalPart] = strNumber.split('.')
     let chars = integerPart.split('');
     chars = chars.reverse();
     let formattedChars = [];
@@ -130,4 +132,30 @@ export const indianNumberFormat = (n) => {
 
     return formatedBengaliNumber
 
+}
+
+export const decimalToBangla = (n) => {
+    const decimalToBengaliMap = {
+        '0': '০', '1': '১', '2': '২', '3': '৩', '4': '৪', '5': '৫', '6': '৬', '7': '৭', '8': '৮', '9': '৯'
+    }
+
+    let formatedBengaliNumber = n.replace(/[0-9]/g, (match) => {
+        return decimalToBengaliMap[match]
+    })
+    return formatedBengaliNumber
+
+}
+export const banglaToDecimal = (n) => {
+    const bengliToDecimalMap = {
+        '০': '0', '১': '1', '২': '2', '৩': '3', '৪': '4', '৫': '5', '৬': '6', '৭': '7', '৮': '8', '৯': '9'
+    }
+    let decimalNumberString;
+    if (n) {
+        decimalNumberString = n.replace(/[০-৯]/g, (match) => {
+            return bengliToDecimalMap[match];
+        })
+    }
+
+
+    return decimalNumberString
 }

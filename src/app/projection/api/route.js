@@ -1,50 +1,45 @@
-// app/api/convert/route.js
-import { NextResponse } from 'next/server';
-import { DocxPdf } from 'docx-pdf';
-import { Buffer } from 'buffer';
-
-export const config = {
-    api: {
-        bodyParser: false, // Disallow body parsing, we'll handle it manually
-    },
-};
-
-const parseFormData = async (req) => {
-    const reader = req.body.getReader();
-    console.log(reader);
-    const decoder = new TextDecoder();
-    let data = '';
-    let done = false;
-
-    while (!done) {
-        const { value, done: doneReading } = await reader.read();
-        done = doneReading;
-        data += decoder.decode(value, { stream: !done });
-    }
-
-    return data;
-};
-
-export async function POST(req) {
+import { NextResponse } from "next/server";
+import clientPromise from "../../../../lib/mongodb";
+import { ObjectId } from "mongodb";
+export async function POST(request) {
     try {
-        const rawData = await parseFormData(req);
-        const boundary = req.headers.get('content-type').split('boundary=')[1];
-        const parts = rawData.split(boundary).slice(1, -1);
-
-        const filePart = parts.find(part => part.includes('Content-Disposition: form-data; name="file";'));
-        const fileContent = filePart.split('\r\n\r\n')[1].split('\r\n--')[0];
-        const docBuffer = Buffer.from(fileContent, 'binary');
-
-        const pdfBuffer = await DocxPdf.convert(docBuffer);
-
-        return new NextResponse(pdfBuffer, {
-            headers: {
-                'Content-Type': 'application/pdf',
-                'Content-Disposition': 'attachment; filename=document.pdf',
-            },
-        });
+        const client = await clientPromise;
+        const db = client.db('deadstock');
+        const procurementCollection = db.collection('procurements')
+        const { data } = await request.json();
+        const result = await procurementCollection.insertOne(data)
+        return NextResponse.json({ message: 'Document inserted', result })
     } catch (error) {
-        console.error('Error converting DOCX to PDF:', error);
-        return new NextResponse('Error converting DOCX to PDF', { status: 500 });
+        console.error('Error inserting document:', error); // Log error
+        return NextResponse.json({ error: 'Failed to insert document' }, { status: 500 });
+    }
+}
+export async function GET(request) {
+    try {
+
+        const client = await clientPromise;
+        const db = client.db('deadstock');
+        const procurementCollection = db.collection('procurements')
+        // const searchParams = request.nextUrl.searchParams;
+        // const query = searchParams.get("query")
+        const searchParams = request.nextUrl.searchParams;
+        const id = searchParams.get('id');
+        let query = {};
+        if (id) {
+            query = { _id: new ObjectId(id) }
+        }
+        let result;
+        if (id) {
+            result = await procurementCollection.findOne(query);
+        }
+        else {
+            request = result = await procurementCollection.find().toArray();
+        }
+
+
+        return NextResponse.json(result)
+    } catch (error) {
+        console.error('Error inserting document:', error); // Log error
+        return NextResponse.json({ error: 'Failed to insert document' }, { status: 500 });
     }
 }
