@@ -20,7 +20,12 @@
                     }
                 ]
             }
-        ]
+        ],
+        "projectionApproveInfo": {
+            "approver": "নির্বাহী পরিচালক",
+            "approved_date": "2024-07-23"
+        },
+        "pr_number": "10009797"
     },
     {
         "_id": 2,
@@ -54,5 +59,56 @@
                 ]
             }
         ]
+    },
+    {
+        "_id": 3,
+        "notingHeading": "অফিসের এডিদের জন্য আসবাবপত্র ক্রয়পূর্বক সরবরাহ প্রসঙ্গে",
+        "previousPageNo": "৩",
+        "previousParaNo": "৫",
+        "proj_from": "প্রকৌশল শাখা",
+        "employeeInfo": [
+            {
+                "name": "নাইমুল ইসলাম",
+                "sap": "19109577",
+                "designation": "সহকারী পরিচালক",
+                "section": "প্রকৌশল শাখা",
+                "notingDate": "2024-07-22",
+                "itemInfo": [
+                    {
+                        "goods_name": "রিভলভিং চেয়ার",
+                        "quantity": "1",
+                        "unit_price": "14500"
+                    },
+                    {
+                        "goods_name": "কম্পিউটার টেবিল",
+                        "quantity": "2",
+                        "unit_price": "9500"
+                    }
+                ]
+            },
+            {
+                "name": "হাসিবুল ইসলাম",
+                "sap": "19109578",
+                "designation": "সহকারী পরিচালক",
+                "section": "প্রকৌশল শাখা",
+                "notingDate": "2024-07-22",
+                "itemInfo": [
+                    {
+                        "goods_name": "রিভলভিং চেয়ার",
+                        "quantity": "2",
+                        "unit_price": "12560"
+                    },
+                    {
+                        "goods_name": "কম্পিউটার টেবিল",
+                        "quantity": "2",
+                        "unit_price": "9500"
+                    }
+                ]
+            }
+        ],
+        "projectionApproveInfo": {
+            "approver": "নির্বাহী পরিচালক",
+            "approved_date": "2024-07-24"
+        }
     }
 ]

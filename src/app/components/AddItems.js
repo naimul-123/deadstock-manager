@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const AddItems = ({ handleItems, employee, removeEmp, handleremoveItem, empInfo, error }) => {
     const [isShow, setIsShwo] = useState(false)
-    const { name, designation, sap, itemInfo } = employee
+    const { name, designation, sap, itemInfo, section } = employee
     const handleIsShow = () => {
         setIsShwo(!isShow)
     }
@@ -13,7 +13,8 @@ const AddItems = ({ handleItems, employee, removeEmp, handleremoveItem, empInfo,
     return (
         < >
             <div className="flex p-2  gap-2 justify-between items-center shadow-lg bg-slate-400  ">
-                <h2 className="text-2xl font-bold"> {`নাম: জনাব ${name}, পদবী:${designation}`}</h2>
+                {designation ? <h2 className="text-2xl font-bold"> {`জনাব ${name}, পদবী:${designation}`}</h2> :
+                    <h2 className="text-2xl font-bold"> {`${section}র ${name}`}</h2>}
                 <div className="flex gap-2 justify-between items-center">
                     <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" onClick={() => handleIsShow()}>{isShow ? 'Hide' : "Show"}</button>
                     <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" onClick={() => removeEmp(sap)}>Remove Employee</button>

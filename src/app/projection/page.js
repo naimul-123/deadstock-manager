@@ -74,7 +74,7 @@ const Projection = () => {
             else {
                 connector = ","
             }
-            requisitioner += `${connector} এ অফিসের ${e.section}র  ${decimalToBangla(moment(e.notingDate).format('DD/MM/YYYY'))} তারিখের নোটিং এর প্রেক্ষিতে এ অফিসের ${e.designation} জনাব ${e.name} এর দাপ্তরিক কাজে ব্যবহারের জন্য ${items} `
+            requisitioner += `${connector} এ অফিসের ${e.section}র  ${decimalToBangla(moment(e.notingDate).format('DD/MM/YYYY'))} তারিখের নোটিং এর প্রেক্ষিতে এ অফিসের  ${e.designation ? `${e.designation} জনাব ${e.name} এর দাপ্তরিক কাজে` : `${e.name}-এ`}  ব্যবহারের জন্য ${items} `
 
             setRequisitionr(requisitioner);
 
@@ -106,7 +106,7 @@ const Projection = () => {
             if (hasNoItem) {
                 const newerror = {
                     error: "notingError",
-                    message: "You must have to add at least one one item for each employee before inititating note."
+                    message: "You must have to add at least one item for each entry before inititating note."
                 }
                 setError(newerror)
 
@@ -121,6 +121,7 @@ const Projection = () => {
                 form.reset();
             }
         }
+        console.log(projectionData);
         // console.log(projectionData);
         // setTakaInWord(benWord(data.total_price))
         // setFormatedPrice(indianNumberFormat(data.total_price))
@@ -173,20 +174,20 @@ const Projection = () => {
         e.preventDefault()
         const form = e.target;
         const name = form.name.value;
-        const sap = form.sap.value;
-        const designation = form.designation.value;
+        const sap = form.sap?.value ? form.sap.value : "";
+        const designation = form.designation?.value ? form.designation.value : "";
         const section = form.section.value;
         const notingDate = form.notingDate.value;
         const itemInfo = [];
         const formData = {
             name, sap, designation, section, notingDate, itemInfo
         }
-
-        const IsExist = employeeInfo.find(e => e.sap === sap)
+        console.log(employeeInfo);
+        const IsExist = employeeInfo.find(e => e.sap === sap && e.name === name && e.notingDate === notingDate)
         if (IsExist) {
             const newerror = {
                 error: "empError",
-                message: "Employee already exist. Please add another employee."
+                message: "Entry already exist!"
             }
             setError(newerror)
             form.reset();
@@ -624,7 +625,7 @@ const Projection = () => {
         setIsShowEmp(!isShowEmp)
     }
     return (
-        <div className={` p-8 bg-base-200 min-h-screen grow space-y-8 relative `}>
+        <div className={` p-8 bg-base-200 min-h-screen grow space-y-8`}>
             <div className={`flex card p-4 bg-base-100 shadow-2xl  flex-col gap-4 `}>
                 <div className="text-center flex justify-center gap-4">
                     <h1 className="text-3xl font-bold">প্রাক্কলনের তথ্য দিন</h1>
@@ -635,7 +636,7 @@ const Projection = () => {
                     <AddEmployee handleEmployee={handleEmployee} empInfo={empInfo} handleIsShow={handleIsShow} isShowEmp={isShowEmp}></AddEmployee>
                     {error?.error === 'empError' && <p className='text-red-600 p-4 font-bold'>{error.message}</p>}
                 </div>
-                <div className={` space-y-4 card shadow-lg bg-slate-500 ${!isShowEmp ? 'hidden modal' : ''}`} >
+                <div className={` space-y-1 card shadow-lg bg-slate-500 ${!isShowEmp ? 'hidden modal' : ''}`} >
                     {employeeInfo.length > 0 &&
                         employeeInfo.map((employee) => <AddItems key={employee.sap} error={error} handleItems={handleItems} employee={employee} removeEmp={removeEmp} handleremoveItem={handleremoveItem}></AddItems>)
                     }
@@ -700,7 +701,7 @@ const Projection = () => {
 
             </div>
             {projectionData && <>
-                <div className={`${isShowEmp ? 'opacity-0' : ''}`} style={{ textAlign: 'justify', fontFamily: 'SutonnyOMJ' }}>
+                <div className={``} style={{ textAlign: 'justify', fontFamily: 'SutonnyOMJ' }}>
                     <p style={{ textIndent: '40px' }}>{`  ${requisitioner}  ক্রয়ের লক্ষ্যে ইতিবাচক মতামত প্রদান এবং স্থানীয় বাজারদর যাচাইপূর্বক
     ${projectionData.proj_from} ৳${formatedPrice}(${takaInword}) টাকার একটি ব্যয়প্রাক্কলন প্রস্তুত করেছে (প্রাক্কলনের কপি সংযুক্ত) এবং এতদ্সংক্রান্ত পরবর্তী কার্যক্রম সম্পাদনের জন্য জড়সামগ্রী শাখাকে অনুরোধ জানিয়েছে।`
                     }</p>

@@ -9,15 +9,18 @@ import saveAs from 'file-saver'
 import moment from 'moment';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import data from '../../../../public/projections.json'
+import data from '../../../../../public/projections.json'
+import { usePathname } from 'next/navigation';
 moment.locale('bn')
 const Project = ({ params }) => {
     const [takaInword, setTakaInWord] = useState('')
     const [formatedPrice, setFormatedPrice] = useState('')
-    const [requisitioner, setRequisitionr] = useState('')
-    const [approvedProject, setApprovedProject] = useState([])
+    const [naration, setNaration] = useState('')
+    const [approvedProject, setApprovedProject] = useState(null)
     const [totalPrice, setTotalPrice] = useState(0)
     const id = params.id;
+    const pathName = usePathname();
+    console.log(pathName);
     const projection = data?.find(d => d._id === parseInt(id))
     // console.log(projection);
 
@@ -25,9 +28,9 @@ const Project = ({ params }) => {
 
         let total = 0;
         let connector = "";
-        let requisitioner = "";
+        let naration = `${approvedProject?.projectionApproveInfo.approver} মহোদয়ের ${decimalToBangla(moment(approvedProject?.projectionApproveInfo.approved_date).format('DD/MM/YYYY'))} তারিখের অনুমোদনক্রমে`;
 
-        projection.employeeInfo.forEach((e, id) => {
+        approvedProject?.employeeInfo.forEach((e, id) => {
             let items = ""
             let con = ""
             e.itemInfo.forEach((item, id) => {
@@ -51,37 +54,53 @@ const Project = ({ params }) => {
             if (id === 0) {
                 connector = ""
             }
-            else if (id > 0 && projection.employeeInfo.length === 2) {
+            else if (id > 0 && approvedProject?.employeeInfo.length === 2) {
                 connector = "এবং"
             }
-            else if (id > 0 && id === projection.employeeInfo.length - 1) {
+            else if (id > 0 && id === approvedProject?.employeeInfo.length - 1) {
                 connector = "এবং"
             }
             else {
                 connector = ","
             }
-            requisitioner += `${connector} এ অফিসের ${e.section}র  ${decimalToBangla(moment(e.notingDate).format('DD/MM/YYYY'))} তারিখের নোটিং এর প্রেক্ষিতে এ অফিসের ${e.designation} জনাব ${e.name} এর দাপ্তরিক কাজে ব্যবহারের জন্য ${items} `
+            naration += `${connector}  এ অফিসের ${e.designation} জনাব ${e.name} এর দাপ্তরিক কাজে ব্যবহারের জন্য ${items} `
 
-            setRequisitionr(requisitioner);
+            setNaration(naration);
 
-        });
+        }
+
+
+
+        );
 
         setTotalPrice(total);
         setTakaInWord(benWord(total));
         setFormatedPrice(indianNumberFormat(total));
-    }, [projection])
+    }, [approvedProject])
 
     const updateProjection = (e) => {
         e.preventDefault();
         const form = e.target;
         const approver = form.approver.value;
         const approved_date = form.approved_date.value;
+        const chairman_name = form.chairman_name.value;
+        const chairman_section = form.chairman_section.value;
+        const member_vu_name = form.member_vu_name.value;
+        const member_2_name = form.member_2_name.value;
+        const member_2_designation = form.member_2_designation.value;
+        const member_sec_name = form.member_sec_name.value;
+        const member_sec_designation = form.member_sec_designation.value;
 
-        const projectionApproveInfo = {
+        const prApproveInfo = {
             approver, approved_date
         }
+        const committeeInfo = {
+            chairman_name, chairman_section, member_vu_name, member_2_name, member_2_designation, member_sec_name, member_sec_designation
+        }
 
-        projection.projectionApproveInfo = projectionApproveInfo
+        projection.prApproveInfo = prApproveInfo;
+        projection.committeeInfo = committeeInfo;
+
         setApprovedProject(projection)
         form.reset();
 
@@ -459,38 +478,124 @@ const Project = ({ params }) => {
     // }
 
     return (
-        <div className="p-8 bg-base-200 min-h-screen grow space-y-8 ">
-            <div className="flex card p-4 bg-base-100 shadow-2xl  flex-col gap-4 ">
+        <div className="p-8 bg-base-200 min-h-screen grow space-y-8">
 
-                {projection &&
-                    <>
-                        <div className="text-justify  border font-[SutonnyOMJ]   p-20" >
+            <div className=" w-full shrink-0 card shadow-lg bg-slate-500">
+                <form className="grid grid-cols-5 justify-center  gap-4 m-4" onSubmit={(e) => updateProjection(e)}>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">রিকুইজিশন অনুমোদনকারী</span>
+                        </label>
+                        <select name='approver' className="select select-bordered w-full" required>
+                            <option value="নির্বাহী পরিচালক">নির্বাহী পরিচালক</option>
+                            <option value="পরিচালক(প্রশাশন)">পরিচালক(প্রশাশন)</option>
+                        </select>
 
-                            <h2 className="font-bold underline text-center pb-3  " style={{ textIndent: '40px' }}>{projection.notingHeading}</h2>
-                            <p className="" style={{ fontFamily: 'SutonnyOMJ', textIndent: '40px' }}>{`${parseInt(banglaToDecimal(projection?.previousParaNo)) + 1 < 10 ? "০" : ""}${decimalToBangla((parseInt(banglaToDecimal(projection?.previousParaNo)) + 1).toString())}। ${requisitioner} ক্রয়ের লক্ষ্যে ইতিবাচক মতামত প্রদান এবং স্থানীয় বাজারদর যাচাইপূর্বক
-    ${projection?.proj_from} ৳${formatedPrice}(${takaInword}) টাকার একটি ব্যয়প্রাক্কলন প্রস্তুত করেছে (প্রাক্কলনের কপি সংযুক্ত) এবং এতদ্সংক্রান্ত পরবর্তী কার্যক্রম সম্পাদনের জন্য জড়সামগ্রী শাখাকে অনুরোধ জানিয়েছে।`}</p>
-                            <p className="" style={{ textIndent: '40px' }}>{`${parseInt(banglaToDecimal(projection?.previousParaNo)) + 2 < 10 ? "০" : ""}${decimalToBangla((parseInt(banglaToDecimal(projection?.previousParaNo)) + 2).toString())}।এমতাবস্থায়, ${projection.proj_from} কর্তৃক প্রদত্ত    মতামত ও প্রাক্কলনের প্রেক্ষিতে বর্ণিত ক্রয়কার্যক্রমটি সম্পাদনের জন্য নিম্নরূপ ব্যবস্থা গ্রহণ করা যেতে পারে। `}
-                            </p>
-                            <ul className="" style={{ marginLeft: "40px", textIndent: '40px', listStyleType: 'none' }}>
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">অনুমোদনের তারিখ</span>
+                        </label>
+                        <input name='approved_date' type="date" placeholder="নোটিং অনুমোদনকারীর নাম তারিখ  লিখুন" className="input input-bordered" required />
+                    </div>
 
-                                <li className="" style={{ padding: '0', margin: '0' }}>ক. {projection.proj_from} কর্তৃক প্রদত্ত ৳{formatedPrice}({takaInword}) টাকার ব্যয়প্রাক্কলনটি অনুমোদন করা যেতে পারে।</li>
-                                <li className="" style={{ padding: '0', margin: '0' }}>খ. প্রস্তাব “ক” অনুমোদিত হলে পিপিআর এর ৬৯ নং ধারায় বর্ণিত বিধানের আলোকে RFQ মেথডে এম.এম.মডিউল সিস্টেমের মাধ্যমে ক্রয় কার্যক্রমটি সম্পাদন করা যেতে পারে।</li>
-                            </ul>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">কমিটির চেয়ারম্যানের নাম</span>
+                        </label>
+                        <input name='chairman_name' type="text" placeholder="কমিটির চেয়ারম্যানের নাম লিখুন" className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">শাখা/বিভাগ</span>
+                        </label>
+                        <select name='chairman_section' className="select select-bordered w-full" required>
+                            <option value="প্রশাসন-১">প্রশাসন-১</option>
+                            <option value="প্রশাসন-২">প্রশাসন-২</option>
+                        </select>
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">সদস্য (ভিইউ) নাম</span>
+                        </label>
+                        <input name='member_vu_name' type="text" placeholder="সদস্য (ভিইউ) নাম লিখুন" className="input input-bordered" required />
+                    </div>
+
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">সদস্য ({projection.proj_from}) নাম</span>
+                        </label>
+                        <input name='member_2_name' type="text" placeholder={`সদস্য (${projection.proj_from}) নাম লিখুন`} className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">সদস্য ({projection.proj_from}) পদবী</span>
+                        </label>
+                        <select name='member_2_designation' className="select select-bordered w-full" required>
+                            <option value="যুগ্মপরিচালক">যুগ্মপরিচালক</option>
+                            <option value="উপপরিচালক">উপপরিচালক</option>
+                            <option value="সহকারী পরিচালক">সহকারী পরিচালক</option>
+                        </select>
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">সদস্য সচিবের নাম</span>
+                        </label>
+                        <input name='member_sec_name' type="text" placeholder={`সদস্য সচিবের নাম লিখুন`} className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">সদস্য সচিবের পদবী</span>
+                        </label>
+                        <select name='member_sec_designation' className="select select-bordered w-full" required>
+                            <option value="যুগ্মপরিচালক">যুগ্মপরিচালক</option>
+                            <option value="উপপরিচালক">উপপরিচালক</option>
+                            <option value="সহকারী পরিচালক">সহকারী পরিচালক</option>
+                        </select>
+                    </div>
 
 
-                            <p className="" style={{ textIndent: '40px' }}>{`${parseInt(banglaToDecimal(projection?.previousParaNo)) + 3 < 10 ? "০" : ""}${decimalToBangla((parseInt(banglaToDecimal(projection?.previousParaNo)) + 3).toString())}।সদয় অনুমোদনের জন্য উপস্থাপিত`}</p>
-
-                        </div>
-
-                    </>
-
-                }
-
-
+                    <div className="form-control ">
+                        <label className="label">
+                            <span className="label-text">Action</span>
+                        </label>
+                        <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500">তথ্য আপডেট করুন</button>
+                    </div>
+                </form>
             </div>
 
+            {approvedProject &&
 
-        </div >
+
+                <>
+                    <div className={`text-justify  border font-[SutonnyOMJ]    p-20 ${approvedProject ? "" : "hidden"}`}>
+
+                        <h2 className="font-bold underline text-center pb-3 indent-10 ">{approvedProject.notingHeading}</h2>
+                        <p className="indent-10">{`${parseInt(banglaToDecimal(approvedProject?.previousParaNo)) + 1 < 10 ? "০" : ""}${decimalToBangla((parseInt(banglaToDecimal(approvedProject?.previousParaNo)) + 1).toString())}। ${naration} ক্রয়ের সিদ্ধান্ত গৃহীত হয়েছে এবং এ  লক্ষ্যে ${approvedProject?.proj_from} কর্তৃক প্রদত্ত ৳${formatedPrice}(${takaInword}) টাকার ব্যয়প্রাক্কলন ও অনুমোদিত হয়েছে।`}</p>
+                        <p className="indent-10">{`${parseInt(banglaToDecimal(approvedProject?.previousParaNo)) + 2 < 10 ? "০" : ""}${decimalToBangla((parseInt(banglaToDecimal(approvedProject?.previousParaNo)) + 2).toString())}।এমতাবস্থায়, বর্ণিত ক্রয়কার্যক্রমটি সম্পাদন করার জন্য নিম্নরূপ ব্যবস্থা গ্রহণ করা যেতে পারে।`}
+                        </p>
+                        <ul className="ml-10  indent-10 list-none">
+
+                            <li className="" >ক. এম.এম মডিউল সিস্টেমে ক্রয়কার্যক্রমটি সম্পন্ন করার লক্ষ্যে সরবরাহকারী প্রতিষ্ঠান হতে কোটেশন সরবরাহ করা যেতে পারে। </li>
+                            <li className="" >খ. প্রস্তাব “ক” অনুমোদিত হলে দরপত্র মূল্যায়ন করার জন্য একটি কমিটি গঠন করা যেতে পারে।</li>
+                            <li className="" >গ. এম.এম মডিউল সিস্টেমে পারসেজ রিকুইজিশন নং #{approvedProject?.pr_number} রিলিজ করা যেতে পারে।</li>
+                        </ul>
+
+
+                        <p className="indent-10">{`${parseInt(banglaToDecimal(approvedProject?.previousParaNo)) + 3 < 10 ? "০" : ""}${decimalToBangla((parseInt(banglaToDecimal(approvedProject?.previousParaNo)) + 3).toString())}।সদয় অনুমোদনের জন্য উপস্থাপিত`}</p>
+
+                    </div>
+
+                </>
+
+            }
+
+            {/* <div className="flex justify-end">
+                <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" onClick={handleSaveToWord}>ডাউনলোড করুন</button>
+
+            </div> */}
+
+        </div>
     );
 };
 

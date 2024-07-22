@@ -15,12 +15,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
-        {/* <QueryClientProvider client={queryClient}> */}
+      <body className={`${inter.className} max-w-screen-2xl mx-auto`}>
+
         <Navbar></Navbar>
         {children}
-        {/* <ReactQueryDevtools initialIsOpen={false} /> */}
-        {/* </QueryClientProvider> */}
+
 
       </body>
     </html>

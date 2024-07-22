@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Navbar = () => {
     return (
-        <div className="flex bg-green-600">
+        <div className="flex bg-green-600 sticky top-0 z-50">
             <Link className="inline-block py-2 px-4 hover:bg-green-500 text-lg font-bold text-white" href="/">Home</Link>
             <Link className="inline-block py-2 px-4 hover:bg-green-500 text-lg font-bold text-white" href="/projection">Projection</Link>
             <Link className="inline-block py-2 px-4 hover:bg-green-500 text-lg font-bold text-white" href="/purchase_requisition">Purchase Requisition</Link>
