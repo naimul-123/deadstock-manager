@@ -21,11 +21,15 @@ const AddEmployee = ({ handleEmployee, empInfo, isShowEmp, handleIsShow }) => {
             <div className="flex justify-center items-center " >
                 <form className="grid grid-cols-7 gap-4 m-4 items-center justify-center" onSubmit={(e) => handleEmployee(e)}>
                     <div className="form-control flex-row col-span-full justify-end">
-                        <div className="flex items-center gap-2">
-                            <input type="radio" name='goodsFor' value="person" selected className="radio radio-primary" onFocus={() => setGoodsFor('person')} />For Person
-                            <input type="radio" name='goodsFor' value="space" className="radio radio-primary" onFocus={() => setGoodsFor('space')} />For Space
+                        <label className="label gap-1 cursor-pointer">
+                            <span className="label-text">For Person</span>
+                            <input type="radio" name="goodsFor" value="person" className="radio checked:bg-green-500" defaultChecked onFocus={() => setGoodsFor('person')} />
+                        </label>
+                        <label className="label gap-1 cursor-pointer">
+                            <span className="label-text">For space</span>
+                            <input type="radio" name="goodsFor" value="space" className="radio checked:bg-green-500" onFocus={() => setGoodsFor('space')} />
+                        </label>
 
-                        </div>
                     </div>
                     {goodsFor === "person" ? <>
                         <div className="form-control">

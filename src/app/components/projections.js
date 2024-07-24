@@ -21,12 +21,13 @@ const Projections = () => {
 
 
     return (
-        <div className="max-w-64 text-lg border-r-2 h-screen">
+        <div className="flex bg-slate-400 flex-col w-64  shrink-0">
+            <h2 className={`py-2 px-4 bg-slate-700 text-white`}>অনুমোদনের জন্য অপেক্ষমান প্রাক্কলন</h2>
             <ul>
-                <li><Link className={`py-2 px-4 block hover:bg-gray-300`} href={`/projection/`}>Projection Home</Link></li>
+
                 {data && data.length > 0 ? data.map((project) => {
                     const isActive = pathName.startsWith(`/projection/${project._id}`)
-                    return (<li key={project._id}><Link className={`py-2 px-4 block  ${isActive ? 'bg-[#04AA6D] text-white hover:bg-[#04AA6D] ' : 'hover:bg-gray-300'}`} href={`/projection/${project._id}`} >{project.notingHeading}</Link></li>)
+                    return (<li key={project._id}><Link className={`py-2 px-4 block  ${isActive ? 'bg-slate-600 text-white hover:bg-slate-600 ' : 'hover:bg-slate-500'}`} href={`/projection/${project._id}`} >{project.notingHeading}</Link></li>)
                 }
                 ) : ''
                 }

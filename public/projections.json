@@ -1,70 +1,10 @@
 [
     {
         "_id": 1,
-        "notingHeading": "এ অফিসের এডি, ডি.ডি পদমর্যাদার চেয়ার ও টেবিল ক্রয়পূর্বক সরবরাহ প্রসঙ্গে",
-        "previousPageNo": "৩",
-        "previousParaNo": "৫",
-        "proj_from": "প্রকৌশল শাখা",
-        "employeeInfo": [
-            {
-                "name": "নাইমুল ইসলাম",
-                "sap": "19109577",
-                "designation": "সহকারী পরিচালক",
-                "section": "প্রকৌশল শাখা",
-                "notingDate": "2024-07-21",
-                "itemInfo": [
-                    {
-                        "goods_name": "রিভলভিং চেয়ার",
-                        "quantity": "1",
-                        "unit_price": "14500"
-                    }
-                ]
-            }
-        ],
-        "projectionApproveInfo": {
-            "approver": "নির্বাহী পরিচালক",
-            "approved_date": "2024-07-23"
-        },
-        "pr_number": "10009797"
-    },
-    {
-        "_id": 2,
-        "notingHeading": "অফিসের জন্য আসবাবপত্র ক্রয় পূর্বক সরবরাহ প্রসঙ্গে",
-        "previousPageNo": "৩",
-        "previousParaNo": "৭",
-        "proj_from": "প্রকৌশল শাখা",
-        "employeeInfo": [
-            {
-                "name": "হাসিবুল ইসলাম",
-                "sap": "19109578",
-                "designation": "সহকারী পরিচালক",
-                "section": "প্রকৌশল শাখা",
-                "notingDate": "2024-07-21",
-                "itemInfo": [
-                    {
-                        "goods_name": "কম্পিউটার টেবিল",
-                        "quantity": "2",
-                        "unit_price": "9500"
-                    },
-                    {
-                        "goods_name": "রিভলভিং চেয়ার",
-                        "quantity": "2",
-                        "unit_price": "14500"
-                    },
-                    {
-                        "goods_name": "অফিস টেবিল",
-                        "quantity": "2",
-                        "unit_price": "20000"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "_id": 3,
         "notingHeading": "অফিসের এডিদের জন্য আসবাবপত্র ক্রয়পূর্বক সরবরাহ প্রসঙ্গে",
         "previousPageNo": "৩",
         "previousParaNo": "৫",
+        "debit_ac_name": "Furniture, Fixture & Fittings - Office",
         "proj_from": "প্রকৌশল শাখা",
         "employeeInfo": [
             {
@@ -72,17 +12,21 @@
                 "sap": "19109577",
                 "designation": "সহকারী পরিচালক",
                 "section": "প্রকৌশল শাখা",
-                "notingDate": "2024-07-22",
+                "notingDate": "2024-07-24",
                 "itemInfo": [
                     {
-                        "goods_name": "রিভলভিং চেয়ার",
+                        "goods_name_bn": "রিভলভিং চেয়ার",
+                        "goods_name_en": "Revolving Chair",
+                        "goods_model": "Nadia-NFL-CH-202",
                         "quantity": "1",
                         "unit_price": "14500"
                     },
                     {
-                        "goods_name": "কম্পিউটার টেবিল",
-                        "quantity": "2",
-                        "unit_price": "9500"
+                        "goods_name_bn": "কম্পিউটার টেবিল",
+                        "goods_name_en": "Computer Table",
+                        "goods_model": "Nadia-NFL-CT-140",
+                        "quantity": "1",
+                        "unit_price": "8450"
                     }
                 ]
             },
@@ -91,17 +35,77 @@
                 "sap": "19109578",
                 "designation": "সহকারী পরিচালক",
                 "section": "প্রকৌশল শাখা",
-                "notingDate": "2024-07-22",
+                "notingDate": "2024-07-24",
                 "itemInfo": [
                     {
-                        "goods_name": "রিভলভিং চেয়ার",
-                        "quantity": "2",
-                        "unit_price": "12560"
+                        "goods_name_bn": "রিভলভিং চেয়ার",
+                        "goods_name_en": "Revolving Chair",
+                        "goods_model": "Nadia-NFL-CH-202",
+                        "quantity": "1",
+                        "unit_price": "14500"
                     },
                     {
-                        "goods_name": "কম্পিউটার টেবিল",
-                        "quantity": "2",
-                        "unit_price": "9500"
+                        "goods_name_bn": "কম্পিউটার চেয়ার",
+                        "goods_name_en": "Computer Chair",
+                        "goods_model": "Nadia-NFL-CC-002",
+                        "quantity": "1",
+                        "unit_price": "4520"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "_id": 2,
+        "notingHeading": "অফিসের এডিদের জন্য আসবাবপত্র ক্রয়পূর্বক সরবরাহ প্রসঙ্গে",
+        "previousPageNo": "৩",
+        "previousParaNo": "৫",
+        "debit_ac_name": "Furniture, Fixture & Fittings - Office",
+        "proj_from": "প্রকৌশল শাখা",
+        "employeeInfo": [
+            {
+                "name": "নাইমুল ইসলাম",
+                "sap": "19109577",
+                "designation": "সহকারী পরিচালক",
+                "section": "প্রকৌশল শাখা",
+                "notingDate": "2024-07-24",
+                "itemInfo": [
+                    {
+                        "goods_name_bn": "রিভলভিং চেয়ার",
+                        "goods_name_en": "Revolving Chair",
+                        "goods_model": "Nadia-NFL-CH-202",
+                        "quantity": "1",
+                        "unit_price": "14500"
+                    },
+                    {
+                        "goods_name_bn": "কম্পিউটার টেবিল",
+                        "goods_name_en": "Computer Table",
+                        "goods_model": "Nadia-NFL-CT-140",
+                        "quantity": "1",
+                        "unit_price": "8450"
+                    }
+                ]
+            },
+            {
+                "name": "হাসিবুল ইসলাম",
+                "sap": "19109578",
+                "designation": "সহকারী পরিচালক",
+                "section": "প্রকৌশল শাখা",
+                "notingDate": "2024-07-24",
+                "itemInfo": [
+                    {
+                        "goods_name_bn": "রিভলভিং চেয়ার",
+                        "goods_name_en": "Revolving Chair",
+                        "goods_model": "Nadia-NFL-CH-202",
+                        "quantity": "1",
+                        "unit_price": "14500"
+                    },
+                    {
+                        "goods_name_bn": "কম্পিউটার চেয়ার",
+                        "goods_name_en": "Computer Chair",
+                        "goods_model": "Nadia-NFL-CC-002",
+                        "quantity": "1",
+                        "unit_price": "4520"
                     }
                 ]
             }
@@ -109,6 +113,81 @@
         "projectionApproveInfo": {
             "approver": "নির্বাহী পরিচালক",
             "approved_date": "2024-07-24"
+        },
+        "pr_number": "10009798"
+    },
+    {
+        "_id": 3,
+        "notingHeading": "অফিসের এডিদের জন্য আসবাবপত্র ক্রয়পূর্বক সরবরাহ প্রসঙ্গে",
+        "previousPageNo": "৩",
+        "previousParaNo": "৫",
+        "debit_ac_name": "Furniture, Fixture & Fittings - Office",
+        "proj_from": "প্রকৌশল শাখা",
+        "employeeInfo": [
+            {
+                "name": "নাইমুল ইসলাম",
+                "sap": "19109577",
+                "designation": "সহকারী পরিচালক",
+                "section": "প্রকৌশল শাখা",
+                "notingDate": "2024-07-24",
+                "itemInfo": [
+                    {
+                        "goods_name_bn": "রিভলভিং চেয়ার",
+                        "goods_name_en": "Revolving Chair",
+                        "goods_model": "Nadia-NFL-CH-202",
+                        "quantity": "1",
+                        "unit_price": "14500"
+                    },
+                    {
+                        "goods_name_bn": "কম্পিউটার টেবিল",
+                        "goods_name_en": "Computer Table",
+                        "goods_model": "Nadia-NFL-CT-140",
+                        "quantity": "1",
+                        "unit_price": "8450"
+                    }
+                ]
+            },
+            {
+                "name": "হাসিবুল ইসলাম",
+                "sap": "19109578",
+                "designation": "সহকারী পরিচালক",
+                "section": "প্রকৌশল শাখা",
+                "notingDate": "2024-07-24",
+                "itemInfo": [
+                    {
+                        "goods_name_bn": "রিভলভিং চেয়ার",
+                        "goods_name_en": "Revolving Chair",
+                        "goods_model": "Nadia-NFL-CH-202",
+                        "quantity": "1",
+                        "unit_price": "14500"
+                    },
+                    {
+                        "goods_name_bn": "কম্পিউটার চেয়ার",
+                        "goods_name_en": "Computer Chair",
+                        "goods_model": "Nadia-NFL-CC-002",
+                        "quantity": "1",
+                        "unit_price": "4520"
+                    }
+                ]
+            }
+        ],
+        "projectionApproveInfo": {
+            "approver": "নির্বাহী পরিচালক",
+            "approved_date": "2024-07-24"
+        },
+        "pr_number": "10009797",
+        "prApproveInfo": {
+            "approver": "নির্বাহী পরিচালক",
+            "approved_date": "2024-07-24"
+        },
+        "committeeInfo": {
+            "chairman_name": "মোঃ শহিদুল ইসলাম পাড়",
+            "chairman_section": "প্রশাসন-২",
+            "member_vu_name": "মোঃ মোহাইমেনুল হক",
+            "member_2_name": "মোঃ রাজীব  হোসেন",
+            "member_2_designation": "উপপরিচালক",
+            "member_sec_name": "নাইমুল ইসলাম",
+            "member_sec_designation": "সহকারী পরিচালক"
         }
     }
 ]

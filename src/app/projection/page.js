@@ -9,6 +9,7 @@ import { benWord, decimalToBangla, indianNumberFormat } from '@/utils/benword';
 import AddItems from '../components/AddItems';
 import AddEmployee from '../components/AddEmployee';
 import moment from 'moment';
+import Swal from 'sweetalert2';
 moment.locale('bn')
 
 
@@ -58,7 +59,7 @@ const Projection = () => {
                     con = ","
                 }
 
-                items += `${con} ${item.quantity < 10 ? '০' : ''}${decimalToBangla(item.quantity)}টি ${item.goods_name} `
+                items += `${con} ${item.quantity < 10 ? '০' : ''}${decimalToBangla(item.quantity)}টি ${item.goods_name_bn} `
                 total += item.unit_price * item.quantity;
             })
 
@@ -84,18 +85,19 @@ const Projection = () => {
         setTakaInWord(benWord(total));
         setFormatedPrice(indianNumberFormat(total));
     }, [employeeInfo])
-    const handleProjection = async (e) => {
+    const handleProjection = (e) => {
         e.preventDefault();
         const form = e.target
         const notingHeading = form.notingHeading.value
         const previousPageNo = form.previousPageNo.value
         const previousParaNo = form.previousParaNo.value
         const proj_from = form.proj_from.value
+        const debit_ac_name = form.debit_ac_name.value
 
         if (employeeInfo.length === 0) {
             const newerror = {
                 error: "notingError",
-                message: "You must have to add at least one employee before inititating note."
+                message: "You must have to add at least one employee before inititiate note."
             }
             setError(newerror)
 
@@ -114,7 +116,7 @@ const Projection = () => {
             }
             else {
                 const projection = {
-                    notingHeading, previousPageNo, previousParaNo, proj_from, employeeInfo
+                    notingHeading, previousPageNo, previousParaNo, debit_ac_name, proj_from, employeeInfo
                 }
                 setProjectionData(projection);
 
@@ -135,31 +137,51 @@ const Projection = () => {
         // const result = await response.json()
     }
 
+    const handleSaveToDB = () => {
+        Swal.fire({
+            title: "Do you want to save the changes?",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Save",
+            denyButtonText: `Don't save`
+        }).then(async (result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
 
+
+                Swal.fire("Saved!", "", "success");
+            } else if (result.isDenied) {
+                Swal.fire("Changes are not saved", "", "info");
+            }
+        });
+
+    }
     const handleItems = (e, sap) => {
         e.preventDefault()
         const form = e.target;
-        const goods_name = form.goods_name.value;
+        const goods_name_bn = form.goods_name_bn.value;
+        const goods_name_en = form.goods_name_en.value;
+        const goods_model = form.goods_model.value;
         const quantity = form.quantity.value;
         const unit_price = form.unit_price.value;
-        const item = { goods_name, quantity, unit_price }
+        const newGoods = { goods_name_bn, goods_name_en, goods_model, quantity, unit_price }
         const updated = employeeInfo.map((e) => {
 
             if (e.sap === sap) {
-                const isIncludes = e.itemInfo.find(item => item.goods_name === goods_name);
-
+                const isIncludes = e.itemInfo.find(item => item.goods_name_en === goods_name_en && item.goods_model === goods_model && item.unit_price === unit_price);
                 if (isIncludes) {
-                    const newerror = {
-                        error: sap,
-                        message: "Item already exist. Please add another item."
-                    }
-                    console.log(newerror);
-                    setError(newerror)
+                    const updatedItems = e.itemInfo.map((item) => {
+                        if (item.goods_name_en === goods_name_en && item.goods_model === goods_model && item.unit_price === unit_price) {
+                            const totalQuantity = parseInt(item.quantity) + parseInt(quantity)
+                            item.quantity = totalQuantity.toString();
+                        }
+                        return item
+                    })
 
+                    e.itemInfo = updatedItems;
                 }
                 else {
-                    e.itemInfo.push(item)
-                    setError(null)
+                    e.itemInfo.push(newGoods)
                 }
 
             }
@@ -200,19 +222,33 @@ const Projection = () => {
             ;
     }
 
-    const removeEmp = (sap) => {
+    const removeEmp = (name, sap) => {
         console.log(sap);
-        const reminginEmp = employeeInfo.filter((emp) => emp.sap !== sap);
-        console.log(reminginEmp);
+        const reminginEmp = employeeInfo.filter((emp) => {
+            const isRemoved = (emp.name == name && emp.sap === sap)
+            if (!isRemoved) {
+                return emp
+            }
+        });
+        // console.log(reminginEmp);
         setEmployeeInfo(reminginEmp)
     }
 
-    const handleremoveItem = (sap, goods_name) => {
+    const handleremoveItem = (name, sap, item) => {
         // console.log(`sap: ${sap}, goods name: ${goods_name}`);
-
+        const { goods_name_en, goods_model, unit_price } = item
+        // item.goods_name_en === goods_name_en && item.goods_model === goods_model && item.unit_price === unit_price
         const updated = employeeInfo.map((e) => {
-            if (e.sap === sap) {
-                const remingitems = e.itemInfo.filter(item => item.goods_name !== goods_name)
+            if (e.name === name && e.sap === sap) {
+                const remingitems = e.itemInfo.filter(item => {
+                    const isExist = (item.goods_name_en === goods_name_en && item.goods_model === goods_model && item.unit_price === unit_price)
+                    if (!isExist) {
+                        return item
+                    }
+                }
+
+
+                )
                 e.itemInfo = (remingitems)
             }
             return e
@@ -626,7 +662,7 @@ const Projection = () => {
     }
     return (
         <div className={` p-8 bg-base-200 min-h-screen grow space-y-8`}>
-            <div className={`flex card p-4 bg-base-100 shadow-2xl  flex-col gap-4 `}>
+            <div className={`flex card p-4 bg-base-100   flex-col gap-4 `}>
                 <div className="text-center flex justify-center gap-4">
                     <h1 className="text-3xl font-bold">প্রাক্কলনের তথ্য দিন</h1>
 
@@ -644,7 +680,7 @@ const Projection = () => {
 
 
                 <div className=" w-full shrink-0 ">
-                    <form className="grid grid-cols-5  gap-4 m-4" onSubmit={(e) => handleProjection(e)}>
+                    <form className="grid grid-cols-6  gap-4 m-4" onSubmit={(e) => handleProjection(e)}>
                         <div className="form-control col-span-full">
                             <label className="label">
                                 <span className="label-text">নোটিং এর শিরোনাম</span>
@@ -671,6 +707,19 @@ const Projection = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
+                                <span className="label-text">বিকলন খাত</span>
+                            </label>
+                            <select name='debit_ac_name' required className="select select-bordered w-full">
+                                <option value="">--Select--</option>
+                                <option value="Furniture, Fixture & Fittings - Office">Furniture, Fixture & Fittings - Office</option>
+                                <option value="Furniture, Fixture & Fittings - Residence">Furniture, Fixture & Fittings - Residence</option>
+                                <option value="Computer & Networking">Computer & Networking</option>
+                                <option value="Motor Vehicles">Motor Vehicles</option>
+                                <option value="Security Equipment">Security Equipment</option>
+                            </select>
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
                                 <span className="label-text">প্রাক্কলনপ্রদানকারী শাখা</span>
                             </label>
                             <select name='proj_from' required className="select select-bordered w-full">
@@ -692,7 +741,7 @@ const Projection = () => {
                             <label className="label">
                                 <span className="label-text">Action</span>
                             </label>
-                            <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500">সেভ করুন</button>
+                            <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500">প্রিভিউ দেখুন</button>
                         </div>
                     </form>
                     {error?.error === 'notingError' && <p className='text-red-600 px-4 font-bold'>{error.message}</p>}
@@ -702,6 +751,7 @@ const Projection = () => {
             </div>
             {projectionData && <>
                 <div className={``} style={{ textAlign: 'justify', fontFamily: 'SutonnyOMJ' }}>
+                    <h2 className="font-bold underline text-center pb-3 indent-10 ">{projectionData.notingHeading}</h2>
                     <p style={{ textIndent: '40px' }}>{`  ${requisitioner}  ক্রয়ের লক্ষ্যে ইতিবাচক মতামত প্রদান এবং স্থানীয় বাজারদর যাচাইপূর্বক
     ${projectionData.proj_from} ৳${formatedPrice}(${takaInword}) টাকার একটি ব্যয়প্রাক্কলন প্রস্তুত করেছে (প্রাক্কলনের কপি সংযুক্ত) এবং এতদ্সংক্রান্ত পরবর্তী কার্যক্রম সম্পাদনের জন্য জড়সামগ্রী শাখাকে অনুরোধ জানিয়েছে।`
                     }</p>
@@ -714,7 +764,7 @@ const Projection = () => {
                     </ul>
                     <p style={{ textIndent: '40px' }}>সদয় অনুমোদনের জন্য উপস্থাপিত</p>
 
-                    <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" onClick={handleSaveToWord}>ডাউনলোড করুন</button>
+                    <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" onClick={handleSaveToDB}>সেভ করুন</button>
                 </div>
             </>
             }

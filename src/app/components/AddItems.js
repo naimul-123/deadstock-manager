@@ -14,21 +14,33 @@ const AddItems = ({ handleItems, employee, removeEmp, handleremoveItem, empInfo,
         < >
             <div className="flex p-2  gap-2 justify-between items-center shadow-lg bg-slate-400  ">
                 {designation ? <h2 className="text-2xl font-bold"> {`জনাব ${name}, পদবী:${designation}`}</h2> :
-                    <h2 className="text-2xl font-bold"> {`${section}র ${name}`}</h2>}
+                    <h2 className="text-2xl font-bold"> {`${name}, ${section}`}</h2>}
                 <div className="flex gap-2 justify-between items-center">
                     <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" onClick={() => handleIsShow()}>{isShow ? 'Hide' : "Show"}</button>
-                    <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" onClick={() => removeEmp(sap)}>Remove Employee</button>
+                    <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" onClick={() => removeEmp(name, sap)}>Remove Employee</button>
                 </div>
             </div>
 
             <div className={!isShow ? "hidden" : undefined}>
-                <form className="grid grid-cols-4 gap-4 m-4 items-center justify-center" onSubmit={(e) => handleItems(e, sap)}>
+                <form className="grid grid-cols-6 gap-4 m-4 items-center justify-center" onSubmit={(e) => handleItems(e, sap)}>
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">যা কেনা হবে</span>
+                            <span className="label-text">পন্যের নাম(বাংলায়)</span>
                         </label>
-                        <input name='goods_name' type="text" placeholder="যা কেনা হবে লিখুন" className="input input-bordered" />
+                        <input name='goods_name_bn' type="text" placeholder="যা কেনা হবে লিখুন" className="input input-bordered" />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">পন্যের নাম(ইংরেজিতে)</span>
+                        </label>
+                        <input name='goods_name_en' type="text" placeholder="product name in english" className="input input-bordered" />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">পন্যের মডেল(ইংরেজিতে)</span>
+                        </label>
+                        <input name='goods_model' type="text" placeholder="product model in english" className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -57,7 +69,9 @@ const AddItems = ({ handleItems, employee, removeEmp, handleremoveItem, empInfo,
 
                             <tr >
                                 <td>SL</td>
-                                <td>Name</td>
+                                <td>Name(Bangla)</td>
+                                <td>Name(English)</td>
+                                <td>Model</td>
                                 <td>quantity</td>
                                 <td className="text-right">Unit Price</td>
                                 <td className="text-right">Total Price</td>
@@ -71,11 +85,13 @@ const AddItems = ({ handleItems, employee, removeEmp, handleremoveItem, empInfo,
                                 return (
                                     <tr key={idx} className="">
                                         <td>{sl}</td>
-                                        <td>{item.goods_name}</td>
+                                        <td>{item.goods_name_bn}</td>
+                                        <td>{item.goods_name_en}</td>
+                                        <td>{item.goods_model}</td>
                                         <td>{item.quantity}</td>
                                         <td className="text-right">{item.unit_price}</td>
                                         <td className="text-right">{item.quantity * item.unit_price}</td>
-                                        <td className="text-right" onClick={() => handleremoveItem(sap, item.goods_name)}>Remove</td>
+                                        <td className="text-right" onClick={() => handleremoveItem(name, sap, item)}>Remove</td>
                                     </tr>
                                 )
                             })}
