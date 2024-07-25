@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.51.5",
-    "@tanstack/react-query-devtools": "^5.51.5",
+    "@tanstack/react-query-devtools": "^5.51.11",
     "axios": "^1.7.2",
     "docx": "^8.5.0",
     "docx-pdf": "^0.0.1",
@@ -29,6 +29,7 @@
     "sweetalert2": "^11.12.3"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.51.12",
     "daisyui": "^4.12.10",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",

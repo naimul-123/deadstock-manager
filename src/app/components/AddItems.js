@@ -2,9 +2,9 @@
 import React from 'react';
 import { useState } from 'react';
 
-const AddItems = ({ handleItems, employee, removeEmp, handleremoveItem, empInfo, error }) => {
+const AddItems = ({ handleItems, receiver, removeReceiver, handleremoveItem, recInfo, error }) => {
     const [isShow, setIsShwo] = useState(false)
-    const { name, designation, sap, itemInfo, section } = employee
+    const { name, designation, sap, itemInfo, section } = receiver
     const handleIsShow = () => {
         setIsShwo(!isShow)
     }
@@ -17,42 +17,42 @@ const AddItems = ({ handleItems, employee, removeEmp, handleremoveItem, empInfo,
                     <h2 className="text-2xl font-bold"> {`${name}, ${section}`}</h2>}
                 <div className="flex gap-2 justify-between items-center">
                     <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" onClick={() => handleIsShow()}>{isShow ? 'Hide' : "Show"}</button>
-                    <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" onClick={() => removeEmp(name, sap)}>Remove Employee</button>
+                    <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" onClick={() => removeReceiver(name, sap)}>Remove Employee</button>
                 </div>
             </div>
 
             <div className={!isShow ? "hidden" : undefined}>
-                <form className="grid grid-cols-6 gap-4 m-4 items-center justify-center" onSubmit={(e) => handleItems(e, sap)}>
+                <form className="grid grid-cols-6 gap-4 m-4 items-center justify-center" onSubmit={(e) => handleItems(e, sap, name)}>
 
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">পন্যের নাম(বাংলায়)</span>
                         </label>
-                        <input name='goods_name_bn' type="text" placeholder="যা কেনা হবে লিখুন" className="input input-bordered" />
+                        <input name='goods_name_bn' type="text" placeholder="যা কেনা হবে লিখুন" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">পন্যের নাম(ইংরেজিতে)</span>
                         </label>
-                        <input name='goods_name_en' type="text" placeholder="product name in english" className="input input-bordered" />
+                        <input name='goods_name_en' type="text" placeholder="product name in english" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">পন্যের মডেল(ইংরেজিতে)</span>
                         </label>
-                        <input name='goods_model' type="text" placeholder="product model in english" className="input input-bordered" />
+                        <input name='goods_model' type="text" placeholder="product model in english" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">পরিমান</span>
                         </label>
-                        <input name='quantity' type="text" placeholder="কতগুলো কেনা হবে লিখুন" className="input input-bordered" />
+                        <input name='quantity' type="text" placeholder="কতগুলো কেনা হবে লিখুন" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">একক মূল্য</span>
                         </label>
-                        <input name='unit_price' type="text" placeholder="মোট মূল্য লিখুন" className="input input-bordered" />
+                        <input name='unit_price' type="text" placeholder="মোট মূল্য লিখুন" className="input input-bordered" required />
 
                     </div>
                     <div className="form-control mt-8">

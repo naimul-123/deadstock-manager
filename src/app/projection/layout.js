@@ -1,7 +1,14 @@
 'use client'
 import React from 'react';
 import Projections from '../components/projections';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 
 const queryClient = new QueryClient();
 const layout = ({ children }) => {
@@ -12,6 +19,7 @@ const layout = ({ children }) => {
         {children}
 
       </div>
+
     </QueryClientProvider>
 
   );

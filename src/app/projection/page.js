@@ -7,9 +7,14 @@ import '../../app/globals.css'
 import { AlignmentType, Document, FrameAnchorType, HorizontalPositionAlign, Packer, PageOrientation, Paragraph, TextRun, VerticalPositionAlign } from 'docx';
 import { benWord, decimalToBangla, indianNumberFormat } from '@/utils/benword';
 import AddItems from '../components/AddItems';
-import AddEmployee from '../components/AddEmployee';
+// import AddEmployee from '../components/AddReceiver';
 import moment from 'moment';
 import Swal from 'sweetalert2';
+import { useMutation } from '@tanstack/react-query';
+import axios from 'axios';
+import AddReceiver from '../components/AddReceiver';
+import { postData } from '../../../lib/api';
+
 moment.locale('bn')
 
 
@@ -18,22 +23,29 @@ const Projection = () => {
     const [totalPrice, setTotalPrice] = useState(0)
     const [takaInword, setTakaInWord] = useState('')
     const [formatedPrice, setFormatedPrice] = useState('')
-    const [employeeInfo, setEmployeeInfo] = useState([])
+    const [receiverInfo, setReceiverInfo] = useState([])
     const [requisitioner, setRequisitionr] = useState('');
     const [error, setError] = useState(null)
-    const [isShowEmp, setIsShowEmp] = useState(false)
-    const [empInfo, setEmpInfo] = useState([])
+    const [isShowReceiver, setIsShowReceiver] = useState(false)
+    const [recInfo, setRecInfo] = useState([])
 
-    const getData = async () => {
-        const res = await fetch('emp.json')
-        const data = await res.json();
-        setEmpInfo(data)
+
+
+
+    const mutation = useMutation({
+        mutationFn: (projectionData) => postData('/projection/api', projectionData),
+        onSuccess: () => {
+            Swal.fire('Projection posted successfully.')
+
+        },
+        onError: (error) => {
+            console.error(`Error posting projection`, error)
+        }
+    });
+
+    const handleSaveToDB = () => {
+        mutation.mutate(projectionData)
     }
-
-    useEffect(() => {
-        getData()
-    }, [])
-
 
 
     useEffect(() => {
@@ -42,7 +54,7 @@ const Projection = () => {
         let connector = "";
         let requisitioner = "";
 
-        employeeInfo.forEach((e, id) => {
+        receiverInfo.forEach((e, id) => {
             let items = ""
             let con = ""
             e.itemInfo.forEach((item, id) => {
@@ -66,10 +78,10 @@ const Projection = () => {
             if (id === 0) {
                 connector = ""
             }
-            else if (id > 0 && employeeInfo.length === 2) {
+            else if (id > 0 && receiverInfo.length === 2) {
                 connector = "এবং"
             }
-            else if (id > 0 && id === employeeInfo.length - 1) {
+            else if (id > 0 && id === receiverInfo.length - 1) {
                 connector = "এবং"
             }
             else {
@@ -84,7 +96,7 @@ const Projection = () => {
         setTotalPrice(total);
         setTakaInWord(benWord(total));
         setFormatedPrice(indianNumberFormat(total));
-    }, [employeeInfo])
+    }, [receiverInfo])
     const handleProjection = (e) => {
         e.preventDefault();
         const form = e.target
@@ -94,7 +106,7 @@ const Projection = () => {
         const proj_from = form.proj_from.value
         const debit_ac_name = form.debit_ac_name.value
 
-        if (employeeInfo.length === 0) {
+        if (receiverInfo.length === 0) {
             const newerror = {
                 error: "notingError",
                 message: "You must have to add at least one employee before inititiate note."
@@ -104,7 +116,7 @@ const Projection = () => {
             return
         }
         else {
-            const hasNoItem = employeeInfo.some(employee => employee.itemInfo.length === 0)
+            const hasNoItem = receiverInfo.some(employee => employee.itemInfo.length === 0)
             if (hasNoItem) {
                 const newerror = {
                     error: "notingError",
@@ -116,7 +128,7 @@ const Projection = () => {
             }
             else {
                 const projection = {
-                    notingHeading, previousPageNo, previousParaNo, debit_ac_name, proj_from, employeeInfo
+                    notingHeading, previousPageNo, previousParaNo, debit_ac_name, proj_from, receiverInfo
                 }
                 setProjectionData(projection);
 
@@ -137,26 +149,8 @@ const Projection = () => {
         // const result = await response.json()
     }
 
-    const handleSaveToDB = () => {
-        Swal.fire({
-            title: "Do you want to save the changes?",
-            showDenyButton: true,
-            showCancelButton: true,
-            confirmButtonText: "Save",
-            denyButtonText: `Don't save`
-        }).then(async (result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
 
-
-                Swal.fire("Saved!", "", "success");
-            } else if (result.isDenied) {
-                Swal.fire("Changes are not saved", "", "info");
-            }
-        });
-
-    }
-    const handleItems = (e, sap) => {
+    const handleItems = (e, sap, name) => {
         e.preventDefault()
         const form = e.target;
         const goods_name_bn = form.goods_name_bn.value;
@@ -165,9 +159,9 @@ const Projection = () => {
         const quantity = form.quantity.value;
         const unit_price = form.unit_price.value;
         const newGoods = { goods_name_bn, goods_name_en, goods_model, quantity, unit_price }
-        const updated = employeeInfo.map((e) => {
+        const updated = receiverInfo.map((e) => {
 
-            if (e.sap === sap) {
+            if (e.sap === sap && e.name === name) {
                 const isIncludes = e.itemInfo.find(item => item.goods_name_en === goods_name_en && item.goods_model === goods_model && item.unit_price === unit_price);
                 if (isIncludes) {
                     const updatedItems = e.itemInfo.map((item) => {
@@ -187,12 +181,12 @@ const Projection = () => {
             }
             return e
         })
-        setEmployeeInfo(updated);
+        setReceiverInfo(updated);
         form.reset();
     }
 
 
-    const handleEmployee = (e) => {
+    const handleReceiver = (e) => {
         e.preventDefault()
         const form = e.target;
         const name = form.name.value;
@@ -204,8 +198,8 @@ const Projection = () => {
         const formData = {
             name, sap, designation, section, notingDate, itemInfo
         }
-        console.log(employeeInfo);
-        const IsExist = employeeInfo.find(e => e.sap === sap && e.name === name && e.notingDate === notingDate)
+        console.log(receiverInfo);
+        const IsExist = receiverInfo.find(e => e.sap === sap && e.name === name && e.notingDate === notingDate)
         if (IsExist) {
             const newerror = {
                 error: "empError",
@@ -216,29 +210,29 @@ const Projection = () => {
 
             return
         }
-        setEmployeeInfo([...employeeInfo, formData])
+        setReceiverInfo([...receiverInfo, formData])
         form.reset();
-        setIsShowEmp(true)
+        setIsShowReceiver(true)
             ;
     }
 
-    const removeEmp = (name, sap) => {
-        console.log(sap);
-        const reminginEmp = employeeInfo.filter((emp) => {
-            const isRemoved = (emp.name == name && emp.sap === sap)
+    const removeReceiver = (name, sap) => {
+        // console.log(sap);
+        const reminginRecever = receiverInfo.filter((receiver) => {
+            const isRemoved = (receiver.name == name && receiver.sap === sap)
             if (!isRemoved) {
-                return emp
+                return receiver
             }
         });
         // console.log(reminginEmp);
-        setEmployeeInfo(reminginEmp)
+        setReceiverInfo(reminginRecever)
     }
 
     const handleremoveItem = (name, sap, item) => {
         // console.log(`sap: ${sap}, goods name: ${goods_name}`);
         const { goods_name_en, goods_model, unit_price } = item
         // item.goods_name_en === goods_name_en && item.goods_model === goods_model && item.unit_price === unit_price
-        const updated = employeeInfo.map((e) => {
+        const updated = receiverInfo.map((e) => {
             if (e.name === name && e.sap === sap) {
                 const remingitems = e.itemInfo.filter(item => {
                     const isExist = (item.goods_name_en === goods_name_en && item.goods_model === goods_model && item.unit_price === unit_price)
@@ -253,7 +247,7 @@ const Projection = () => {
             }
             return e
         })
-        setEmployeeInfo(updated);
+        setReceiverInfo(updated);
     }
 
 
@@ -669,12 +663,12 @@ const Projection = () => {
                 </div>
 
                 <div className="card shadow-lg bg-slate-500">
-                    <AddEmployee handleEmployee={handleEmployee} empInfo={empInfo} handleIsShow={handleIsShow} isShowEmp={isShowEmp}></AddEmployee>
+                    <AddReceiver handleReceiver={handleReceiver} receiverInfo={receiverInfo} handleIsShow={handleIsShow} isShowReceiver={isShowReceiver}></AddReceiver>
                     {error?.error === 'empError' && <p className='text-red-600 p-4 font-bold'>{error.message}</p>}
                 </div>
-                <div className={` space-y-1 card shadow-lg bg-slate-500 ${!isShowEmp ? 'hidden modal' : ''}`} >
-                    {employeeInfo.length > 0 &&
-                        employeeInfo.map((employee) => <AddItems key={employee.sap} error={error} handleItems={handleItems} employee={employee} removeEmp={removeEmp} handleremoveItem={handleremoveItem}></AddItems>)
+                <div className={` space-y-1 card shadow-lg bg-slate-500 ${!isShowReceiver ? 'hidden modal' : ''}`} >
+                    {receiverInfo.length > 0 &&
+                        receiverInfo.map((receiver) => <AddItems key={receiver.sap} error={error} handleItems={handleItems} receiver={receiver} removeReceiver={removeReceiver} handleremoveItem={handleremoveItem}></AddItems>)
                     }
                 </div>
 

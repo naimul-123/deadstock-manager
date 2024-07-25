@@ -2,7 +2,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-const AddEmployee = ({ handleEmployee, empInfo, isShowEmp, handleIsShow }) => {
+const AddReceiver = ({ handleReceiver, empInfo, isShowEmp, handleIsShow }) => {
 
     const [emp, setEmp] = useState({})
     const [goodsFor, setGoodsFor] = useState('person')
@@ -19,7 +19,7 @@ const AddEmployee = ({ handleEmployee, empInfo, isShowEmp, handleIsShow }) => {
         <>
 
             <div className="flex justify-center items-center " >
-                <form className="grid grid-cols-7 gap-4 m-4 items-center justify-center" onSubmit={(e) => handleEmployee(e)}>
+                <form className="grid grid-cols-7 gap-4 m-4 items-center justify-center" onSubmit={(e) => handleReceiver(e)}>
                     <div className="form-control flex-row col-span-full justify-end">
                         <label className="label gap-1 cursor-pointer">
                             <span className="label-text">For Person</span>
@@ -96,4 +96,4 @@ const AddEmployee = ({ handleEmployee, empInfo, isShowEmp, handleIsShow }) => {
     );
 };
 
-export default AddEmployee;
+export default AddReceiver;

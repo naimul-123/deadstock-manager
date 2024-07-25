@@ -9,16 +9,21 @@ import saveAs from 'file-saver'
 import moment from 'moment';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import data from '../../../../public/projections.json'
+import { getData } from '../../../../lib/api';
 moment.locale('bn')
 const Project = ({ params }) => {
     const [takaInword, setTakaInWord] = useState('')
     const [formatedPrice, setFormatedPrice] = useState('')
     const [naration, setNaration] = useState('')
+    const [projectionApproveInfo, setprojectionApproveInfo] = useState({})
     const [approvedProject, setApprovedProject] = useState(null)
     const [totalPrice, setTotalPrice] = useState(0)
-    const projections = data?.filter((item) => !(item.pr_number))
-    // console.log(projection);
+
+    const { data: projections = [], refetch } = useQuery({
+        queryKey: ['projections'],
+        queryFn: () => getData('/projection/api')
+
+    })
 
     useEffect(() => {
 
@@ -26,7 +31,7 @@ const Project = ({ params }) => {
         let connector = "";
         let naration = `${approvedProject?.projectionApproveInfo.approver} মহোদয়ের ${decimalToBangla(moment(approvedProject?.projectionApproveInfo.approved_date).format('DD/MM/YYYY'))} তারিখের অনুমোদনক্রমে`;
 
-        approvedProject?.employeeInfo.forEach((e, id) => {
+        approvedProject?.receiverInfo.forEach((e, id) => {
             let items = ""
             let con = ""
             e.itemInfo.forEach((item, id) => {
@@ -50,16 +55,16 @@ const Project = ({ params }) => {
             if (id === 0) {
                 connector = ""
             }
-            else if (id > 0 && approvedProject?.employeeInfo.length === 2) {
+            else if (id > 0 && approvedProject?.receiverInfo.length === 2) {
                 connector = "এবং"
             }
-            else if (id > 0 && id === approvedProject?.employeeInfo.length - 1) {
+            else if (id > 0 && id === approvedProject?.receiverInfo.length - 1) {
                 connector = "এবং"
             }
             else {
                 connector = ","
             }
-            naration += `${connector}  এ অফিসের ${e.designation} জনাব ${e.name} এর দাপ্তরিক কাজে ব্যবহারের জন্য ${items} `
+            naration += `${connector}  এ অফিসের  ${e.designation ? ` ${e.designation} জনাব ${e.name} এর দাপ্তরিক কাজে  ` : `${e.name}-এ`} ব্যবহারের জন্য ${items} `
 
             setNaration(naration);
 
@@ -465,6 +470,8 @@ const Project = ({ params }) => {
     //     window.print()
     // }
 
+
+
     return (
         <div className="p-8 bg-base-200  space-y-8">
 
@@ -504,7 +511,7 @@ const Project = ({ params }) => {
                         <label className="label">
                             <span className="label-text">Action</span>
                         </label>
-                        <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500">তথ্য আপডেট করুন</button>
+                        <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500">নোটিং প্রিভিউ দেখুন</button>
                     </div>
                 </form>
             </div>
@@ -528,15 +535,15 @@ const Project = ({ params }) => {
                         <p className="indent-10">{`${parseInt(banglaToDecimal(approvedProject?.previousParaNo)) + 3 < 10 ? "০" : ""}${decimalToBangla((parseInt(banglaToDecimal(approvedProject?.previousParaNo)) + 3).toString())}।সদয় অনুমোদনের জন্য উপস্থাপিত`}</p>
 
                     </div>
+                    <div className="flex justify-end">
+                        <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" > আপডেট করুন</button>
 
+                    </div>
                 </>
 
             }
 
-            {/* <div className="flex justify-end">
-                <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" onClick={handleSaveToWord}>ডাউনলোড করুন</button>
 
-            </div> */}
 
         </div>
     );
