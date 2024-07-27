@@ -10,10 +10,12 @@ import AddItems from '../components/AddItems';
 // import AddEmployee from '../components/AddReceiver';
 import moment from 'moment';
 import Swal from 'sweetalert2';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import AddReceiver from '../components/AddReceiver';
-import { postData } from '../../../lib/api';
+import { getData, postData } from '../../../lib/api';
+import { useHirarchyContext } from '@/context/hierarchyContext';
+import { useProjectionContext } from '@/context/projectionContext';
 
 moment.locale('bn')
 
@@ -28,20 +30,24 @@ const Projection = () => {
     const [error, setError] = useState(null)
     const [isShowReceiver, setIsShowReceiver] = useState(false)
     const [recInfo, setRecInfo] = useState([])
+    const [sap, setSap] = useState()
+    const { hierarchy } = useHirarchyContext()
+    const [isShow, setIsShwo] = useState(false)
+
+    const { mutation } = useProjectionContext()
 
 
 
+    const { data: employee = {}, refetch } = useQuery({
+        queryKey: [sap],
+        queryFn: () => getData(`/employee_data?sap=${sap}`),
+        enabled: !!sap
+    })
 
-    const mutation = useMutation({
-        mutationFn: (projectionData) => postData('/projection/api', projectionData),
-        onSuccess: () => {
-            Swal.fire('Projection posted successfully.')
-
-        },
-        onError: (error) => {
-            console.error(`Error posting projection`, error)
-        }
-    });
+    const getSap = (sap) => {
+        setSap(sap)
+        refetch()
+    }
 
     const handleSaveToDB = () => {
         mutation.mutate(projectionData)
@@ -128,25 +134,13 @@ const Projection = () => {
             }
             else {
                 const projection = {
-                    notingHeading, previousPageNo, previousParaNo, debit_ac_name, proj_from, receiverInfo
+                    notingHeading, previousPageNo, previousParaNo, projectionNotingHierarchy: hierarchy, debit_ac_name, proj_from, receiverInfo
                 }
                 setProjectionData(projection);
 
                 form.reset();
             }
         }
-        console.log(projectionData);
-        // console.log(projectionData);
-        // setTakaInWord(benWord(data.total_price))
-        // setFormatedPrice(indianNumberFormat(data.total_price))
-        // const response = await fetch('/projection/api', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify({ data })
-        // })
-        // const result = await response.json()
     }
 
 
@@ -198,7 +192,7 @@ const Projection = () => {
         const formData = {
             name, sap, designation, section, notingDate, itemInfo
         }
-        console.log(receiverInfo);
+
         const IsExist = receiverInfo.find(e => e.sap === sap && e.name === name && e.notingDate === notingDate)
         if (IsExist) {
             const newerror = {
@@ -652,7 +646,7 @@ const Projection = () => {
 
     }
     const handleIsShow = () => {
-        setIsShowEmp(!isShowEmp)
+        setIsShowReceiver(!isShowReceiver)
     }
     return (
         <div className={` p-8 bg-base-200 min-h-screen grow space-y-8`}>
@@ -663,7 +657,7 @@ const Projection = () => {
                 </div>
 
                 <div className="card shadow-lg bg-slate-500">
-                    <AddReceiver handleReceiver={handleReceiver} receiverInfo={receiverInfo} handleIsShow={handleIsShow} isShowReceiver={isShowReceiver}></AddReceiver>
+                    <AddReceiver handleReceiver={handleReceiver} receiverInfo={receiverInfo} getSap={getSap} handleIsShow={handleIsShow} employee={employee} isShowReceiver={isShowReceiver}></AddReceiver>
                     {error?.error === 'empError' && <p className='text-red-600 p-4 font-bold'>{error.message}</p>}
                 </div>
                 <div className={` space-y-1 card shadow-lg bg-slate-500 ${!isShowReceiver ? 'hidden modal' : ''}`} >

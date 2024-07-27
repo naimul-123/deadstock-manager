@@ -1,17 +1,107 @@
 [
     {
-        "sap": "19109577",
-        "name": "নাইমুল ইসলাম",
-        "designation": "সহকারী পরিচালক"
+        "sap": 16500646,
+        "name_en": "Md. Abdul Mannan",
+        "name_bn": "মোঃ আব্দুল মান্নান",
+        "designation_en": "Executive Director",
+        "designation_bn": "নির্বাহী পরিচালক"
     },
     {
-        "sap": "19109578",
-        "name": "হাসিবুল ইসলাম",
-        "designation": "সহকারী পরিচালক"
+        "sap": 16501528,
+        "name_en": "Md. Mahbubur Rahman",
+        "name_bn": "মোঃ মাহবুবর রহমান",
+        "designation_en": "Director",
+        "designation_bn": "পরিচালক"
     },
     {
-        "sap": "19108925",
-        "name": "রেজাউল করিম",
-        "designation": "উপপরিচালক"
+        "sap": 16601836,
+        "name_en": "Bishnupada Kar",
+        "name_bn": "বিষ্ণুপদ কর",
+        "designation_en": "Director",
+        "designation_bn": "পরিচালক"
+    },
+    {
+        "sap": 16603109,
+        "name_en": "Md. Shahidul Islam Par",
+        "name_bn": "মোঃ শহিদুল ইসলাম পাড়",
+        "designation_en": "Additional Director",
+        "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    {
+        "sap": 26701874,
+        "name_en": "Baby Rani Dey",
+        "name_bn": "বেবী রাণী দে",
+        "designation_en": "Additional Director",
+        "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    {
+        "sap": 26803293,
+        "name_en": "Rehena Akhter",
+        "name_bn": "রেহেনা আখতার",
+        "designation_en": "Additional Director",
+        "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    {
+        "sap": 16903186,
+        "name_en": "Md. Nakir Hossain",
+        "name_bn": "মোঃ নকীর হোসেন",
+        "designation_en": "Additional Director",
+        "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    {
+        "sap": 17105449,
+        "name_en": "Abdur Razzak",
+        "name_bn": "আবদুর রাজ্জাক",
+        "designation_en": "Joint Director",
+        "designation_bn": "যুগ্মপরিচালক"
+    },
+    {
+        "sap": 18206242,
+        "name_en": "Kamrul Hasan",
+        "name_bn": "কামরুল হাসান",
+        "designation_en": "Joint Director",
+        "designation_bn": "যুগ্মপরিচালক"
+    },
+    {
+        "sap": 26903551,
+        "name_en": "Lucky Begum",
+        "name_bn": "লাকী বেগম",
+        "designation_en": "Joint Director",
+        "designation_bn": "যুগ্মপরিচালক"
+    },
+    {
+        "sap": 18506359,
+        "name_en": "Md. Mohaimenul Haque",
+        "name_bn": "মোঃ মোহাইমেনুল হক",
+        "designation_en": "Joint Director",
+        "designation_bn": "যুগ্মপরিচালক"
+    },
+    {
+        "sap": 18709762,
+        "name_en": "MD. WALI-UL ISLAM",
+        "name_bn": "মোঃ ওয়ালী-উল-ইসলাম",
+        "designation_en": "Deputy Director",
+        "designation_bn": "উপপরিচালক"
+    },
+    {
+        "sap": 19109783,
+        "name_en": "REZAUL KARIM",
+        "name_bn": "রেজাউল করিম",
+        "designation_en": "Deputy Director",
+        "designation_bn": "উপপরিচালক"
+    },
+    {
+        "sap": 19109577,
+        "name_en": "NAIMUL ISLAM",
+        "name_bn": "নাইমুল ইসলাম",
+        "designation_en": "Assistant Director",
+        "designation_bn": "সহকারী পরিচালক"
+    },
+    {
+        "sap": 19109587,
+        "name_en": "TIRTHANGKAR SARKER",
+        "name_bn": "তীর্থঙ্কর সরকার",
+        "designation_en": "Assistant Director",
+        "designation_bn": "সহকারী পরিচালক"
     }
 ]

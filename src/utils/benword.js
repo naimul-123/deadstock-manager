@@ -41,11 +41,11 @@ export const benWord = (n) => {
     const tenthWord = tenthVal ? words[tenthVal] : ''
     const hundVal = parseInt(((intPart / 1000) - parseInt((intPart / 1000))) * 10);
     const hundWord = hundVal ? `${words[hundVal]}শত` : ''
-    const thousVal = parseInt(((intPart / 100000) - parseInt((intPart / 100000))) * 100);
+    const thousVal = parseInt(((intPart / 100000) - parseInt((intPart / 100000))) * 100.00001);
     const thousWord = thousVal > 0 ? `${words[thousVal]} হাজার` : ''
-    const lakhVal = parseInt(((intPart / 10000000) - parseInt((intPart / 10000000))) * 100);
+    const lakhVal = parseInt(((intPart / 10000000) - parseInt((intPart / 10000000))) * 100.0001);
     const lakhWord = lakhVal > 0 ? `${words[lakhVal]} লক্ষ` : ''
-    const crorVal = parseInt(((intPart / 1000000000) - parseInt((intPart / 1000000000))) * 100);
+    const crorVal = parseInt(((intPart / 1000000000) - parseInt((intPart / 1000000000))) * 100.00001);
     const crorWord = crorVal > 0 ? `${words[crorVal]} কোটি` : ''
 
     return n > 0 ? `টাকা ${crorWord} ${lakhWord} ${thousWord} ${hundWord} ${tenthWord} ${decimalWord} মাত্র` : ''

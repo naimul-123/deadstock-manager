@@ -1,23 +1,13 @@
 "use client"
 import React from 'react';
 import { useState } from 'react';
+import { getData } from '../../../lib/api';
+import { useQuery } from '@tanstack/react-query';
 
-const AddReceiver = ({ handleReceiver, empInfo, isShowEmp, handleIsShow }) => {
-
-    const [emp, setEmp] = useState({})
+const AddReceiver = ({ handleReceiver, getSap, employee, isShowEmp, handleIsShow }) => {
     const [goodsFor, setGoodsFor] = useState('person')
-    const handleSap = (e) => {
-        setEmp({})
-        const sapId = e.target.value;
-        const emp = empInfo.find(e => e.sap === sapId)
-        if (emp) {
-            setEmp(emp)
-        }
-    }
-    console.log(goodsFor);
     return (
         <>
-
             <div className="flex justify-center items-center " >
                 <form className="grid grid-cols-7 gap-4 m-4 items-center justify-center" onSubmit={(e) => handleReceiver(e)}>
                     <div className="form-control flex-row col-span-full justify-end">
@@ -36,22 +26,22 @@ const AddReceiver = ({ handleReceiver, empInfo, isShowEmp, handleIsShow }) => {
                             <label className="label">
                                 <span className="label-text">এস.এ.পি আইডি:</span>
                             </label>
-                            <input name='sap' type="text" placeholder="এস.এ.পি আইডি লিখুন" className="input input-bordered" onBlur={handleSap} required />
+                            <input name='sap' type="text" placeholder="এস.এ.পি আইডি লিখুন" className="input input-bordered" onBlur={(e) => getSap(e.target.value)} required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">নাম:</span>
                             </label>
-                            <input name='name' type="text" placeholder="নাম লিখুন" disabled value={emp?.name} className="input input-bordered" />
+                            <input name="name" type="text" disabled value={employee?.name_bn || ''} className="input input-bordered" />
+
                         </div>
 
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">পদবী</span>
                             </label>
-                            <input name='designation' type="text" placeholder="কর্মকর্তা/কর্মচারীর পদবী" disabled value={emp?.designation} className="input input-bordered" />
 
-
+                            <input name="designation" type="text" disabled value={employee?.designation_bn || ''} className="input input-bordered" />
                         </div>
                     </>
                         :
@@ -68,21 +58,28 @@ const AddReceiver = ({ handleReceiver, empInfo, isShowEmp, handleIsShow }) => {
                         </label>
                         <select name='section' className="select select-bordered w-full" required>
                             <option value="">--Select--</option>
+                            <option value="নির্বাহী পরিচালকের শাখা">নির্বাহী পরিচালকের শাখা</option>
+                            <option value="সংস্থাপন শাখা">সংস্থাপন শাখা</option>
+                            <option value="আগাম প্রদান শাখা">আগাম প্রদান শাখা</option>
+                            <option value="জড়সামগ্রী শাখা">জড়সামগ্রী শাখা</option>
                             <option value="প্রকৌশল শাখা">প্রকৌশল শাখা</option>
+                            <option value="ভেরিফিকেশন ইউনিট">ভেরিফিকেশন ইউনিট</option>
+                            <option value="সঞ্চয়পত্র শাখা">সঞ্চয়পত্র শাখা</option>
+                            <option value="পিএডি শাখা">পিএডি শাখা</option>
+                            <option value="ডিএবি শাখা">ডিএবি শাখা</option>
+                            <option value="কৃষিঋণ শাখা">কৃষিঋণ শাখা</option>
+                            <option value="ক্যাশ বিভাগ">ক্যাশ বিভাগ</option>
+                            <option value="ডিবিআই শাখা">ডিবিআই শাখা</option>
+
                             <option value="আইসিটি সেল">আইসিটি সেল</option>
                         </select>
-
                     </div>
-
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">নোটিং এর তারিখ</span>
                         </label>
                         <input name='notingDate' type="date" placeholder="নোটিং তারিখ  লিখুন" className="input input-bordered" required />
-
-
                     </div>
-
                     <div className="form-control mt-8">
                         <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500">যোগ করুন</button>
                     </div>
@@ -90,7 +87,6 @@ const AddReceiver = ({ handleReceiver, empInfo, isShowEmp, handleIsShow }) => {
                         <p className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" onClick={handleIsShow} >{isShowEmp ? 'Hide' : 'Show'}</p>
                     </div>
                 </form>
-
             </div >
         </>
     );

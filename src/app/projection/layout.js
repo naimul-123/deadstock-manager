@@ -9,14 +9,20 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import { HierarchyProvider } from '@/context/hierarchyContext';
+import { ProjectionProvider } from '@/context/projectionContext';
 
 const queryClient = new QueryClient();
 const layout = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient} >
       <div className="flex">
-        <Projections></Projections>
-        {children}
+        <ProjectionProvider>
+          <Projections></Projections>
+          <HierarchyProvider>
+            {children}
+          </HierarchyProvider>
+        </ProjectionProvider>
 
       </div>
 

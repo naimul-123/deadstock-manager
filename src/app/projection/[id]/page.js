@@ -16,14 +16,12 @@ const Project = ({ params }) => {
     const [formatedPrice, setFormatedPrice] = useState('')
     const [requisitioner, setRequisitionr] = useState('')
     const [totalPrice, setTotalPrice] = useState(0)
-    // const [projection, setProjection] = useState({})
-    // const id = params.id
     const [id, setId] = useState(params.id)
+
 
     useEffect(() => {
         setId(params.id)
     }, [params.id])
-    // console.log(projection);
     const { data: projection, refetch } = useQuery({
         queryKey: [id],
         queryFn: () => getData(`/projection/api?id=${id}`),
@@ -32,17 +30,8 @@ const Project = ({ params }) => {
 
     })
 
-    useEffect(() => {
-        if (id) {
-            refetch();
-        }
-    }, [id, refetch])
 
 
-
-
-
-    console.log(projection);
 
     useEffect(() => {
 
@@ -480,42 +469,68 @@ const Project = ({ params }) => {
     }
 
     return (
-        <div className="p-8 bg-base-200 min-h-screen grow space-y-8 ">
-            <div className="flex justify-end">
+        <div>
+            <div className="p-8 flex justify-end print:hidden">
+                <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" onClick={handlePrint}>Print Noating</button>
                 <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" onClick={handleSaveToWord}>Download Noating</button>
-
             </div>
-            <div className="flex card p-4 bg-base-100 shadow-2xl  flex-col gap-4 ">
-
-                {projection &&
-                    <>
-                        <div className="text-justify  border font-[SutonnyOMJ]   p-20" >
-
-                            <h2 className="font-bold underline text-center pb-3  " style={{ textIndent: '40px' }}>{projection.notingHeading}</h2>
-                            <p className="" style={{ fontFamily: 'SutonnyOMJ', textIndent: '40px' }}>{`${parseInt(banglaToDecimal(projection?.previousParaNo)) + 1 < 10 ? "০" : ""}${decimalToBangla((parseInt(banglaToDecimal(projection?.previousParaNo)) + 1).toString())}। ${requisitioner} ক্রয়ের লক্ষ্যে ইতিবাচক মতামত প্রদান এবং স্থানীয় বাজারদর যাচাইপূর্বক
+            {projection &&
+                <div className="text-justify font-[SutonnyOMJ] p-10" >
+                    <h2 className="font-bold underline text-center pb-3  " style={{ textIndent: '40px' }}>{projection.notingHeading}</h2>
+                    <p className="" style={{ fontFamily: 'SutonnyOMJ', textIndent: '40px' }}>{`${parseInt(banglaToDecimal(projection?.previousParaNo)) + 1 < 10 ? "০" : ""}${decimalToBangla((parseInt(banglaToDecimal(projection?.previousParaNo)) + 1).toString())}। ${requisitioner} ক্রয়ের লক্ষ্যে ইতিবাচক মতামত প্রদান এবং স্থানীয় বাজারদর যাচাইপূর্বক
     ${projection?.proj_from} ৳${formatedPrice}(${takaInword}) টাকার একটি ব্যয়প্রাক্কলন প্রস্তুত করেছে (প্রাক্কলনের কপি সংযুক্ত) এবং এতদ্সংক্রান্ত পরবর্তী কার্যক্রম সম্পাদনের জন্য জড়সামগ্রী শাখাকে অনুরোধ জানিয়েছে।`}</p>
-                            <p className="" style={{ textIndent: '40px' }}>{`${parseInt(banglaToDecimal(projection?.previousParaNo)) + 2 < 10 ? "০" : ""}${decimalToBangla((parseInt(banglaToDecimal(projection?.previousParaNo)) + 2).toString())}।এমতাবস্থায়, ${projection.proj_from} কর্তৃক প্রদত্ত    মতামত ও প্রাক্কলনের প্রেক্ষিতে বর্ণিত ক্রয়কার্যক্রমটি সম্পাদনের জন্য নিম্নরূপ ব্যবস্থা গ্রহণ করা যেতে পারে। `}
-                            </p>
-                            <ul className="" style={{ marginLeft: "40px", textIndent: '40px', listStyleType: 'none' }}>
-
-                                <li className="" style={{ padding: '0', margin: '0' }}>ক. {projection.proj_from} কর্তৃক প্রদত্ত ৳{formatedPrice}({takaInword}) টাকার ব্যয়প্রাক্কলনটি অনুমোদন করা যেতে পারে।</li>
-                                <li className="" style={{ padding: '0', margin: '0' }}>খ. প্রস্তাব “ক” অনুমোদিত হলে পিপিআর এর ৬৯ নং ধারায় বর্ণিত বিধানের আলোকে RFQ মেথডে এম.এম.মডিউল সিস্টেমের মাধ্যমে ক্রয় কার্যক্রমটি সম্পাদন করা যেতে পারে।</li>
-                            </ul>
-
-
-                            <p className="" style={{ textIndent: '40px' }}>{`${parseInt(banglaToDecimal(projection?.previousParaNo)) + 3 < 10 ? "০" : ""}${decimalToBangla((parseInt(banglaToDecimal(projection?.previousParaNo)) + 3).toString())}।সদয় অনুমোদনের জন্য উপস্থাপিত`}</p>
-
+                    <p className="" style={{ textIndent: '40px' }}>{`${parseInt(banglaToDecimal(projection?.previousParaNo)) + 2 < 10 ? "০" : ""}${decimalToBangla((parseInt(banglaToDecimal(projection?.previousParaNo)) + 2).toString())}।এমতাবস্থায়, ${projection.proj_from} কর্তৃক প্রদত্ত    মতামত ও প্রাক্কলনের প্রেক্ষিতে বর্ণিত ক্রয়কার্যক্রমটি সম্পাদনের জন্য নিম্নরূপ ব্যবস্থা গ্রহণ করা যেতে পারে। `}
+                    </p>
+                    <ul className="" style={{ marginLeft: "40px", textIndent: '40px', listStyleType: 'none' }}>
+                        <li className="" style={{ padding: '0', margin: '0' }}>ক. {projection.proj_from} কর্তৃক প্রদত্ত ৳{formatedPrice}({takaInword}) টাকার ব্যয়প্রাক্কলনটি অনুমোদন করা যেতে পারে।</li>
+                        <li className="" style={{ padding: '0', margin: '0' }}>খ. প্রস্তাব “ক” অনুমোদিত হলে পিপিআর এর ৬৯ নং ধারায় বর্ণিত বিধানের আলোকে RFQ মেথডে এম.এম.মডিউল সিস্টেমের মাধ্যমে ক্রয় কার্যক্রমটি সম্পাদন করা যেতে পারে।</li>
+                    </ul>
+                    <p className="" style={{ textIndent: '40px' }}>{`${parseInt(banglaToDecimal(projection?.previousParaNo)) + 3 < 10 ? "০" : ""}${decimalToBangla((parseInt(banglaToDecimal(projection?.previousParaNo)) + 3).toString())}।সদয় অনুমোদনের জন্য উপস্থাপিত`}</p>
+                    <div className="space-y-10 text-lg">
+                        <div className="text-center mt-5 font-medium font-[sutonnyOMJ] leading-none">
+                            <h3 className="m-0">{`(${projection.projectionNotingHierarchy?.ad_ds?.name_bn})`}</h3>
+                            <p className="m-0">{`${projection.projectionNotingHierarchy?.ad_ds?.designation_bn}(জড়সামগ্রী)`}</p>
+                            <p className="m-0">আইপি-৩৩-৪৫০২১</p>
                         </div>
-
-                    </>
-
-                }
-
-
-            </div>
-
-
-        </div >
+                        <div className="mt-10 font-medium font-[sutonnyOMJ] leading-none">
+                            <h3 className="m-0">{`(${projection.projectionNotingHierarchy?.dd_ds?.name_bn})`}</h3>
+                            <p className="m-0">{`${projection.projectionNotingHierarchy?.dd_ds?.designation_bn}(জড়সামগ্রী)`}</p>
+                        </div>
+                        <div className="font-medium font-[sutonnyOMJ] leading-none">
+                            <h3 className="m-0">{`(${projection.projectionNotingHierarchy?.jd_admin_2?.name_bn})`}</h3>
+                            <p className="m-0">{`${projection.projectionNotingHierarchy?.jd_admin_2?.designation_bn}(প্রশাসন-২)`}</p>
+                        </div>
+                        <div className="font-medium font-[sutonnyOMJ] leading-none">
+                            <h3 className="m-0">{`(${projection.projectionNotingHierarchy?.ad_dir_admin_2?.name_bn})`}</h3>
+                            <p className="m-0">{`${projection.projectionNotingHierarchy?.ad_dir_admin_2?.designation_bn}(প্রশাসন-২)`}</p>
+                        </div>
+                        <div className="font-medium font-[sutonnyOMJ] leading-none">
+                            <h3 className="m-0">{`(${projection.projectionNotingHierarchy?.director_admin?.name_bn})`}</h3>
+                            <p className="m-0">{`${projection.projectionNotingHierarchy?.director_admin?.designation_bn}(প্রশাসন)`}</p>
+                            {
+                                projection.projectionNotingHierarchy?.ed_cc && projection.projectionNotingHierarchy?.director_admin?.sap === projection.projectionNotingHierarchy?.ed_cc?.sap ?
+                                    <>
+                                        <p className="m-0 px-6">ও</p>
+                                        <p className="m-0">{`নির্বাহী পরিচালক(চলতি দ্বায়িত্বে)`}</p>
+                                    </>
+                                    : null
+                            }
+                        </div>
+                        {projection.projectionNotingHierarchy?.ed ?
+                            <div className="font-medium font-[sutonnyOMJ] leading-none">
+                                <h3 className="m-0">{`(${projection.projectionNotingHierarchy?.ed?.name_bn})`}</h3>
+                                <p className="m-0">{`${projection.projectionNotingHierarchy?.ed?.designation_bn}`}</p>
+                            </div>
+                            : projection.projectionNotingHierarchy?.director_admin?.sap !== projection.projectionNotingHierarchy?.ed_cc?.sap ? <div className="font-medium font-[sutonnyOMJ] leading-none">
+                                <h3 className="m-0">{`(${projection.projectionNotingHierarchy?.ed_cc?.name_bn})`}</h3>
+                                <p className="m-0">{`নির্বাহী পরিচালক(চলতি দ্বায়িত্বে)`}</p>
+                            </div>
+                                : null
+                        }
+                    </div>
+                </div>
+            }
+        </div>
     );
 };
 

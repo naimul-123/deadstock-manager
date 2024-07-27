@@ -7,7 +7,7 @@ const SideNav = ({ root, data }) => {
 
     const pathName = usePathname();
     return (
-        <div className="flex bg-slate-300 flex-col w-64  shrink-0">
+        <div className="flex bg-slate-300 flex-col w-64   shrink-0 print:hidden">
             <ul>
                 {data && data.length > 0 ? data.map((name) => {
                     const displayName = name.split("_").join(' ');
