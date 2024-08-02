@@ -15,7 +15,7 @@ const HierarchySetup = () => {
         <div className="p-8 bg-base-200  space-y-2  shrink-0">
             <div className="card shadow-lg bg-slate-500 ">
                 <div>
-                    <form className="grid grid-cols-4 justify-center items-center  gap-4 m-4" onSubmit={(e) => updateHierarchy(e)}>
+                    <form className="grid grid-cols-4 justify-center items-end  gap-4 m-4" onSubmit={(e) => updateHierarchy(e)}>
                         <div className="form-control">
                             <label className="label cursor-pointer gap-2">
                                 <span className="label-text">নির্বাহী পরিচালক</span>
@@ -79,8 +79,10 @@ const HierarchySetup = () => {
                             </select>
                         </div>
                         <div className="form-control">
-                            <label className="label">
+                            <label className="label items-end">
                                 <span className="label-text">উপপরিচালক(জড়সামগ্রী)</span>
+                                <span className="label-text text-primary">ইনিশিয়েটর</span>
+                                <input type="radio" name="initiator" className="radio radio-sm radio-primary" defaultChecked={hierarchy.dd_ds.initiator} value="dd_ds" />
                             </label>
                             <select name='dd_ds' className="select select-bordered w-full" defaultValue={hierarchy?.dd_ds?.sap} required>
                                 <option value="">---Select---</option>
@@ -89,8 +91,10 @@ const HierarchySetup = () => {
                         </div>
 
                         <div className="form-control">
-                            <label className="label">
+                            <label className="label items-end">
                                 <span className="label-text">সহকারী  পরিচালক(জড়সামগ্রী)</span>
+                                <span className="label-text text-primary">ইনিশিয়েটর</span>
+                                <input type="radio" name="initiator" className="radio radio-sm radio-primary" defaultChecked={hierarchy?.ad_ds?.initiator} value="ad_ds" />
                             </label>
                             <select name='ad_ds' className="select select-bordered w-full" defaultValue={hierarchy?.ad_ds?.sap} required>
                                 <option value="">---Select---</option>
@@ -105,77 +109,75 @@ const HierarchySetup = () => {
                     </form>
                 </div>
             </div>
-            <>
-                <div className={`text-justify  border font-[SutonnyOMJ]    p-8 }`}>
-                    <h2 className="font-bold underline text-center pb-3 text-2xl ">Noting Hierarchy</h2>
-                    <table className="table table-zebra max-w-screen-md mx-auto text-2xl font-[sutonnyOMJ] bg-slate-300 border">
-                        <thead className="text-2xl font-bold text-black font-[sutonnyOMJ]">
-                            <tr className="">
-                                <td >ক্রঃ</td>
-                                <td>নাম</td>
-                                <td>পদবী</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                hierarchy.ed ? <tr>
+            <div className={`text-justify  border font-[SutonnyOMJ]    p-8 }`}>
+                <h2 className="font-bold underline text-center pb-3 text-2xl ">Noting Hierarchy</h2>
+                <table className="table table-zebra max-w-screen-md mx-auto text-2xl font-[sutonnyOMJ] bg-slate-300 border">
+                    <thead className="text-2xl font-bold text-black font-[sutonnyOMJ]">
+                        <tr className="">
+                            <td >ক্রঃ</td>
+                            <td>নাম</td>
+                            <td>পদবী</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            hierarchy.ed ? <tr>
+                                <td>০১.</td>
+                                <td>{hierarchy.ed?.name_bn}</td>
+                                <td>নির্বাহী পরিচালক</td>
+                            </tr> :
+                                <tr>
                                     <td>০১.</td>
-                                    <td>{hierarchy.ed?.name_bn}</td>
-                                    <td>নির্বাহী পরিচালক</td>
-                                </tr> :
-                                    <tr>
-                                        <td>০১.</td>
-                                        <td>{hierarchy.ed_cc?.name_bn}</td>
-                                        <td>নির্বাহী পরিচালক(চলতি দ্বায়িত্বে)</td>
-                                    </tr>
-                            }
-                            <tr>
-                                <td>০২.</td>
-                                <td>{hierarchy.director_admin?.name_bn}</td>
-                                <td>পরিচালক(প্রশাসন)</td>
-                            </tr>
-                            <tr>
-                                <td>০৩.</td>
-                                <td>{hierarchy.ad_dir_admin_2?.name_bn}</td>
-                                <td>অতিরিক্ত পরিচালক(প্রশাসন-২)</td>
-                            </tr>
-                            <tr>
-                                <td>০৪.</td>
-                                <td>{hierarchy.ad_dir_vu?.name_bn}</td>
-                                <td>অতিরিক্ত পরিচালক(প্রশাসন-২)</td>
-                            </tr>
-                            <tr>
-                                <td>০৫.</td>
-                                <td>{hierarchy.jd_admin_2?.name_bn}</td>
-                                <td>যুগ্মপরিচালক(প্রশাসন-২)</td>
-                            </tr>
-                            <tr>
-                                <td>০৬.</td>
-                                <td>{hierarchy.jd_vu?.name_bn}</td>
-                                <td>যুগ্মপরিচালক(প্রশাসন-২)</td>
-                            </tr>
-                            <tr>
-                                <td>০৭.</td>
-                                <td>{hierarchy.dd_ds?.name_bn}</td>
-                                <td>উপপরিচালক(জড়সামগ্রী)</td>
+                                    <td>{hierarchy.ed_cc?.name_bn}</td>
+                                    <td>নির্বাহী পরিচালক(চলতি দ্বায়িত্বে)</td>
+                                </tr>
+                        }
+                        <tr>
+                            <td>০২.</td>
+                            <td>{hierarchy.director_admin?.name_bn}</td>
+                            <td>পরিচালক(প্রশাসন)</td>
+                        </tr>
+                        <tr>
+                            <td>০৩.</td>
+                            <td>{hierarchy.ad_dir_admin_2?.name_bn}</td>
+                            <td>অতিরিক্ত পরিচালক(প্রশাসন-২)</td>
+                        </tr>
+                        <tr>
+                            <td>০৪.</td>
+                            <td>{hierarchy.ad_dir_vu?.name_bn}</td>
+                            <td>অতিরিক্ত পরিচালক(প্রশাসন-২)</td>
+                        </tr>
+                        <tr>
+                            <td>০৫.</td>
+                            <td>{hierarchy.jd_admin_2?.name_bn}</td>
+                            <td>যুগ্মপরিচালক(প্রশাসন-২)</td>
+                        </tr>
+                        <tr>
+                            <td>০৬.</td>
+                            <td>{hierarchy.jd_vu?.name_bn}</td>
+                            <td>যুগ্মপরিচালক(প্রশাসন-২)</td>
+                        </tr>
+                        <tr>
+                            <td>০৭.</td>
+                            <td>{hierarchy.dd_ds?.name_bn}</td>
+                            <td>উপপরিচালক(জড়সামগ্রী)</td>
 
-                            </tr>
-                            <tr>
-                                <td>০৮.</td>
-                                <td>{hierarchy.ad_ds?.name_bn}</td>
-                                <td>সহকারী পরিচালক(জড়সামগ্রী)</td>
-                            </tr>
-                        </tbody>
-                        <tfoot className="text-2xl font-bold text-black">
-                            <tr>
-                                <td >ক্রঃ</td>
-                                <td>নাম</td>
-                                <td>পদবী</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </>
+                        </tr>
+                        <tr>
+                            <td>০৮.</td>
+                            <td>{hierarchy.ad_ds?.name_bn}</td>
+                            <td>সহকারী পরিচালক(জড়সামগ্রী)</td>
+                        </tr>
+                    </tbody>
+                    <tfoot className="text-2xl font-bold text-black">
+                        <tr>
+                            <td >ক্রঃ</td>
+                            <td>নাম</td>
+                            <td>পদবী</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
         </div>
     );
 };

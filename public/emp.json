@@ -103,5 +103,40 @@
         "name_bn": "তীর্থঙ্কর সরকার",
         "designation_en": "Assistant Director",
         "designation_bn": "সহকারী পরিচালক"
+    },
+    {
+        "sap": 18607330,
+        "name_en": "Md. Masud Rana",
+        "name_bn": "মোঃ মাসুদ রানা",
+        "designation_en": "Joint Director (Civil)",
+        "designation_bn": "যুগ্মপরিচালক(সিভিল)"
+    },
+    {
+        "sap": 18508280,
+        "name_en": "Md. Razib Hossain",
+        "name_bn": "মোঃ রাজীব  হোসেন",
+        "designation_en": "Deputy Director (Civil)",
+        "designation_bn": "উপপরিচালক(সিভিল)"
+    },
+    {
+        "sap": 18808521,
+        "name_en": "MD. ASADULLAH-HEL GALIB",
+        "name_bn": "মোঃ আসাদুল্লা-হেল-গালিব",
+        "designation_en": "Deputy Programmer (DD)",
+        "designation_bn": "উপপরিচালক(প্রগ্রামার)"
+    },
+    {
+        "sap": 19110020,
+        "name_en": "SUJIT ROY",
+        "name_bn": "সুজিৎ রায়",
+        "designation_en": "Assistant Director (Electrical)",
+        "designation_bn": "সহকারী পরিচালক(তড়িৎ)"
+    },
+    {
+        "sap": 19109914,
+        "name_en": "TAPOSH KUMAR KARMOKAR",
+        "name_bn": "তাপস কুমার কর্মকার",
+        "designation_en": "Assistant Maintenance Engineer (AD)",
+        "designation_bn": "সহকারী পরিচালক(আইসিটি)"
     }
 ]

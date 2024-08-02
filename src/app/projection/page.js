@@ -649,7 +649,7 @@ const Projection = () => {
         setIsShowReceiver(!isShowReceiver)
     }
     return (
-        <div className={` p-8 bg-base-200 min-h-screen grow space-y-8`}>
+        <div className={` p-8 bg-base-200 grow space-y-8`}>
             <div className={`flex card p-4 bg-base-100   flex-col gap-4 `}>
                 <div className="text-center flex justify-center gap-4">
                     <h1 className="text-3xl font-bold">প্রাক্কলনের তথ্য দিন</h1>

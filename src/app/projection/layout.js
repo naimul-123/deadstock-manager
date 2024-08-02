@@ -16,7 +16,7 @@ const queryClient = new QueryClient();
 const layout = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient} >
-      <div className="flex">
+      <div className="flex min-h-[calc(100vh-44px)]">
         <ProjectionProvider>
           <Projections></Projections>
           <HierarchyProvider>

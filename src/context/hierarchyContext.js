@@ -54,7 +54,18 @@ export const HierarchyProvider = ({ children }) => {
         const jd_vu = employees.find(e => e.sap == form.jd_vu.value);
         const dd_ds = employees.find(e => e.sap == form.dd_ds.value);
         const ad_ds = employees.find(e => e.sap == form.ad_ds.value);
+        if (form.initiator.value === "dd_ds") {
+            dd_ds.initiator = true;
+            ad_ds.initiator = false;
+        }
+        else if (form.initiator.value === "ad_ds") {
+            ad_ds.initiator = true;
+            dd_ds.initiator = false;
+        }
+
+
         hierarchyData = { ed, ed_cc, director_admin, ad_dir_admin_2, ad_dir_vu, jd_admin_2, jd_vu, dd_ds, ad_ds }
+        console.log(hierarchyData);
         mutation.mutate(hierarchyData)
         setIsCC(false)
         form.reset();

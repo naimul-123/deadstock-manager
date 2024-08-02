@@ -22,7 +22,7 @@ const Project = ({ params }) => {
     const [isShow, setIsShow] = useState(false)
     const [projectionError, setProjectionError] = useState('')
 
-    const projections = data?.filter((item) => item.pr_number && item.committeeInfo)
+    const projections = data?.filter((item) => item.pr_number && !item.prApproveInfo && !item.committeeInfo)
 
     const handleIsShow = () => {
         setIsShow(!isShow)
@@ -36,6 +36,9 @@ const Project = ({ params }) => {
 
                 total += item.unit_price * item.quantity;
             })
+
+
+
 
         }
 
@@ -105,7 +108,7 @@ const Project = ({ params }) => {
         e.preventDefault()
         const pr_number = e.target.pr_number.value;
         console.log(pr_number);
-        const projection = projections.find(item => item.committeeInfo)
+        const projection = projections.find(item => item.pr_number === pr_number)
         if (projection) {
             setProjection(projection)
             setProjectionError('')
@@ -524,7 +527,7 @@ const Project = ({ params }) => {
         <div className="p-8 bg-base-200  space-y-2  shrink-0">
             <div>
                 <form onSubmit={handlePr}>
-                    <div className="form-control flex-row max-w-screen-lg mx-auto gap-3">
+                    <div className="form-control flex-row gap-3">
 
                         <label className="label shrink-0">
                             <span className="label-text text-2xl">PR number:</span>

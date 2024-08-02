@@ -1,0 +1,317 @@
+[
+    {
+        "vendor_id": 10001950,
+        "vendor_name_en": "Adnan Furniture",
+        "vendor_name_bn": "মেসার্স আদনান ফার্নিচার",
+        "vendor_add_bn": "বটতলা রোড, বরিশাল",
+        "vendor_add_en": "Bot Tola road, Barisal"
+    },
+    {
+        "vendor_id": 10002581,
+        "vendor_name_en": "Akhtar Furnishers Ltd",
+        "vendor_name_bn": "আখতার ফার্নিচার",
+        "vendor_add_bn": "পুলিশ লাইন রোড, বরিশাল",
+        "vendor_add_en": "Police Line Road, Barisal."
+    },
+    {
+        "vendor_id": 10002258,
+        "vendor_name_en": "Ark Computer Systems",
+        "vendor_name_bn": "মেসার্স আর্ক কম্পিউটার সিস্টেমস",
+        "vendor_add_bn": "সদর রোড, বরিশাল",
+        "vendor_add_en": "Sadar Road, Barisal."
+    },
+    {
+        "vendor_id": 10002882,
+        "vendor_name_en": "Barishal Computer",
+        "vendor_name_bn": "বরিশাল কম্পিউটার",
+        "vendor_add_bn": "শাহীন কমপ্লেক্স সদর রোড, বরিশাল",
+        "vendor_add_en": "Shahin Complex, Sadar Road, Barisal."
+    },
+    {
+        "vendor_id": 10002231,
+        "vendor_name_en": "Bismillah Electric",
+        "vendor_name_bn": "বিসমিল্লাহ ইলেকট্রিক",
+        "vendor_add_bn": "কাটপট্টি রোড, বরিশাল",
+        "vendor_add_en": "Katpotti Road, Barisal."
+    },
+    {
+        "vendor_id": 10002945,
+        "vendor_name_en": "Daffodil Furniture",
+        "vendor_name_bn": "ড্যাফডিল ফার্নিচার",
+        "vendor_add_bn": "গোঁড়া চাঁদ দাস রোড, বটতলা, বরিশাল",
+        "vendor_add_en": "Gora Chand Das Road, Bot Tola, Barisal."
+    },
+    {
+        "vendor_id": 10002993,
+        "vendor_name_en": "Delta Furnishers Ltd.",
+        "vendor_name_bn": "ডেল্টা ফার্নিচার",
+        "vendor_add_bn": "৬৬ প্রগতি সরণি, ভাটারা, ঢাকা",
+        "vendor_add_en": "66  Progoti Sarani,Vatara, Dhaka."
+    },
+    {
+        "vendor_id": 10002342,
+        "vendor_name_en": "Esquire Electronics Ltd.",
+        "vendor_name_bn": "এস্কোয়্যার ইলেকট্রনিক্স লিঃ",
+        "vendor_add_bn": "সদর রোড, বরিশাল।",
+        "vendor_add_en": "88 Sadar Road, Barisal."
+    },
+    {
+        "vendor_id": 10001655,
+        "vendor_name_en": "Flora Limited",
+        "vendor_name_bn": "ফ্লোরা লিমিটেড",
+        "vendor_add_bn": "হেমায়েত উদ্দিন রোড, বরিশাল",
+        "vendor_add_en": "20 Hemayet Uddin Road, Barisal sada"
+    },
+    {
+        "vendor_id": 10001047,
+        "vendor_name_en": "Friends Computer System",
+        "vendor_name_bn": "ফ্রেন্ডস কম্পিউটার সিস্টেম",
+        "vendor_add_bn": "দক্ষিণ চকবাজার রোড, বরিশাল",
+        "vendor_add_en": "Dokkhin Chak Bazar Road, Barisal."
+    },
+    {
+        "vendor_id": 10002991,
+        "vendor_name_en": "Global Trading",
+        "vendor_name_bn": "গ্লোবাল ট্রেডিং",
+        "vendor_add_bn": "১০৫, বঙ্গবন্ধু জাতীয় স্টেডিয়াম মার্কেট,পল্টন, ঢাকা",
+        "vendor_add_en": "105 Paltan,Bangabandhu National Stadium, Dhaka"
+    },
+    {
+        "vendor_id": 10000555,
+        "vendor_name_en": "IDEAL Computer Systems",
+        "vendor_name_bn": "আইডল কম্পিউটার সিস্টেমস",
+        "vendor_add_bn": "কে,বি, হেমায়েত উদ্দিন রোড, বরিশাল",
+        "vendor_add_en": "K.B Hemayet Uddin Road, Barisal."
+    },
+    {
+        "vendor_id": 10002050,
+        "vendor_name_en": "Janata Electric",
+        "vendor_name_bn": "জনতা ইলেকট্রিক",
+        "vendor_add_bn": "১৪, বীরশ্রেষ্ঠ ক্যাপ্টেন মহিউদ্দীন জাহাঙ্গীর সড়ক, বরিশাল",
+        "vendor_add_en": "14 Birshrestho Capt. M.u Jahangir Road, Barisal."
+    },
+    {
+        "vendor_id": 10001042,
+        "vendor_name_en": "Kabir Iron Stors",
+        "vendor_name_bn": "কবির আয়রন স্টোর্স",
+        "vendor_add_bn": "হাটখোলা রোড, বরিশাল",
+        "vendor_add_en": "Hatkhola Road, Barisal."
+    },
+    {
+        "vendor_id": 10001715,
+        "vendor_name_en": "LG Butterfly Show Room",
+        "vendor_name_bn": "এলজি বাটারফ্লাই শো-রুম",
+        "vendor_add_bn": "হেমায়েত উদ্দিন রোড, বরিশাল",
+        "vendor_add_en": "122\/119 Hemayet Uddin Road, Barisal."
+    },
+    {
+        "vendor_id": 10001046,
+        "vendor_name_en": "M\/S Fatema Electronics",
+        "vendor_name_bn": "মেসার্স ফাতেমা ইলেকট্রিিনক্স",
+        "vendor_add_bn": "কে,বি, হেমায়েত উদ্দিন রোড, বরিশাল",
+        "vendor_add_en": "Hemaiet Uddin Road, Barisal."
+    },
+    {
+        "vendor_id": 10001030,
+        "vendor_name_en": "M\/S H.R Enterprise",
+        "vendor_name_bn": "মেসার্স এইচ. আর. এন্টারপ্রাইজ",
+        "vendor_add_bn": "বাজার রোড, বরিশাল",
+        "vendor_add_en": "Bazar Road, Barisal."
+    },
+    {
+        "vendor_id": 10001036,
+        "vendor_name_en": "M\/S Jahanara Treders",
+        "vendor_name_bn": "জাহানারা টেডার্স",
+        "vendor_add_bn": "হাটখোলা কাপুড়িয়া পট্টি, বরিশাল",
+        "vendor_add_en": "Hatkhola Kapuria Patti, Barisal."
+    },
+    {
+        "vendor_id": 10001022,
+        "vendor_name_en": "M\/S Keya Enterprise",
+        "vendor_name_bn": "মেসার্স কেয়া এন্টারপ্রাইজ",
+        "vendor_add_bn": "বটতলা রোড, বরিশাল",
+        "vendor_add_en": "Bat tala, Barisal."
+    },
+    {
+        "vendor_id": 10001026,
+        "vendor_name_en": "M\/S Mahbub Enterprise",
+        "vendor_name_bn": "মেসার্স মাহবুব এন্টারপ্রাইজ",
+        "vendor_add_bn": "রুইয়া, বরিশাল",
+        "vendor_add_en": "Ruia, Barisal."
+    },
+    {
+        "vendor_id": 10002082,
+        "vendor_name_en": "M\/S Mollik Enterprise",
+        "vendor_name_bn": "মেসার্স মল্লিক এন্টারপ্রাইজ",
+        "vendor_add_bn": "পুরাতন পাসপোর্ট গলি লেন, বরিশাল",
+        "vendor_add_en": "Old passport office lane, n.ram rd, , Barisal."
+    },
+    {
+        "vendor_id": 10001033,
+        "vendor_name_en": "M\/S Rana Treding Mart",
+        "vendor_name_bn": "মেসার্স রানা ট্রেডিং মাট",
+        "vendor_add_bn": "কাঠপট্টি রোড,বরিশাল",
+        "vendor_add_en": "Kat Potti Road, Barisal."
+    },
+    {
+        "vendor_id": 10002935,
+        "vendor_name_en": "M\/S. Taha Traders",
+        "vendor_name_bn": "মেসার্স তাহা ট্রেডার্স",
+        "vendor_add_bn": "ফকিরবাড়ি রোড, কোতয়ালী, বরিশাল",
+        "vendor_add_en": "Fakir Bari Road, Kotwali, Barisal."
+    },
+    {
+        "vendor_id": 10002263,
+        "vendor_name_en": "Mallika Marketing(PVT.) Company",
+        "vendor_name_bn": "মল্লিকা মার্কেটিং (প্রাঃ) কোম্পানি",
+        "vendor_add_bn": "পুলিশ লাইন রোড,আলেকান্দা,বরিশাল",
+        "vendor_add_en": " Police Line Road, Alekanda, Barisal."
+    },
+    {
+        "vendor_id": 10002021,
+        "vendor_name_en": "MM computers",
+        "vendor_name_bn": "এমএম কম্পিউটার",
+        "vendor_add_bn": "ফজলুল হক এভেনিউ, সিটি মার্কেট, বরিশাল",
+        "vendor_add_en": "Fazlul Haque Av City corporation market, Barisal."
+    },
+    {
+        "vendor_id": 10001585,
+        "vendor_name_en": "Mudasser Ali Mallick",
+        "vendor_name_bn": "মেসার্স মুদাচ্ছের আলী মল্লিক",
+        "vendor_add_bn": "পুলিশ লাইন রোড,বরিশাল",
+        "vendor_add_en": "Police Line Road, Barisal."
+    },
+    {
+        "vendor_id": 10001699,
+        "vendor_name_en": "Mudasser Ali Mallick",
+        "vendor_name_bn": "মেসার্স মুদাচ্ছের আলী মল্লিক",
+        "vendor_add_bn": "শহীদ নজরুল সড়ক (পুলিশ লাইন রোড), বরিশাল",
+        "vendor_add_en": "Shaheed Nazrul Sarak(Police Line Road), Barisal."
+    },
+    {
+        "vendor_id": 10002277,
+        "vendor_name_en": "Nadia Furniture Ltd.",
+        "vendor_name_bn": "নাদিয়া ফার্নিচার লিমিটেড",
+        "vendor_add_bn": "কবি জীবনানন্দ দাস রোড, বরিশাল",
+        "vendor_add_en": "Kobi Jibonanada Das Road, Barisal."
+    },
+    {
+        "vendor_id": 10002159,
+        "vendor_name_en": "National System Solutions (PVT) LTD",
+        "vendor_name_bn": "ন্যাশনাল সিস্টেমস সলিউসন্স (প্রাঃ) লিমিটেড",
+        "vendor_add_bn": "এনভয় টাওয়ার (৫ম তলা),\n১৮\/ই উত্তর ধানমন্ডি, পশ্চিম পান্থপথ, ঢাকা",
+        "vendor_add_en": "18\/E North Dhanmondi, West Panthopath, Dhaka."
+    },
+    {
+        "vendor_id": 10001583,
+        "vendor_name_en": "Nexus Computer",
+        "vendor_name_bn": "নেক্সাস কম্পিউটার",
+        "vendor_add_bn": "২৩৯, ২৪০ সিটি প্লাজা মার্কেট, প্রথম তলা, বরিশাল",
+        "vendor_add_en": "239,240 City Plaza Market(1st Floor"
+    },
+    {
+        "vendor_id": 10001790,
+        "vendor_name_en": "Partex Furniture Industries Ltd",
+        "vendor_name_bn": "পারটেক্স ফার্নিচার ইন্ডাস্ট্রিজ",
+        "vendor_add_bn": "আহসান ম্যানসন, পুলিশ লাইন রোড, বরিশাল",
+        "vendor_add_en": "Ahasan Mension, Police Line Road, Barisal."
+    },
+    {
+        "vendor_id": 10001714,
+        "vendor_name_en": "Rangs Electronics Ltd.",
+        "vendor_name_bn": "র‌্যাংস ইলেকট্রনিক্স লিমিটেড",
+        "vendor_add_bn": "১৮, হেমায়েত উদ্দীন রোড, বরিশাল",
+        "vendor_add_en": "18 Hemayet Uddin Road, Barisal."
+    },
+    {
+        "vendor_id": 10001192,
+        "vendor_name_en": "RANGS INDUSTRIES LTD.",
+        "vendor_name_bn": "র‌্যাংস ইন্ডাসট্রিজ লিমিটেড",
+        "vendor_add_bn": "১১৩-১১৬, পুরাতন এয়ারপোর্ট রোড, তেজগাও, ঢাকা",
+        "vendor_add_en": "113-116 OLD AIRPORT ROAD, TEJGAON, Dhaka"
+    },
+    {
+        "vendor_id": 10002717,
+        "vendor_name_en": "Regal Emporium",
+        "vendor_name_bn": "রিগ্যাল ইম্পোরিয়াম",
+        "vendor_add_bn": "বগুড়া রোড, বরিশাল",
+        "vendor_add_en": "Bagura Road, Barishal."
+    },
+    {
+        "vendor_id": 10001654,
+        "vendor_name_en": "Rifat Enterprise",
+        "vendor_name_bn": "রিফাত এন্টারপ্রাইজ",
+        "vendor_add_bn": "ফরেস্টার হাউজ, মসজিদ লেন, বরিশাল",
+        "vendor_add_en": "Forester House, Masjid Lane, Barishal"
+    },
+    {
+        "vendor_id": 10001653,
+        "vendor_name_en": "Rupayan Furniture",
+        "vendor_name_bn": "মেসার্স রূপায়ন ফার্নিচার",
+        "vendor_add_bn": "সার্কুলার রোড, বরিশাল",
+        "vendor_add_en": "Circular Road, Barishal"
+    },
+    {
+        "vendor_id": 10002123,
+        "vendor_name_en": "Ryans Computer Ltd.",
+        "vendor_name_bn": "রায়ানস্ কম্পিউটার লিঃ",
+        "vendor_add_bn": "সদর রোড, কাকলী সার্কেল,বরিশাল",
+        "vendor_add_en": "125 Sadar Road, Kakoli Circle, Barisal."
+    },
+    {
+        "vendor_id": 10003010,
+        "vendor_name_en": "Ryans Technology",
+        "vendor_name_bn": "রায়ান্স টেকনোলজি",
+        "vendor_add_bn": "২৩৮\/১ পশ্চিম কাফরুল, তালতলা, ঢাকা-১২০৬",
+        "vendor_add_en": "238\/1 West Kafrul Taltala, Dhaka."
+    },
+    {
+        "vendor_id": 10002990,
+        "vendor_name_en": "S.B. Enterprise",
+        "vendor_name_bn": "এস.বি এন্টারপ্রাইজ",
+        "vendor_add_bn": "সাহেবের হাট বন্দর, বরিশাল",
+        "vendor_add_en": "Saheber Hat, Bandar, Barisal."
+    },
+    {
+        "vendor_id": 10002228,
+        "vendor_name_en": "Saiful Steel House",
+        "vendor_name_bn": "মেসার্স সাইফুল স্টীল হাউজ",
+        "vendor_add_bn": "শায়েস্তাবাদ রোড, আমানতগঞ্জ,বরিশাল",
+        "vendor_add_en": "Sayestabad Road, Amanatgonj, Barisal."
+    },
+    {
+        "vendor_id": 10002051,
+        "vendor_name_en": "Setu Electric",
+        "vendor_name_bn": "সেতু ইলেকট্রিক",
+        "vendor_add_bn": "কাটপট্টি রোড, বরিশাল",
+        "vendor_add_en": "Kathpotti Road, Barisal."
+    },
+    {
+        "vendor_id": 10001713,
+        "vendor_name_en": "Singer Plus Shop",
+        "vendor_name_bn": "সিঙ্গার প্লাস",
+        "vendor_add_bn": "১১৬ সদর  রোড(বিবির পুকুর পাড়), বরিশাল",
+        "vendor_add_en": "116 Sadar Road(Bibir Pukur Par), Barisal."
+    },
+    {
+        "vendor_id": 10002913,
+        "vendor_name_en": "The One",
+        "vendor_name_bn": "দি ওয়ান",
+        "vendor_add_bn": "শহীদ নজরুল ইসলাম সড়ক, বাংলাবাজার, কোতয়ালী, বরিশাল",
+        "vendor_add_en": "Shahid Nazrul Islam Sarak, Barisal."
+    },
+    {
+        "vendor_id": 10002276,
+        "vendor_name_en": "Vertex Technology",
+        "vendor_name_bn": "ভারটেক্স টেকনোলজি",
+        "vendor_add_bn": "সিটি প্লাজা মার্কেট, ",
+        "vendor_add_en": "City Plaza Marktet, F. Haque avenue, Barisal."
+    },
+    {
+        "vendor_id": 10001717,
+        "vendor_name_en": "Walton Plaza",
+        "vendor_name_bn": "ওয়ালটন প্লাজা",
+        "vendor_add_bn": "সদর রোড, বরিশাল",
+        "vendor_add_en": "A\/100 Sadar Road, Barisal."
+    }
+]
