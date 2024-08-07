@@ -110,7 +110,12 @@ const Projection = () => {
         const previousPageNo = form.previousPageNo.value
         const previousParaNo = form.previousParaNo.value
         const proj_from = form.proj_from.value
-        const debit_ac_name = form.debit_ac_name.value
+        const GL_Account = form.GL_Account.value
+
+
+
+
+
 
         if (receiverInfo.length === 0) {
             const newerror = {
@@ -134,7 +139,7 @@ const Projection = () => {
             }
             else {
                 const projection = {
-                    notingHeading, previousPageNo, previousParaNo, projectionNotingHierarchy: hierarchy, debit_ac_name, proj_from, receiverInfo
+                    notingHeading, previousPageNo, previousParaNo, projectionNotingHierarchy: hierarchy, GL_Account, proj_from, receiverInfo
                 }
                 setProjectionData(projection);
 
@@ -697,7 +702,7 @@ const Projection = () => {
                             <label className="label">
                                 <span className="label-text">বিকলন খাত</span>
                             </label>
-                            <select name='debit_ac_name' required className="select select-bordered w-full">
+                            <select name='GL_Account' required className="select select-bordered w-full">
                                 <option value="">--Select--</option>
                                 <option value="Furniture, Fixture & Fittings - Office">Furniture, Fixture & Fittings - Office</option>
                                 <option value="Furniture, Fixture & Fittings - Residence">Furniture, Fixture & Fittings - Residence</option>

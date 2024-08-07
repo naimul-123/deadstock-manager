@@ -1,0 +1,79 @@
+[
+    {
+        "GL_Code": 1320100010,
+        "Class": 1000,
+        "GL_Account": "Low Value Asset",
+        "Depreciation": 1
+    },
+    {
+        "GL_Code": 1320310010,
+        "Class": 1600,
+        "GL_Account": "Furniture, Fixture & Fittings - Office",
+        "Depreciation": 0.1,
+        "BBER_Sec.": "7(1)",
+        "File_Index": "251(1)"
+    },
+    {
+        "GL_Code": 1320310020,
+        "Class": 1650,
+        "GL_Account": "Furniture, Fixture & Fittings - Residence",
+        "Depreciation": 0.1,
+        "BBER_Sec.": "7(1)",
+        "File_Index": "251(1)"
+    },
+    {
+        "GL_Code": 1320410010,
+        "Class": 1300,
+        "GL_Account": "Mechanical Equipment - Office",
+        "Depreciation": 0.1,
+        "BBER_Sec.": "8(1)",
+        "File_Index": "251(5)"
+    },
+    {
+        "GL_Code": 1320410020,
+        "Class": 1350,
+        "GL_Account": "Mechanical Equipment - Residence",
+        "Depreciation": 0.1,
+        "BBER_Sec.": "8(1)",
+        "File_Index": "251(1)"
+    },
+    {
+        "GL_Code": 1320410030,
+        "Class": 1375,
+        "GL_Account": "Computer & Networking",
+        "Depreciation": 0.2,
+        "BBER_Sec.": "9(1)",
+        "File_Index": "251(7)"
+    },
+    {
+        "GL_Code": 1320510010,
+        "Class": 1400,
+        "GL_Account": "Electrical Equipment- Office",
+        "Depreciation": 0.2,
+        "BBER_Sec.": "7(1)",
+        "File_Index": "251(9)"
+    },
+    {
+        "GL_Code": 1320510020,
+        "Class": 1450,
+        "GL_Account": "Electrical Equipment- Residence",
+        "Depreciation": 0.2,
+        "BBER_Sec.": "7(1)",
+        "File_Index": "251(9)"
+    },
+    {
+        "GL_Code": 1320710010,
+        "Class": 1700,
+        "GL_Account": "Motor Vehicles",
+        "Depreciation": 0.2,
+        "BBER_Sec.": "8(1)"
+    },
+    {
+        "GL_Code": 1320810010,
+        "Class": 2100,
+        "GL_Account": "Security Equipment",
+        "Depreciation": 0.2,
+        "BBER_Sec.": "8(1)",
+        "File_Index": "251(13)"
+    }
+]

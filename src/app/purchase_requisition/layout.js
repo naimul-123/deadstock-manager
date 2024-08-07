@@ -9,7 +9,7 @@ import { PrProvider } from '@/context/prContext';
 const queryClient = new QueryClient();
 const Prlayout = ({ children }) => {
 
-  const paths = ['create_requisition', 'print_pr_noting', 'create_committee', 'print_rfq_letter', 'add_vendors_value', 'request_for_asset_number', 'valuation']
+  const paths = ['create_requisition', 'print_pr_noting', 'rfq_maintain', 'add_vendors_value', 'request_for_asset_number', 'valuation']
 
   return (
 
@@ -17,7 +17,7 @@ const Prlayout = ({ children }) => {
       <QueryClientProvider client={queryClient} >
         <ProjectionProvider>
           <PrProvider>
-            <PageNav root="purchase_requisition" paths={paths}></PageNav>
+            <PageNav root="purchase_requisition" className="print:hidden" paths={paths} ></PageNav>
             <HierarchyProvider>
               <div className=" flex-grow">
                 {children}

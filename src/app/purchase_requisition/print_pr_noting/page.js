@@ -490,6 +490,7 @@ const Project = ({ params }) => {
             }
             <PrList pr_number={pr_number} prdata={prnumbers} heading=" একটি পিআর নাম্বার সিলেক্ট করুন " handlePrNumber={handlePrNumber}></PrList>
 
+
         </div>
     );
 };

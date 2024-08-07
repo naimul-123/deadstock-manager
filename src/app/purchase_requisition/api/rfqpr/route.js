@@ -38,11 +38,15 @@ export async function GET(request) {
         const pr = searchParams.get("pr")
         let query = { pr_number: { $exists: true }, committeeInfo: { $exists: true }, vendors: { $exists: true } }
         let result
-        const options = { projection: { pr_number: 1, _id: 0, vendors: 1 } }
+        const options = { projection: { pr_number: 1, _id: 0 } }
         if (pr) {
             query.pr_number = pr
-            result = await procurementCollection.findOne(query, options);
+            result = await procurementCollection.findOne(query);
         }
+        else {
+            result = await procurementCollection.find(query, options).toArray();
+        }
+
         return NextResponse.json(result)
     } catch (error) {
         console.error('Error to get document:', error); // Log error
