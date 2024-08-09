@@ -6,7 +6,7 @@ import { ProjectionProvider } from '@/context/projectionContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
 const queryClient = new QueryClient();
-const layout = ({ children }) => {
+const Layout = ({ children }) => {
     const { prnumbers, prNumberLoading, prDataLoading, prData: projection, handlePrNumber, pr_number, committeeSetup, rfqPrNumber, rfqprnumbers, handleRfqPrNumber, rfqData } = usePrContext();
 
     return (
@@ -23,10 +23,8 @@ const layout = ({ children }) => {
                 </div>
             </div>
 
-
-
         </div>
     );
 };;
 
-export default layout;
+export default Layout;

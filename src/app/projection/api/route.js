@@ -7,7 +7,6 @@ export async function POST(request) {
         const db = client.db('deadstock');
         const procurementCollection = db.collection('procurements')
         const data = await request.json();
-        console.log(data);
         const result = await procurementCollection.insertOne(data)
         return NextResponse.json({ message: 'Document inserted', result })
     } catch (error) {

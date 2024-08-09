@@ -65,7 +65,6 @@ export const HierarchyProvider = ({ children }) => {
 
 
         hierarchyData = { ed, ed_cc, director_admin, ad_dir_admin_2, ad_dir_vu, jd_admin_2, jd_vu, dd_ds, ad_ds }
-        console.log(hierarchyData);
         mutation.mutate(hierarchyData)
         setIsCC(false)
         form.reset();

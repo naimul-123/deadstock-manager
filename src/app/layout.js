@@ -10,7 +10,7 @@ export const metadata = {
 
 
 export default function RootLayout({ children }) {
-  console.log('RootLayout Rendered');
+
   return (
     <html lang="en">
       <body className={`${inter.className} max-w-screen-2xl mx-auto`}>

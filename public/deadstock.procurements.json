@@ -1,0 +1,1414 @@
+[{
+  "_id": {
+    "$oid": "66a7dd3d3781ee490d20c064"
+  },
+  "notingHeading": "অফিসের এডিদের জন্য আসবাবপত্র ক্রয়পূর্বক সরবরাহ প্রসঙ্গে",
+  "previousPageNo": "৩",
+  "previousParaNo": "৫",
+  "projectionNotingHierarchy": {
+    "_id": "66a7dd050c0e930a2089f162",
+    "ad_dir_admin_2": {
+      "_id": "66a7dc86d7e07d69658109d8",
+      "sap": 16603109,
+      "name_en": "Md. Shahidul Islam Par",
+      "name_bn": "মোঃ শহিদুল ইসলাম পাড়",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_dir_vu": {
+      "_id": "66a7dc86d7e07d69658109da",
+      "sap": 26803293,
+      "name_en": "Rehena Akhter",
+      "name_bn": "রেহেনা আখতার",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_ds": {
+      "_id": "66a7dc86d7e07d69658109e2",
+      "sap": 19109577,
+      "name_en": "NAIMUL ISLAM",
+      "name_bn": "নাইমুল ইসলাম",
+      "designation_en": "Assistant Director",
+      "designation_bn": "সহকারী পরিচালক"
+    },
+    "dd_ds": {
+      "_id": "66a7dc86d7e07d69658109e1",
+      "sap": 19109783,
+      "name_en": "REZAUL KARIM",
+      "name_bn": "রেজাউল করিম",
+      "designation_en": "Deputy Director",
+      "designation_bn": "উপপরিচালক"
+    },
+    "director_admin": {
+      "_id": "66a7dc86d7e07d69658109d7",
+      "sap": 16601836,
+      "name_en": "Bishnupada Kar",
+      "name_bn": "বিষ্ণুপদ কর",
+      "designation_en": "Director",
+      "designation_bn": "পরিচালক"
+    },
+    "ed": {
+      "_id": "66a7dc86d7e07d69658109d5",
+      "sap": 16500646,
+      "name_en": "Md. Abdul Mannan",
+      "name_bn": "মোঃ আব্দুল মান্নান",
+      "designation_en": "Executive Director",
+      "designation_bn": "নির্বাহী পরিচালক"
+    },
+    "ed_cc": null,
+    "jd_admin_2": {
+      "_id": "66a7dc86d7e07d69658109dc",
+      "sap": 17105449,
+      "name_en": "Abdur Razzak",
+      "name_bn": "আবদুর রাজ্জাক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    },
+    "jd_vu": {
+      "_id": "66a7dc86d7e07d69658109df",
+      "sap": 18506359,
+      "name_en": "Md. Mohaimenul Haque",
+      "name_bn": "মোঃ মোহাইমেনুল হক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    }
+  },
+  "proj_from": "প্রকৌশল শাখা",
+  "receiverInfo": [
+    {
+      "name": "নাইমুল ইসলাম",
+      "sap": "19109577",
+      "designation": "সহকারী পরিচালক",
+      "section": "জড়সামগ্রী শাখা",
+      "notingDate": "2024-07-30",
+      "itemInfo": [
+        {
+          "goods_name_bn": "রিভলভিং চেয়ার",
+          "goods_name_en": "Revolving Chair",
+          "goods_model": "Nadia-NFL-CH-202",
+          "quantity": "1",
+          "unit_price": "14500"
+        }
+      ]
+    }
+  ],
+  "prNotingHierarchy": {
+    "_id": "66a7dd050c0e930a2089f162",
+    "ad_dir_admin_2": {
+      "_id": "66a7ffdad7e07d69658109ed",
+      "sap": 16603109,
+      "name_en": "Md. Shahidul Islam Par",
+      "name_bn": "মোঃ শহিদুল ইসলাম পাড়",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_dir_vu": {
+      "_id": "66a7ffdad7e07d69658109ef",
+      "sap": 26803293,
+      "name_en": "Rehena Akhter",
+      "name_bn": "রেহেনা আখতার",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_ds": {
+      "_id": "66a7ffdad7e07d69658109f7",
+      "sap": 19109577,
+      "name_en": "NAIMUL ISLAM",
+      "name_bn": "নাইমুল ইসলাম",
+      "designation_en": "Assistant Director",
+      "designation_bn": "সহকারী পরিচালক",
+      "initiator": true
+    },
+    "dd_ds": {
+      "_id": "66a7ffdad7e07d69658109f6",
+      "sap": 19109783,
+      "name_en": "REZAUL KARIM",
+      "name_bn": "রেজাউল করিম",
+      "designation_en": "Deputy Director",
+      "designation_bn": "উপপরিচালক",
+      "initiator": false
+    },
+    "director_admin": {
+      "_id": "66a7ffdad7e07d69658109ec",
+      "sap": 16601836,
+      "name_en": "Bishnupada Kar",
+      "name_bn": "বিষ্ণুপদ কর",
+      "designation_en": "Director",
+      "designation_bn": "পরিচালক"
+    },
+    "jd_admin_2": {
+      "_id": "66a7ffdad7e07d69658109f1",
+      "sap": 17105449,
+      "name_en": "Abdur Razzak",
+      "name_bn": "আবদুর রাজ্জাক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    },
+    "jd_vu": {
+      "_id": "66a7ffdad7e07d69658109f4",
+      "sap": 18506359,
+      "name_en": "Md. Mohaimenul Haque",
+      "name_bn": "মোঃ মোহাইমেনুল হক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    }
+  },
+  "projectionApproveInfo": {
+    "approver": "নির্বাহী পরিচালক",
+    "approved_date": "2024-08-03"
+  },
+  "pr_number": "10009797",
+  "GL_Account": "Furniture, Fixture & Fittings - Office",
+  "committeeInfo": {
+    "chairman": {
+      "name": "মোঃ শহিদুল ইসলাম পাড়",
+      "section": "প্রশাসন-২"
+    },
+    "member_vu": {
+      "name": "মোঃ মোহাইমেনুল হক",
+      "section": "যুগ্মপরিচালক(ভি.ইউ)"
+    },
+    "member_2": {
+      "name": "মোঃ রাজীব  হোসেন",
+      "section": "উপপরিচালক(সিভিল)"
+    },
+    "secretary": {
+      "name": "নাইমুল ইসলাম",
+      "section": "সহকারী পরিচালক(জড়সামগ্রী)"
+    }
+  },
+  "rfqInfo": {
+    "rfq_heading": "আসবাবপত্র সরবরাহ প্রসঙ্গে",
+    "product_coll_name": "আসবাবপত্র",
+    "outword_date": "2024-08-08",
+    "quotation_deadLine": "2024-08-13",
+    "vendors": [
+      {
+        "vendor_id": 10001950,
+        "vendor_name_bn": "মেসার্স আদনান ফার্নিচার",
+        "vendor_add_bn": "বটতলা রোড, বরিশাল",
+        "outword_no": "4787"
+      },
+      {
+        "vendor_id": 10002945,
+        "vendor_name_bn": "ড্যাফডিল ফার্নিচার",
+        "vendor_add_bn": "গোঁড়া চাঁদ দাস রোড, বটতলা, বরিশাল",
+        "outword_no": "4788"
+      },
+      {
+        "vendor_id": 10002993,
+        "vendor_name_bn": "ডেল্টা ফার্নিচার",
+        "vendor_add_bn": "৬৬ প্রগতি সরণি, ভাটারা, ঢাকা",
+        "outword_no": "4789"
+      }
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "66a8133bf3eb166c043b540d"
+  },
+  "notingHeading": "অফিসের এডিদের জন্য আসবাবপত্র ক্রয়পূর্বক সরবরাহ প্রসঙ্গে",
+  "previousPageNo": "৩",
+  "previousParaNo": "৫",
+  "projectionNotingHierarchy": {
+    "_id": "66a7dd050c0e930a2089f162",
+    "ad_dir_admin_2": {
+      "_id": "66a7ffdad7e07d69658109ed",
+      "sap": 16603109,
+      "name_en": "Md. Shahidul Islam Par",
+      "name_bn": "মোঃ শহিদুল ইসলাম পাড়",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_dir_vu": {
+      "_id": "66a7ffdad7e07d69658109ef",
+      "sap": 26803293,
+      "name_en": "Rehena Akhter",
+      "name_bn": "রেহেনা আখতার",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_ds": {
+      "_id": "66a7ffdad7e07d69658109f7",
+      "sap": 19109577,
+      "name_en": "NAIMUL ISLAM",
+      "name_bn": "নাইমুল ইসলাম",
+      "designation_en": "Assistant Director",
+      "designation_bn": "সহকারী পরিচালক",
+      "initiator": false
+    },
+    "dd_ds": {
+      "_id": "66a7ffdad7e07d69658109f6",
+      "sap": 19109783,
+      "name_en": "REZAUL KARIM",
+      "name_bn": "রেজাউল করিম",
+      "designation_en": "Deputy Director",
+      "designation_bn": "উপপরিচালক",
+      "initiator": true
+    },
+    "director_admin": {
+      "_id": "66a7ffdad7e07d69658109ec",
+      "sap": 16601836,
+      "name_en": "Bishnupada Kar",
+      "name_bn": "বিষ্ণুপদ কর",
+      "designation_en": "Director",
+      "designation_bn": "পরিচালক"
+    },
+    "ed": {
+      "_id": "66a7ffdad7e07d69658109ea",
+      "sap": 16500646,
+      "name_en": "Md. Abdul Mannan",
+      "name_bn": "মোঃ আব্দুল মান্নান",
+      "designation_en": "Executive Director",
+      "designation_bn": "নির্বাহী পরিচালক"
+    },
+    "ed_cc": null,
+    "jd_admin_2": {
+      "_id": "66a7ffdad7e07d69658109f1",
+      "sap": 17105449,
+      "name_en": "Abdur Razzak",
+      "name_bn": "আবদুর রাজ্জাক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    },
+    "jd_vu": {
+      "_id": "66a7ffdad7e07d69658109f4",
+      "sap": 18506359,
+      "name_en": "Md. Mohaimenul Haque",
+      "name_bn": "মোঃ মোহাইমেনুল হক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    }
+  },
+  "proj_from": "প্রকৌশল শাখা",
+  "receiverInfo": [
+    {
+      "name": "তীর্থঙ্কর সরকার",
+      "sap": "19109587",
+      "designation": "সহকারী পরিচালক",
+      "section": "আগাম প্রদান শাখা",
+      "notingDate": "2024-07-30",
+      "itemInfo": [
+        {
+          "goods_name_bn": "রিভলভিং চেয়ার",
+          "goods_name_en": "Revolving Chair",
+          "goods_model": "Nadia-NFL-CH-202",
+          "quantity": "1",
+          "unit_price": "14500"
+        }
+      ]
+    }
+  ],
+  "prNotingHierarchy": {
+    "_id": "66a7dd050c0e930a2089f162",
+    "ad_dir_admin_2": {
+      "_id": "66a7ffdad7e07d69658109ed",
+      "sap": 16603109,
+      "name_en": "Md. Shahidul Islam Par",
+      "name_bn": "মোঃ শহিদুল ইসলাম পাড়",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_dir_vu": {
+      "_id": "66a7ffdad7e07d69658109ef",
+      "sap": 26803293,
+      "name_en": "Rehena Akhter",
+      "name_bn": "রেহেনা আখতার",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_ds": {
+      "_id": "66a7ffdad7e07d69658109f7",
+      "sap": 19109577,
+      "name_en": "NAIMUL ISLAM",
+      "name_bn": "নাইমুল ইসলাম",
+      "designation_en": "Assistant Director",
+      "designation_bn": "সহকারী পরিচালক",
+      "initiator": true
+    },
+    "dd_ds": {
+      "_id": "66a7ffdad7e07d69658109f6",
+      "sap": 19109783,
+      "name_en": "REZAUL KARIM",
+      "name_bn": "রেজাউল করিম",
+      "designation_en": "Deputy Director",
+      "designation_bn": "উপপরিচালক",
+      "initiator": false
+    },
+    "director_admin": {
+      "_id": "66a7ffdad7e07d69658109ec",
+      "sap": 16601836,
+      "name_en": "Bishnupada Kar",
+      "name_bn": "বিষ্ণুপদ কর",
+      "designation_en": "Director",
+      "designation_bn": "পরিচালক"
+    },
+    "jd_admin_2": {
+      "_id": "66a7ffdad7e07d69658109f1",
+      "sap": 17105449,
+      "name_en": "Abdur Razzak",
+      "name_bn": "আবদুর রাজ্জাক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    },
+    "jd_vu": {
+      "_id": "66a7ffdad7e07d69658109f4",
+      "sap": 18506359,
+      "name_en": "Md. Mohaimenul Haque",
+      "name_bn": "মোঃ মোহাইমেনুল হক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    }
+  },
+  "pr_number": "10009769",
+  "projectionApproveInfo": {
+    "approver": "নির্বাহী পরিচালক",
+    "approved_date": "2024-07-30"
+  },
+  "GL_Account": "Furniture, Fixture & Fittings - Office",
+  "committeeInfo": {
+    "chairman": {
+      "name": "মোঃ নকীর হোসেন",
+      "section": "ব্যাংক পরিদশন"
+    },
+    "member_vu": {
+      "name": "লাকী বেগম",
+      "section": "যুগ্মপরিচালক(ভি.ইউ)"
+    },
+    "member_2": {
+      "name": "মোঃ রাজীব  হোসেন",
+      "section": "উপপরিচালক(সিভিল)"
+    },
+    "secretary": {
+      "name": "নাইমুল ইসলাম",
+      "section": "সহকারী পরিচালক(জড়সামগ্রী)"
+    }
+  },
+  "rfqInfo": {
+    "rfq_heading": "আসবাবপত্র সরবরাহ প্রসঙ্গে",
+    "product_coll_name": "আসবাবপত্র",
+    "outword_date": "2024-08-09",
+    "quotation_deadLine": "2024-08-13",
+    "vendors": [
+      {
+        "vendor_id": 10001026,
+        "vendor_name_bn": "মেসার্স মাহবুব এন্টারপ্রাইজ",
+        "vendor_add_bn": "রুইয়া, বরিশাল",
+        "outword_no": "4790"
+      },
+      {
+        "vendor_id": 10001022,
+        "vendor_name_bn": "মেসার্স কেয়া এন্টারপ্রাইজ",
+        "vendor_add_bn": "বটতলা রোড, বরিশাল",
+        "outword_no": "4791"
+      },
+      {
+        "vendor_id": 10001950,
+        "vendor_name_bn": "মেসার্স আদনান ফার্নিচার",
+        "vendor_add_bn": "বটতলা রোড, বরিশাল",
+        "outword_no": "4792"
+      }
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "66a9446bc659a17bdcd76f4e"
+  },
+  "notingHeading": "অফিসের একজন এডির জন্য অফিস টেবিল ক্রয়পূর্বক সরবরাহ প্রসঙ্গে",
+  "previousPageNo": "৩",
+  "previousParaNo": "৫",
+  "projectionNotingHierarchy": {
+    "_id": "66a7dd050c0e930a2089f162",
+    "ad_dir_admin_2": {
+      "_id": "66a7ffdad7e07d69658109ed",
+      "sap": 16603109,
+      "name_en": "Md. Shahidul Islam Par",
+      "name_bn": "মোঃ শহিদুল ইসলাম পাড়",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_dir_vu": {
+      "_id": "66a7ffdad7e07d69658109ef",
+      "sap": 26803293,
+      "name_en": "Rehena Akhter",
+      "name_bn": "রেহেনা আখতার",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_ds": {
+      "_id": "66a7ffdad7e07d69658109f7",
+      "sap": 19109577,
+      "name_en": "NAIMUL ISLAM",
+      "name_bn": "নাইমুল ইসলাম",
+      "designation_en": "Assistant Director",
+      "designation_bn": "সহকারী পরিচালক",
+      "initiator": true
+    },
+    "dd_ds": {
+      "_id": "66a7ffdad7e07d69658109f6",
+      "sap": 19109783,
+      "name_en": "REZAUL KARIM",
+      "name_bn": "রেজাউল করিম",
+      "designation_en": "Deputy Director",
+      "designation_bn": "উপপরিচালক",
+      "initiator": false
+    },
+    "director_admin": {
+      "_id": "66a7ffdad7e07d69658109ec",
+      "sap": 16601836,
+      "name_en": "Bishnupada Kar",
+      "name_bn": "বিষ্ণুপদ কর",
+      "designation_en": "Director",
+      "designation_bn": "পরিচালক"
+    },
+    "ed": {
+      "_id": "66a7ffdad7e07d69658109ea",
+      "sap": 16500646,
+      "name_en": "Md. Abdul Mannan",
+      "name_bn": "মোঃ আব্দুল মান্নান",
+      "designation_en": "Executive Director",
+      "designation_bn": "নির্বাহী পরিচালক"
+    },
+    "ed_cc": null,
+    "jd_admin_2": {
+      "_id": "66a7ffdad7e07d69658109f1",
+      "sap": 17105449,
+      "name_en": "Abdur Razzak",
+      "name_bn": "আবদুর রাজ্জাক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    },
+    "jd_vu": {
+      "_id": "66a7ffdad7e07d69658109f4",
+      "sap": 18506359,
+      "name_en": "Md. Mohaimenul Haque",
+      "name_bn": "মোঃ মোহাইমেনুল হক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    }
+  },
+  "proj_from": "প্রকৌশল শাখা",
+  "receiverInfo": [
+    {
+      "name": "তীর্থঙ্কর সরকার",
+      "sap": "19109587",
+      "designation": "সহকারী পরিচালক",
+      "section": "কৃষিঋণ শাখা",
+      "notingDate": "2024-07-30",
+      "itemInfo": [
+        {
+          "goods_name_bn": "অফিস টেবিল",
+          "goods_name_en": "Office Table",
+          "goods_model": "Nadia-NFL-OT-001",
+          "quantity": "1",
+          "unit_price": "20490"
+        }
+      ]
+    }
+  ],
+  "prNotingHierarchy": {
+    "_id": "66a7dd050c0e930a2089f162",
+    "ad_dir_admin_2": {
+      "_id": "66a7ffdad7e07d69658109ed",
+      "sap": 16603109,
+      "name_en": "Md. Shahidul Islam Par",
+      "name_bn": "মোঃ শহিদুল ইসলাম পাড়",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_dir_vu": {
+      "_id": "66a7ffdad7e07d69658109ef",
+      "sap": 26803293,
+      "name_en": "Rehena Akhter",
+      "name_bn": "রেহেনা আখতার",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_ds": {
+      "_id": "66a7ffdad7e07d69658109f7",
+      "sap": 19109577,
+      "name_en": "NAIMUL ISLAM",
+      "name_bn": "নাইমুল ইসলাম",
+      "designation_en": "Assistant Director",
+      "designation_bn": "সহকারী পরিচালক",
+      "initiator": true
+    },
+    "dd_ds": {
+      "_id": "66a7ffdad7e07d69658109f6",
+      "sap": 19109783,
+      "name_en": "REZAUL KARIM",
+      "name_bn": "রেজাউল করিম",
+      "designation_en": "Deputy Director",
+      "designation_bn": "উপপরিচালক",
+      "initiator": false
+    },
+    "director_admin": {
+      "_id": "66a7ffdad7e07d69658109ec",
+      "sap": 16601836,
+      "name_en": "Bishnupada Kar",
+      "name_bn": "বিষ্ণুপদ কর",
+      "designation_en": "Director",
+      "designation_bn": "পরিচালক"
+    },
+    "jd_admin_2": {
+      "_id": "66a7ffdad7e07d69658109f1",
+      "sap": 17105449,
+      "name_en": "Abdur Razzak",
+      "name_bn": "আবদুর রাজ্জাক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    },
+    "jd_vu": {
+      "_id": "66a7ffdad7e07d69658109f4",
+      "sap": 18506359,
+      "name_en": "Md. Mohaimenul Haque",
+      "name_bn": "মোঃ মোহাইমেনুল হক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    }
+  },
+  "pr_number": "10009791",
+  "projectionApproveInfo": {
+    "approver": "নির্বাহী পরিচালক",
+    "approved_date": "2024-07-31"
+  },
+  "committeeInfo": {
+    "chairman": {
+      "name": "মোঃ শহিদুল ইসলাম পাড়",
+      "section": "প্রশাসন-২"
+    },
+    "member_vu": {
+      "name": "মোঃ মোহাইমেনুল হক",
+      "section": "যুগ্মপরিচালক(ভি.ইউ)"
+    },
+    "member_2": {
+      "name": "মোঃ রাজীব  হোসেন",
+      "section": "উপপরিচালক(সিভিল)"
+    },
+    "secretary": {
+      "name": "নাইমুল ইসলাম",
+      "section": "সহকারী পরিচালক(জড়সামগ্রী)"
+    }
+  },
+  "GL_Account": "Furniture, Fixture & Fittings - Office"
+},
+{
+  "_id": {
+    "$oid": "66a945d5c659a17bdcd76f4f"
+  },
+  "notingHeading": "অফিসের একজন যুগ্মপরিচালকের জন্য আসবাবপত্র ক্রয়পূর্বক সরবরাহ প্রসঙ্গে",
+  "previousPageNo": "৩",
+  "previousParaNo": "৫",
+  "projectionNotingHierarchy": {
+    "_id": "66a7dd050c0e930a2089f162",
+    "ad_dir_admin_2": {
+      "_id": "66a7ffdad7e07d69658109ed",
+      "sap": 16603109,
+      "name_en": "Md. Shahidul Islam Par",
+      "name_bn": "মোঃ শহিদুল ইসলাম পাড়",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_dir_vu": {
+      "_id": "66a7ffdad7e07d69658109ef",
+      "sap": 26803293,
+      "name_en": "Rehena Akhter",
+      "name_bn": "রেহেনা আখতার",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_ds": {
+      "_id": "66a7ffdad7e07d69658109f7",
+      "sap": 19109577,
+      "name_en": "NAIMUL ISLAM",
+      "name_bn": "নাইমুল ইসলাম",
+      "designation_en": "Assistant Director",
+      "designation_bn": "সহকারী পরিচালক",
+      "initiator": true
+    },
+    "dd_ds": {
+      "_id": "66a7ffdad7e07d69658109f6",
+      "sap": 19109783,
+      "name_en": "REZAUL KARIM",
+      "name_bn": "রেজাউল করিম",
+      "designation_en": "Deputy Director",
+      "designation_bn": "উপপরিচালক",
+      "initiator": false
+    },
+    "director_admin": {
+      "_id": "66a7ffdad7e07d69658109ec",
+      "sap": 16601836,
+      "name_en": "Bishnupada Kar",
+      "name_bn": "বিষ্ণুপদ কর",
+      "designation_en": "Director",
+      "designation_bn": "পরিচালক"
+    },
+    "ed": {
+      "_id": "66a7ffdad7e07d69658109ea",
+      "sap": 16500646,
+      "name_en": "Md. Abdul Mannan",
+      "name_bn": "মোঃ আব্দুল মান্নান",
+      "designation_en": "Executive Director",
+      "designation_bn": "নির্বাহী পরিচালক"
+    },
+    "ed_cc": null,
+    "jd_admin_2": {
+      "_id": "66a7ffdad7e07d69658109f1",
+      "sap": 17105449,
+      "name_en": "Abdur Razzak",
+      "name_bn": "আবদুর রাজ্জাক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    },
+    "jd_vu": {
+      "_id": "66a7ffdad7e07d69658109f4",
+      "sap": 18506359,
+      "name_en": "Md. Mohaimenul Haque",
+      "name_bn": "মোঃ মোহাইমেনুল হক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    }
+  },
+  "proj_from": "প্রকৌশল শাখা",
+  "receiverInfo": [
+    {
+      "name": "কামরুল হাসান",
+      "sap": "18206242",
+      "designation": "যুগ্মপরিচালক",
+      "section": "সংস্থাপন শাখা",
+      "notingDate": "2024-07-31",
+      "itemInfo": [
+        {
+          "goods_name_bn": "অফিস টেবিল",
+          "goods_name_en": "Office Table",
+          "goods_model": "Nadia-NFL-OT-001",
+          "quantity": "1",
+          "unit_price": "35432"
+        }
+      ]
+    }
+  ],
+  "prNotingHierarchy": {
+    "_id": "66a7dd050c0e930a2089f162",
+    "ad_dir_admin_2": {
+      "_id": "66a7ffdad7e07d69658109ed",
+      "sap": 16603109,
+      "name_en": "Md. Shahidul Islam Par",
+      "name_bn": "মোঃ শহিদুল ইসলাম পাড়",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_dir_vu": {
+      "_id": "66a7ffdad7e07d69658109ef",
+      "sap": 26803293,
+      "name_en": "Rehena Akhter",
+      "name_bn": "রেহেনা আখতার",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_ds": {
+      "_id": "66a7ffdad7e07d69658109f7",
+      "sap": 19109577,
+      "name_en": "NAIMUL ISLAM",
+      "name_bn": "নাইমুল ইসলাম",
+      "designation_en": "Assistant Director",
+      "designation_bn": "সহকারী পরিচালক",
+      "initiator": true
+    },
+    "dd_ds": {
+      "_id": "66a7ffdad7e07d69658109f6",
+      "sap": 19109783,
+      "name_en": "REZAUL KARIM",
+      "name_bn": "রেজাউল করিম",
+      "designation_en": "Deputy Director",
+      "designation_bn": "উপপরিচালক",
+      "initiator": false
+    },
+    "director_admin": {
+      "_id": "66a7ffdad7e07d69658109ec",
+      "sap": 16601836,
+      "name_en": "Bishnupada Kar",
+      "name_bn": "বিষ্ণুপদ কর",
+      "designation_en": "Director",
+      "designation_bn": "পরিচালক"
+    },
+    "jd_admin_2": {
+      "_id": "66a7ffdad7e07d69658109f1",
+      "sap": 17105449,
+      "name_en": "Abdur Razzak",
+      "name_bn": "আবদুর রাজ্জাক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    },
+    "jd_vu": {
+      "_id": "66a7ffdad7e07d69658109f4",
+      "sap": 18506359,
+      "name_en": "Md. Mohaimenul Haque",
+      "name_bn": "মোঃ মোহাইমেনুল হক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    }
+  },
+  "pr_number": "10009790",
+  "projectionApproveInfo": {
+    "approver": "নির্বাহী পরিচালক",
+    "approved_date": "2024-07-31"
+  },
+  "GL_Account": "Furniture, Fixture & Fittings - Office",
+  "committeeInfo": {
+    "chairman": {
+      "name": "মোঃ নকীর হোসেন",
+      "section": "ব্যাংক পরিদশন"
+    },
+    "member_vu": {
+      "name": "মোঃ মোহাইমেনুল হক",
+      "section": "যুগ্মপরিচালক(ভি.ইউ)"
+    },
+    "member_2": {
+      "name": "মোঃ রাজীব  হোসেন",
+      "section": "উপপরিচালক(সিভিল)"
+    },
+    "secretary": {
+      "name": "নাইমুল ইসলাম",
+      "section": "সহকারী পরিচালক(জড়সামগ্রী)"
+    }
+  },
+  "rfqInfo": {
+    "rfq_heading": "আসবাবপত্র সরবরাহ প্রসঙ্গে",
+    "product_coll_name": "আসবাবপত্র",
+    "outword_date": "2024-08-09",
+    "quotation_deadLine": "2024-08-16",
+    "vendors": [
+      {
+        "vendor_id": 10001950,
+        "vendor_name_bn": "মেসার্স আদনান ফার্নিচার",
+        "vendor_add_bn": "বটতলা রোড, বরিশাল",
+        "outword_no": "4793"
+      },
+      {
+        "vendor_id": 10002945,
+        "vendor_name_bn": "ড্যাফডিল ফার্নিচার",
+        "vendor_add_bn": "গোঁড়া চাঁদ দাস রোড, বটতলা, বরিশাল",
+        "outword_no": "4794"
+      },
+      {
+        "vendor_id": 10002993,
+        "vendor_name_bn": "ডেল্টা ফার্নিচার",
+        "vendor_add_bn": "৬৬ প্রগতি সরণি, ভাটারা, ঢাকা",
+        "outword_no": "4795"
+      }
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "66a94970c659a17bdcd76f50"
+  },
+  "notingHeading": "অফিসের এডিদের জন্য আসবাবপত্র ক্রয়পূর্বক সরবরাহ প্রসঙ্গে",
+  "previousPageNo": "৩",
+  "previousParaNo": "৭",
+  "projectionNotingHierarchy": {
+    "_id": "66a7dd050c0e930a2089f162",
+    "ad_dir_admin_2": {
+      "_id": "66a7ffdad7e07d69658109ed",
+      "sap": 16603109,
+      "name_en": "Md. Shahidul Islam Par",
+      "name_bn": "মোঃ শহিদুল ইসলাম পাড়",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_dir_vu": {
+      "_id": "66a7ffdad7e07d69658109ef",
+      "sap": 26803293,
+      "name_en": "Rehena Akhter",
+      "name_bn": "রেহেনা আখতার",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_ds": {
+      "_id": "66a7ffdad7e07d69658109f7",
+      "sap": 19109577,
+      "name_en": "NAIMUL ISLAM",
+      "name_bn": "নাইমুল ইসলাম",
+      "designation_en": "Assistant Director",
+      "designation_bn": "সহকারী পরিচালক",
+      "initiator": true
+    },
+    "dd_ds": {
+      "_id": "66a7ffdad7e07d69658109f6",
+      "sap": 19109783,
+      "name_en": "REZAUL KARIM",
+      "name_bn": "রেজাউল করিম",
+      "designation_en": "Deputy Director",
+      "designation_bn": "উপপরিচালক",
+      "initiator": false
+    },
+    "director_admin": {
+      "_id": "66a7ffdad7e07d69658109ec",
+      "sap": 16601836,
+      "name_en": "Bishnupada Kar",
+      "name_bn": "বিষ্ণুপদ কর",
+      "designation_en": "Director",
+      "designation_bn": "পরিচালক"
+    },
+    "ed": {
+      "_id": "66a7ffdad7e07d69658109ea",
+      "sap": 16500646,
+      "name_en": "Md. Abdul Mannan",
+      "name_bn": "মোঃ আব্দুল মান্নান",
+      "designation_en": "Executive Director",
+      "designation_bn": "নির্বাহী পরিচালক"
+    },
+    "ed_cc": null,
+    "jd_admin_2": {
+      "_id": "66a7ffdad7e07d69658109f1",
+      "sap": 17105449,
+      "name_en": "Abdur Razzak",
+      "name_bn": "আবদুর রাজ্জাক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    },
+    "jd_vu": {
+      "_id": "66a7ffdad7e07d69658109f4",
+      "sap": 18506359,
+      "name_en": "Md. Mohaimenul Haque",
+      "name_bn": "মোঃ মোহাইমেনুল হক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    }
+  },
+  "proj_from": "প্রকৌশল শাখা",
+  "receiverInfo": [
+    {
+      "name": "নাইমুল ইসলাম",
+      "sap": "19109577",
+      "designation": "সহকারী পরিচালক",
+      "section": "জড়সামগ্রী শাখা",
+      "notingDate": "2024-07-31",
+      "itemInfo": [
+        {
+          "goods_name_bn": "রিভলভিং চেয়ার",
+          "goods_name_en": "Office Table",
+          "goods_model": "Nadia-NFL-CH-102",
+          "quantity": "12",
+          "unit_price": "9500"
+        }
+      ]
+    }
+  ],
+  "prNotingHierarchy": {
+    "_id": "66a7dd050c0e930a2089f162",
+    "ad_dir_admin_2": {
+      "_id": "66a7ffdad7e07d69658109ed",
+      "sap": 16603109,
+      "name_en": "Md. Shahidul Islam Par",
+      "name_bn": "মোঃ শহিদুল ইসলাম পাড়",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_dir_vu": {
+      "_id": "66a7ffdad7e07d69658109ef",
+      "sap": 26803293,
+      "name_en": "Rehena Akhter",
+      "name_bn": "রেহেনা আখতার",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_ds": {
+      "_id": "66a7ffdad7e07d69658109f7",
+      "sap": 19109577,
+      "name_en": "NAIMUL ISLAM",
+      "name_bn": "নাইমুল ইসলাম",
+      "designation_en": "Assistant Director",
+      "designation_bn": "সহকারী পরিচালক",
+      "initiator": true
+    },
+    "dd_ds": {
+      "_id": "66a7ffdad7e07d69658109f6",
+      "sap": 19109783,
+      "name_en": "REZAUL KARIM",
+      "name_bn": "রেজাউল করিম",
+      "designation_en": "Deputy Director",
+      "designation_bn": "উপপরিচালক",
+      "initiator": false
+    },
+    "director_admin": {
+      "_id": "66a7ffdad7e07d69658109ec",
+      "sap": 16601836,
+      "name_en": "Bishnupada Kar",
+      "name_bn": "বিষ্ণুপদ কর",
+      "designation_en": "Director",
+      "designation_bn": "পরিচালক"
+    },
+    "jd_admin_2": {
+      "_id": "66a7ffdad7e07d69658109f1",
+      "sap": 17105449,
+      "name_en": "Abdur Razzak",
+      "name_bn": "আবদুর রাজ্জাক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    },
+    "jd_vu": {
+      "_id": "66a7ffdad7e07d69658109f4",
+      "sap": 18506359,
+      "name_en": "Md. Mohaimenul Haque",
+      "name_bn": "মোঃ মোহাইমেনুল হক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    }
+  },
+  "pr_number": "10009789",
+  "projectionApproveInfo": {
+    "approver": "নির্বাহী পরিচালক",
+    "approved_date": "2024-07-31"
+  },
+  "GL_Account": "Furniture, Fixture & Fittings - Office",
+  "committeeInfo": {
+    "chairman": {
+      "name": "মোঃ নকীর হোসেন",
+      "section": "ব্যাংক পরিদশন"
+    },
+    "member_vu": {
+      "name": "লাকী বেগম",
+      "section": "যুগ্মপরিচালক(ভি.ইউ)"
+    },
+    "member_2": {
+      "name": "তাপস কুমার কর্মকার",
+      "section": "সহকারী পরিচালক(আইসিটি)"
+    },
+    "secretary": {
+      "name": "নাইমুল ইসলাম",
+      "section": "সহকারী পরিচালক(জড়সামগ্রী)"
+    }
+  },
+  "rfqInfo": {
+    "rfq_heading": "আসবাবপত্র সরবরাহ প্রসঙ্গে",
+    "product_coll_name": "আসবাবপত্র",
+    "outword_date": "2024-08-09",
+    "quotation_deadLine": "2024-08-13",
+    "vendors": [
+      {
+        "vendor_id": 10001950,
+        "vendor_name_bn": "মেসার্স আদনান ফার্নিচার",
+        "vendor_add_bn": "বটতলা রোড, বরিশাল",
+        "outword_no": "4796"
+      },
+      {
+        "vendor_id": 10002945,
+        "vendor_name_bn": "ড্যাফডিল ফার্নিচার",
+        "vendor_add_bn": "গোঁড়া চাঁদ দাস রোড, বটতলা, বরিশাল",
+        "outword_no": "4798"
+      },
+      {
+        "vendor_id": 10002993,
+        "vendor_name_bn": "ডেল্টা ফার্নিচার",
+        "vendor_add_bn": "৬৬ প্রগতি সরণি, ভাটারা, ঢাকা",
+        "outword_no": "4797"
+      }
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "66ab6108e782ea676555add3"
+  },
+  "notingHeading": "অফিসের জন্য আসবাবপত্র ক্রয় পূর্বক সরবরাহ প্রসঙ্গে",
+  "previousPageNo": "৩",
+  "previousParaNo": "৭",
+  "projectionNotingHierarchy": {
+    "_id": "66a7dd050c0e930a2089f162",
+    "ad_dir_admin_2": {
+      "_id": "66a7ffdad7e07d69658109ed",
+      "sap": 16603109,
+      "name_en": "Md. Shahidul Islam Par",
+      "name_bn": "মোঃ শহিদুল ইসলাম পাড়",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_dir_vu": {
+      "_id": "66a7ffdad7e07d69658109ef",
+      "sap": 26803293,
+      "name_en": "Rehena Akhter",
+      "name_bn": "রেহেনা আখতার",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_ds": {
+      "_id": "66a7ffdad7e07d69658109f7",
+      "sap": 19109577,
+      "name_en": "NAIMUL ISLAM",
+      "name_bn": "নাইমুল ইসলাম",
+      "designation_en": "Assistant Director",
+      "designation_bn": "সহকারী পরিচালক",
+      "initiator": true
+    },
+    "dd_ds": {
+      "_id": "66a7ffdad7e07d69658109f6",
+      "sap": 19109783,
+      "name_en": "REZAUL KARIM",
+      "name_bn": "রেজাউল করিম",
+      "designation_en": "Deputy Director",
+      "designation_bn": "উপপরিচালক",
+      "initiator": false
+    },
+    "director_admin": {
+      "_id": "66a7ffdad7e07d69658109ec",
+      "sap": 16601836,
+      "name_en": "Bishnupada Kar",
+      "name_bn": "বিষ্ণুপদ কর",
+      "designation_en": "Director",
+      "designation_bn": "পরিচালক"
+    },
+    "ed": {
+      "_id": "66a7ffdad7e07d69658109ea",
+      "sap": 16500646,
+      "name_en": "Md. Abdul Mannan",
+      "name_bn": "মোঃ আব্দুল মান্নান",
+      "designation_en": "Executive Director",
+      "designation_bn": "নির্বাহী পরিচালক"
+    },
+    "ed_cc": null,
+    "jd_admin_2": {
+      "_id": "66a7ffdad7e07d69658109f1",
+      "sap": 17105449,
+      "name_en": "Abdur Razzak",
+      "name_bn": "আবদুর রাজ্জাক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    },
+    "jd_vu": {
+      "_id": "66a7ffdad7e07d69658109f4",
+      "sap": 18506359,
+      "name_en": "Md. Mohaimenul Haque",
+      "name_bn": "মোঃ মোহাইমেনুল হক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    }
+  },
+  "proj_from": "প্রকৌশল শাখা",
+  "receiverInfo": [
+    {
+      "name": "তীর্থঙ্কর সরকার",
+      "sap": "19109587",
+      "designation": "সহকারী পরিচালক",
+      "section": "জড়সামগ্রী শাখা",
+      "notingDate": "2024-08-01",
+      "itemInfo": [
+        {
+          "goods_name_bn": "রিভলভিং চেয়ার",
+          "goods_name_en": "Revolving Chair",
+          "goods_model": "Nadia-NFL-CH-102",
+          "quantity": "1",
+          "unit_price": "14500"
+        }
+      ]
+    }
+  ],
+  "prNotingHierarchy": {
+    "_id": "66a7dd050c0e930a2089f162",
+    "ad_dir_admin_2": {
+      "_id": "66a7ffdad7e07d69658109ed",
+      "sap": 16603109,
+      "name_en": "Md. Shahidul Islam Par",
+      "name_bn": "মোঃ শহিদুল ইসলাম পাড়",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_dir_vu": {
+      "_id": "66a7ffdad7e07d69658109ef",
+      "sap": 26803293,
+      "name_en": "Rehena Akhter",
+      "name_bn": "রেহেনা আখতার",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_ds": {
+      "_id": "66a7ffdad7e07d69658109f7",
+      "sap": 19109577,
+      "name_en": "NAIMUL ISLAM",
+      "name_bn": "নাইমুল ইসলাম",
+      "designation_en": "Assistant Director",
+      "designation_bn": "সহকারী পরিচালক",
+      "initiator": true
+    },
+    "dd_ds": {
+      "_id": "66a7ffdad7e07d69658109f6",
+      "sap": 19109783,
+      "name_en": "REZAUL KARIM",
+      "name_bn": "রেজাউল করিম",
+      "designation_en": "Deputy Director",
+      "designation_bn": "উপপরিচালক",
+      "initiator": false
+    },
+    "director_admin": {
+      "_id": "66a7ffdad7e07d69658109ec",
+      "sap": 16601836,
+      "name_en": "Bishnupada Kar",
+      "name_bn": "বিষ্ণুপদ কর",
+      "designation_en": "Director",
+      "designation_bn": "পরিচালক"
+    },
+    "jd_admin_2": {
+      "_id": "66a7ffdad7e07d69658109f1",
+      "sap": 17105449,
+      "name_en": "Abdur Razzak",
+      "name_bn": "আবদুর রাজ্জাক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    },
+    "jd_vu": {
+      "_id": "66a7ffdad7e07d69658109f4",
+      "sap": 18506359,
+      "name_en": "Md. Mohaimenul Haque",
+      "name_bn": "মোঃ মোহাইমেনুল হক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    }
+  },
+  "pr_number": "10009786",
+  "projectionApproveInfo": {
+    "approver": "নির্বাহী পরিচালক",
+    "approved_date": "2024-08-01"
+  },
+  "GL_Account": "Furniture, Fixture & Fittings - Office",
+  "committeeInfo": {
+    "chairman": {
+      "name": "মোঃ নকীর হোসেন",
+      "section": "ব্যাংক পরিদশন"
+    },
+    "member_vu": {
+      "name": "লাকী বেগম",
+      "section": "যুগ্মপরিচালক(ভি.ইউ)"
+    },
+    "member_2": {
+      "name": "মোঃ আসাদুল্লা-হেল-গালিব",
+      "section": "উপপরিচালক(আইসিটি)"
+    },
+    "secretary": {
+      "name": "নাইমুল ইসলাম",
+      "section": "সহকারী পরিচালক(জড়সামগ্রী)"
+    }
+  },
+  "rfqInfo": {
+    "rfq_heading": "আসবাবপত্র সরবরাহ প্রসঙ্গে",
+    "product_coll_name": "আসবাবপত্র",
+    "outword_date": "2024-08-09",
+    "quotation_deadLine": "2024-08-19",
+    "vendors": [
+      {
+        "vendor_id": 10001950,
+        "vendor_name_bn": "মেসার্স আদনান ফার্নিচার",
+        "vendor_add_bn": "বটতলা রোড, বরিশাল",
+        "outword_no": "4799"
+      },
+      {
+        "vendor_id": 10002945,
+        "vendor_name_bn": "ড্যাফডিল ফার্নিচার",
+        "vendor_add_bn": "গোঁড়া চাঁদ দাস রোড, বটতলা, বরিশাল",
+        "outword_no": "4800"
+      },
+      {
+        "vendor_id": 10002993,
+        "vendor_name_bn": "ডেল্টা ফার্নিচার",
+        "vendor_add_bn": "৬৬ প্রগতি সরণি, ভাটারা, ঢাকা",
+        "outword_no": "4801"
+      }
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "66afd11013562659a3800b7e"
+  },
+  "notingHeading": "এ অফিসের দুইজন এডির জন্য আসবাবপত্র ক্রয় প্রসঙ্গে",
+  "previousPageNo": "৩",
+  "previousParaNo": "৭",
+  "projectionNotingHierarchy": {
+    "_id": "66a7dd050c0e930a2089f162",
+    "ad_dir_admin_2": {
+      "_id": "66a7ffdad7e07d69658109ed",
+      "sap": 16603109,
+      "name_en": "Md. Shahidul Islam Par",
+      "name_bn": "মোঃ শহিদুল ইসলাম পাড়",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_dir_vu": {
+      "_id": "66a7ffdad7e07d69658109ef",
+      "sap": 26803293,
+      "name_en": "Rehena Akhter",
+      "name_bn": "রেহেনা আখতার",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_ds": {
+      "_id": "66a7ffdad7e07d69658109f7",
+      "sap": 19109577,
+      "name_en": "NAIMUL ISLAM",
+      "name_bn": "নাইমুল ইসলাম",
+      "designation_en": "Assistant Director",
+      "designation_bn": "সহকারী পরিচালক",
+      "initiator": true
+    },
+    "dd_ds": {
+      "_id": "66a7ffdad7e07d69658109f6",
+      "sap": 19109783,
+      "name_en": "REZAUL KARIM",
+      "name_bn": "রেজাউল করিম",
+      "designation_en": "Deputy Director",
+      "designation_bn": "উপপরিচালক",
+      "initiator": false
+    },
+    "director_admin": {
+      "_id": "66a7ffdad7e07d69658109ec",
+      "sap": 16601836,
+      "name_en": "Bishnupada Kar",
+      "name_bn": "বিষ্ণুপদ কর",
+      "designation_en": "Director",
+      "designation_bn": "পরিচালক"
+    },
+    "ed": {
+      "_id": "66a7ffdad7e07d69658109ea",
+      "sap": 16500646,
+      "name_en": "Md. Abdul Mannan",
+      "name_bn": "মোঃ আব্দুল মান্নান",
+      "designation_en": "Executive Director",
+      "designation_bn": "নির্বাহী পরিচালক"
+    },
+    "ed_cc": null,
+    "jd_admin_2": {
+      "_id": "66a7ffdad7e07d69658109f1",
+      "sap": 17105449,
+      "name_en": "Abdur Razzak",
+      "name_bn": "আবদুর রাজ্জাক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    },
+    "jd_vu": {
+      "_id": "66a7ffdad7e07d69658109f4",
+      "sap": 18506359,
+      "name_en": "Md. Mohaimenul Haque",
+      "name_bn": "মোঃ মোহাইমেনুল হক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    }
+  },
+  "proj_from": "প্রকৌশল শাখা",
+  "receiverInfo": [
+    {
+      "name": "নাইমুল ইসলাম",
+      "sap": "19109577",
+      "designation": "সহকারী পরিচালক",
+      "section": "জড়সামগ্রী শাখা",
+      "notingDate": "2024-08-05",
+      "itemInfo": [
+        {
+          "goods_name_bn": "রিভলভিং চেয়ার",
+          "goods_name_en": "Revolving Chair",
+          "goods_model": "Nadia-NFL-CH-202",
+          "quantity": "1",
+          "unit_price": "14500"
+        },
+        {
+          "goods_name_bn": "অফিস টেবিল",
+          "goods_name_en": "Office Table",
+          "goods_model": "Nadia-NFL-OT-001",
+          "quantity": "1",
+          "unit_price": "20490"
+        }
+      ]
+    },
+    {
+      "name": "তীর্থঙ্কর সরকার",
+      "sap": "19109587",
+      "designation": "সহকারী পরিচালক",
+      "section": "পিএডি শাখা",
+      "notingDate": "2024-08-05",
+      "itemInfo": [
+        {
+          "goods_name_bn": "রিভলভিং চেয়ার",
+          "goods_name_en": "Revolving Chair",
+          "goods_model": "Nadia-NFL-CH-202",
+          "quantity": "1",
+          "unit_price": "14500"
+        },
+        {
+          "goods_name_bn": "অফিস টেবিল",
+          "goods_name_en": "Office Table",
+          "goods_model": "Nadia-NFL-OT-001",
+          "quantity": "1",
+          "unit_price": "20490"
+        }
+      ]
+    }
+  ],
+  "prNotingHierarchy": {
+    "_id": "66a7dd050c0e930a2089f162",
+    "ad_dir_admin_2": {
+      "_id": "66a7ffdad7e07d69658109ed",
+      "sap": 16603109,
+      "name_en": "Md. Shahidul Islam Par",
+      "name_bn": "মোঃ শহিদুল ইসলাম পাড়",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_dir_vu": {
+      "_id": "66a7ffdad7e07d69658109ef",
+      "sap": 26803293,
+      "name_en": "Rehena Akhter",
+      "name_bn": "রেহেনা আখতার",
+      "designation_en": "Additional Director",
+      "designation_bn": "অতিরিক্ত পরিচালক"
+    },
+    "ad_ds": {
+      "_id": "66a7ffdad7e07d69658109f7",
+      "sap": 19109577,
+      "name_en": "NAIMUL ISLAM",
+      "name_bn": "নাইমুল ইসলাম",
+      "designation_en": "Assistant Director",
+      "designation_bn": "সহকারী পরিচালক",
+      "initiator": true
+    },
+    "dd_ds": {
+      "_id": "66a7ffdad7e07d69658109f6",
+      "sap": 19109783,
+      "name_en": "REZAUL KARIM",
+      "name_bn": "রেজাউল করিম",
+      "designation_en": "Deputy Director",
+      "designation_bn": "উপপরিচালক",
+      "initiator": false
+    },
+    "director_admin": {
+      "_id": "66a7ffdad7e07d69658109ec",
+      "sap": 16601836,
+      "name_en": "Bishnupada Kar",
+      "name_bn": "বিষ্ণুপদ কর",
+      "designation_en": "Director",
+      "designation_bn": "পরিচালক"
+    },
+    "jd_admin_2": {
+      "_id": "66a7ffdad7e07d69658109f1",
+      "sap": 17105449,
+      "name_en": "Abdur Razzak",
+      "name_bn": "আবদুর রাজ্জাক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    },
+    "jd_vu": {
+      "_id": "66a7ffdad7e07d69658109f4",
+      "sap": 18506359,
+      "name_en": "Md. Mohaimenul Haque",
+      "name_bn": "মোঃ মোহাইমেনুল হক",
+      "designation_en": "Joint Director",
+      "designation_bn": "যুগ্মপরিচালক"
+    }
+  },
+  "pr_number": "10009788",
+  "projectionApproveInfo": {
+    "approver": "নির্বাহী পরিচালক",
+    "approved_date": "2024-08-07"
+  },
+  "GL_Account": "Furniture, Fixture & Fittings - Office"
+}]
