@@ -14,6 +14,7 @@ import { usePrContext } from '@/context/prContext';
 import PrList from '@/components/prLIst';
 import { useHirarchyContext } from '@/context/hierarchyContext';
 import { getData } from '../../../../../lib/api';
+import Swal from 'sweetalert2';
 
 moment.locale('bn')
 const Project = ({ params }) => {
@@ -22,7 +23,6 @@ const Project = ({ params }) => {
     const [requisitioner, setRequisitionr] = useState('')
     const [totalPrice, setTotalPrice] = useState(0)
     const [committeeInfo, setCommitteeInfo] = useState(null)
-    const [rfqInfo, setRfqInfo] = useState(null)
     const [rfqError, setRfqError] = useState('')
     const [isOpenCommitte, setIsOpenCommittee] = useState(true)
     const [vendors, setVendors] = useState([])
@@ -30,7 +30,9 @@ const Project = ({ params }) => {
     const [vendor_id, setVendor_id] = useState('')
     const [isOpenVendor, setIsOpenVendor] = useState(true)
     const { employees } = useHirarchyContext();
-    const { prnumbers, prNumberLoading, prDataLoading, prData: projection, handlePrNumber, pr_number, committeeSetup } = usePrContext();
+
+
+    const { prnumbers, prNumberLoading, prDataLoading, prData: projection, handlePrNumber, pr_number, rfqSetup } = usePrContext();
 
     const { data: vendor = {} } = useQuery({
         queryKey: ['vendor', vendor_id],
@@ -40,7 +42,7 @@ const Project = ({ params }) => {
     })
 
 
-    console.log(vendor);
+
 
     const handleCommitteeSetup = (e) => {
         e.preventDefault();
@@ -71,6 +73,54 @@ const Project = ({ params }) => {
         setCommitteeInfo(committeeInfo);
         form.reset()
     }
+
+    const handleIsExistOutwordNo = async (outwordNo) => {
+        const isExistOutWord = await getData(`/purchase_requisition/api/checkOutword?outwordNo=${outwordNo}`)
+        const isEntry = vendors.find(v => v.outword_no === outwordNo)
+        if (isExistOutWord || isEntry) {
+            setVendorError('This number has already taken for another vendor. Please check the number and try again.')
+        }
+        else {
+            setVendorError(null)
+        }
+
+    }
+    const handleVendorId = (e) => {
+        const vendorId = e.target.value;
+        const isExistVendor = vendors.find(v => v.vendor_id == vendorId)
+        if (isExistVendor) {
+            setVendorError("Vendor Already added !")
+            setVendor_id(null)
+            return
+
+        }
+        else {
+            setVendor_id(vendorId)
+            setVendorError('')
+        }
+    }
+    const handleAddVendor = (e) => {
+        setVendorError('')
+        e.preventDefault();
+        const form = e.target
+        if (vendorError) {
+            return
+        }
+        else {
+            const newVendor = { ...vendor }
+            newVendor.outword_no = form.outword_no.value
+            setVendors((prev) => [...prev, newVendor])
+            form.reset()
+        }
+    }
+
+
+
+    const handleRemoveVendor = (vendor_id) => {
+        const updatedVendor = vendors.filter(v => v.vendor_id !== vendor_id)
+        console.log(updatedVendor);
+        setVendors(updatedVendor)
+    }
     const handleRFQ = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -86,48 +136,32 @@ const Project = ({ params }) => {
         else {
             setRfqError(``)
             const rfqInfo = { rfq_heading, product_coll_name, outword_date, quotation_deadLine, vendors }
-            setRfqInfo(rfqInfo)
+            const data = { pr_number, committeeInfo, rfqInfo }
+            Swal.fire({
+                title: "Do you want to update?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, Update!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    rfqSetup.mutate(data)
+                }
+            });
 
         }
 
     }
 
-    console.log(rfqInfo);
     const handleSaveToDB = () => {
-        const data = { pr_number, committeeInfo, rfqInfo }
-        committeeSetup.mutate(data)
-    }
 
-    const handleAddVendor = (e) => {
-        e.preventDefault();
-        const form = e.target
-        const newVendor = { ...vendor }
-        newVendor.outword_no = form.outword_no.value
-        setVendors((prev) => [...prev, newVendor])
-        form.reset()
 
     }
 
-    const handleVendorId = (e) => {
-        const vendorId = e.target.value;
-        const isExistVendor = vendors.find(v => v.vendor_id == vendorId)
-        if (isExistVendor) {
-            setVendorError("Vendor Already added !")
-            setVendor_id(null)
-            return
 
-        }
-        else {
-            setVendor_id(vendorId)
-            setVendorError('')
-        }
-    }
 
-    const handleRemoveVendor = (vendor_id) => {
-        const updatedVendor = vendors.filter(v => v.vendor_id !== vendor_id)
-        console.log(updatedVendor);
-        setVendors(updatedVendor)
-    }
     useEffect(() => {
         setCommitteeInfo(null)
         setVendorError('')
@@ -181,6 +215,7 @@ const Project = ({ params }) => {
 
 
 
+
     if (prNumberLoading) {
         return <div className="shrink-0 max-w-screen-md w-full flex flex-col justify-center items-center mx-auto card">
             <span className="loading loading-spinner text-info"></span>
@@ -199,18 +234,18 @@ const Project = ({ params }) => {
                                 <h2 className="font-bold underline text-center" style={{ textIndent: '40px' }}>{projection.notingHeading}</h2>
                             </div>
 
-                            <div className="flex p-2  gap-2 justify-between items-center shadow-lg bg-slate-400  ">
+                            <div className="flex p-2  gap-2 justify-between items-center shadow-lg bg-[#D9EEE1]  ">
                                 <h2 className="text-2xl font-bold"> পারসেজ রিকুইজিশন নং- {pr_number}</h2>
                                 <p className="font-bold text-center "> </p>
                                 <div className="flex gap-2 justify-between items-center">
-                                    <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" >প্রাক্কলিত মোট মূল্য= ৳{formatedPrice}</button>
+                                    <button className="btn bg-[#04AA6D] text-white hover:text-[#04AA6D]" >প্রাক্কলিত মোট মূল্য= ৳{formatedPrice}</button>
                                 </div>
                             </div>
-                            <div className="flex p-2  gap-2 justify-between items-center shadow-lg bg-slate-400 my-2">
+                            <div className="flex p-2  gap-2 justify-between items-center shadow-lg bg-[#D9EEE1] my-2">
                                 <h2 className="font-bold text-center pb-3 text-2xl ">Committee setup</h2>
-                                <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" onClick={() => setIsOpenCommittee(!isOpenCommitte)}>{isOpenCommitte ? "Hide" : "Show"}</button>
+                                <button className="btn bg-[#04AA6D] text-white hover:text-[#04AA6D]" onClick={() => setIsOpenCommittee(!isOpenCommitte)}>{isOpenCommitte ? "Hide" : "Show"}</button>
                             </div>
-                            <div className={` card shadow-lg bg-slate-500 ${!isOpenCommitte && "hidden"}`}>
+                            <div className={` card shadow-lg bg-[#E7E9EB] ${!isOpenCommitte && "hidden"}`}>
 
                                 <form className="grid grid-cols-6  items-end  gap-4 m-4" onSubmit={(e) => handleCommitteeSetup(e)}>
                                     <div className="form-control">
@@ -268,7 +303,7 @@ const Project = ({ params }) => {
                                     </div>
                                     <div className="form-control mt-4 col-span-full ">
                                         <div className="flex justify-end">
-                                            <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500">প্রিভিইউ দেখুন</button>
+                                            <button className="btn bg-[#04AA6D] text-white hover:text-[#04AA6D]">প্রিভিইউ দেখুন</button>
                                         </div>
                                     </div>
                                 </form>
@@ -327,15 +362,15 @@ const Project = ({ params }) => {
                                 }
                             </div>
                             <div>
-                                <div className="flex p-2  gap-2 justify-between items-center shadow-lg bg-slate-400 my-2 ">
+                                <div className="flex p-2  gap-2 justify-between items-center shadow-lg bg-[#D9EEE1] my-2 ">
 
                                     <h2 className="text-2xl font-bold"> Add vendor</h2>
                                     <div className="flex gap-2 justify-between items-center">
-                                        <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" onClick={() => setIsOpenVendor(!isOpenVendor)}>{isOpenVendor ? 'Hide' : "Show"}</button>
+                                        <button className="btn bg-[#04AA6D] text-white hover:text-[#04AA6D]" onClick={() => setIsOpenVendor(!isOpenVendor)}>{isOpenVendor ? 'Hide' : "Show"}</button>
                                     </div>
                                 </div>
 
-                                <div className={`card shadow-lg bg-slate-500 ${!isOpenVendor ? "hidden" : undefined}`}>
+                                <div className={`card shadow-lg bg-[#E7E9EB] ${!isOpenVendor ? "hidden" : undefined}`}>
                                     <form className="grid grid-cols-8 gap-4 m-4 items-center justify-center" onSubmit={(e) => handleAddVendor(e)}>
                                         <div className="form-control">
                                             <label className="label">
@@ -359,10 +394,11 @@ const Project = ({ params }) => {
                                             <label className="label">
                                                 <span className="label-text">আউটওয়ার্ড নং</span>
                                             </label>
-                                            <input name='outword_no' type="text" placeholder="আউটওয়ার্ড নং" className="input input-bordered" required />
+                                            <input name='outword_no' type="text" placeholder="আউটওয়ার্ড নং" className="input input-bordered" required onBlur={(e) => handleIsExistOutwordNo(e.target.value)} />
                                         </div>
+
                                         <div className="form-control mt-8">
-                                            <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500">যোগ করুন</button>
+                                            <button disabled={vendorError} className="btn bg-[#04AA6D] text-white hover:text-[#04AA6D]">যোগ করুন</button>
                                         </div>
                                         {vendorError && <p className="text-red-500 font-bold text-lg col-span-full">{vendorError}</p>}
                                     </form>
@@ -419,15 +455,10 @@ const Project = ({ params }) => {
                                     </div>
                                     <p className="text-red-500 font-bold text-lg col-span-full">{rfqError && rfqError}</p>
                                     <div className="form-control">
-
-                                        <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500">প্রিভিইউ দেখুন</button>
+                                        <button disabled={vendors.length < 3 || !committeeInfo} className="btn bg-[#04AA6D] text-white hover:text-[#04AA6D]">তথ্য আপডেট করুন</button>
                                     </div>
-
-
                                 </form>
 
-
-                                <button className="btn bg-gradient-to-r hover:bg-gradient-to-l text-white from-purple-600 to-violet-500" disabled={vendors.length < 3 || !committeeInfo} onClick={handleSaveToDB}>তথ্য আপডেট করুন</button>
                             </div>
                         </div>
                     }

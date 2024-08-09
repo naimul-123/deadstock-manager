@@ -8,15 +8,13 @@ import React from 'react';
 const queryClient = new QueryClient();
 const layout = ({ children }) => {
     const { prnumbers, prNumberLoading, prDataLoading, prData: projection, handlePrNumber, pr_number, committeeSetup, rfqPrNumber, rfqprnumbers, handleRfqPrNumber, rfqData } = usePrContext();
-    console.log(rfqData);
+
     return (
 
         <div className=" bg-base-200 min-h-[calc(100vh - 44px)] flex justify-between">
 
-
-
             {children}
-            <div className="flex flex-col justify-between bg-[#D9EEE1] min-h-[calc(100vh - 44px)] ">
+            <div className="flex flex-col justify-between bg-[#E7E9EB] min-h-[calc(100vh - 44px)] print:hidden ">
                 <div className="min-h-[calc(50vh-22px)]">
                     <PrList path="/rfq_maintain/rfq_setup" pr_number={pr_number} prdata={prnumbers} heading=" একটি পিআর নাম্বার সিলেক্ট করুন " handlePrNumber={handlePrNumber}></PrList>
                 </div>

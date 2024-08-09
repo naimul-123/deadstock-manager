@@ -35,21 +35,29 @@ export async function GET(request) {
 
     try {
         const searchParams = request.nextUrl.searchParams;
-        const pr = searchParams.get("pr")
-        let query = { pr_number: { $exists: true }, committeeInfo: { $exists: true }, rfqInfo: { $exists: true } }
-        let result
-        const options = { projection: { pr_number: 1, _id: 0 } }
-        if (pr) {
-            query.pr_number = pr
-            result = await procurementCollection.findOne(query);
-        }
-        else {
-            result = await procurementCollection.find(query, options).toArray();
-        }
+        const outwordNo = searchParams.get("outwordNo")
+        const currentYear = new Date().getFullYear();
+        const startDateStr = `${currentYear}-01-01`;
+        const endDateStr = `${currentYear + 1}-01-01`;
+        // let query = { pr_number: { $exists: true }, committeeInfo: { $exists: true }, rfqInfo: { $exists: true } }
 
-        return NextResponse.json(result)
+        if (!outwordNo) {
+            return NextResponse.json({ error: "Outword no required." })
+        }
+        const query = {
+            'rfqInfo.outword_date': {
+                $gte: startDateStr,
+                $lt: endDateStr
+            },
+            'rfqInfo.vendors': {
+                $elemMatch: { outword_no: outwordNo }
+            }
+        }
+        const count = await procurementCollection.countDocuments(query)
+
+        return NextResponse.json(count)
     } catch (error) {
         console.error('Error to get document:', error); // Log error
-        return NextResponse.json({ error: 'Failed to get document' }, { status: 500 });
+        return NextResponse.json({ error: 'Failed to get query' }, { status: 500 });
     }
 }

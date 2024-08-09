@@ -7,19 +7,17 @@ const procurementCollection = db.collection('procurements')
 export async function PUT(request) {
     try {
 
-        const { pr_number, committeeInfo, vendors } = await request.json();
+        const { pr_number, committeeInfo, rfqInfo } = await request.json();
 
         const query = { pr_number: pr_number }
         if (pr_number) {
             const result = await procurementCollection.updateOne(query, {
                 $set: {
                     committeeInfo: committeeInfo,
-                    vendors: vendors
-
-
+                    rfqInfo: rfqInfo
                 }
             })
-            return NextResponse.json({ message: 'Comittee info updated', result })
+            return NextResponse.json({ message: 'Rfq info has been updated successfully', result })
         }
 
     } catch (error) {

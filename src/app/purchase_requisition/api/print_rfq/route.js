@@ -12,7 +12,7 @@ export async function GET(request) {
         const searchParams = request.nextUrl.searchParams;
         const pr = searchParams.get("pr")
         console.log(pr);
-        let query = { pr_number: { $exists: true }, committeeInfo: { $exists: true }, vendors: { $exists: true } }
+        let query = { pr_number: { $exists: true }, committeeInfo: { $exists: true }, rfqInfo: { $exists: true } }
         if (pr) {
             query.pr_number = pr
             const aggregationPipeline = [
@@ -31,7 +31,7 @@ export async function GET(request) {
                         notingHeading: { $first: "$notingHeading" },
                         GL_Account: { $first: "$GL_Account" },
                         pr_number: { $first: "$pr_number" }, // Capture pr_number
-                        vendors: { $first: "$vendors" },
+                        rfqInfo: { $first: "$rfqInfo" },
                         committeeInfo: { $first: "$committeeInfo.chairman" },// Capture vendors
                         projectionNotingHierarchy: { $first: "$projectionNotingHierarchy" },// Capture vendors
                     }
@@ -51,7 +51,7 @@ export async function GET(request) {
                         notingHeading: { $first: "$notingHeading" },
                         GL_Account: { $first: "$GL_Account" },
                         pr_number: { $first: "$pr_number" },
-                        vendors: { $first: "$vendors" },
+                        rfqInfo: { $first: "$rfqInfo" },
                         committeeInfo: { $first: "$committeeInfo" },
                         projectionNotingHierarchy: { $first: "$projectionNotingHierarchy" },
 
@@ -79,7 +79,7 @@ export async function GET(request) {
                         _id: 0,
                         notingHeading: 1,
                         pr_number: 1,
-                        vendors: 1,
+                        rfqInfo: 1,
                         items: 1,
                         committeeChairmanInfo: "$committeeInfo",
                         initiator: {

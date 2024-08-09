@@ -56,7 +56,6 @@ export const PrProvider = ({ children }) => {
         enabled: !!rfqPrNumber,
     })
 
-    console.log(rfqData);
     const mutation = useMutation({
         mutationFn: (projectionData) => putData('/purchase_requisition/api/pr_noting', projectionData),
         onSuccess: (result) => {
@@ -69,6 +68,7 @@ export const PrProvider = ({ children }) => {
                 });
                 prRefetch();
                 projectionRefetch();
+
                 setPr(null)
             }
             else {
@@ -83,8 +83,8 @@ export const PrProvider = ({ children }) => {
             console.error(`Error posting projection`, error)
         }
     });
-    const committeeSetup = useMutation({
-        mutationFn: (committeeData) => putData('/purchase_requisition/api/committe_setup', committeeData),
+    const rfqSetup = useMutation({
+        mutationFn: (rfqData) => putData('/purchase_requisition/api/rfq_setup', rfqData),
         onSuccess: (result) => {
             if (result.result?.modifiedCount === 1) {
                 Swal.fire({
@@ -93,6 +93,7 @@ export const PrProvider = ({ children }) => {
                     icon: "success"
                 });
                 prRefetch();
+                rfqprRefetch();
                 setPr(null)
             }
             else {
@@ -110,7 +111,7 @@ export const PrProvider = ({ children }) => {
     const getProjectId = (id) => {
         setProjectId(id)
     }
-    const PrInfo = { getProjectId, projections, mutation, prnumbers, pr_number, prNumberLoading, prData, prDataLoading, handlePrNumber, committeeSetup, rfqprnumbers, rfqPrNumber, handleRfqPrNumber, rfqData }
+    const PrInfo = { getProjectId, projections, mutation, prnumbers, pr_number, prNumberLoading, prData, prDataLoading, handlePrNumber, rfqSetup, rfqprnumbers, rfqPrNumber, handleRfqPrNumber, rfqData }
     return (
         <PrContext.Provider value={PrInfo}>{children}</PrContext.Provider>
     );
