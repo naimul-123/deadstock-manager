@@ -118,7 +118,6 @@ const Project = ({ params }) => {
 
     const handleRemoveVendor = (vendor_id) => {
         const updatedVendor = vendors.filter(v => v.vendor_id !== vendor_id)
-        console.log(updatedVendor);
         setVendors(updatedVendor)
     }
     const handleRFQ = (e) => {
@@ -155,10 +154,7 @@ const Project = ({ params }) => {
 
     }
 
-    const handleSaveToDB = () => {
 
-
-    }
 
 
 
@@ -222,19 +218,16 @@ const Project = ({ params }) => {
         </div>
     }
     return (
-        <div>
+        <div className="grow h-[calc(100vh - 44px)] scroll-auto overflow-y-auto">
             {prDataLoading ?
-                <div className="shrink-0 max-w-screen-lg w-full flex flex-col justify-center items-center mx-auto card">
+                <div className="shrink-0  flex flex-col justify-center items-center ">
                     <span className="loading loading-spinner text-info"></span>
                 </div> :
-                <div className="shrink-0 max-w-screen-lg w-full   mx-auto card">
+                <div className="shrink-0">
                     {projection &&
                         <div>
-                            <div className="font-[SutonnyOMJ] my-4" >
-                                <h2 className="font-bold underline text-center" style={{ textIndent: '40px' }}>{projection.notingHeading}</h2>
-                            </div>
 
-                            <div className="flex p-2  gap-2 justify-between items-center shadow-lg bg-[#D9EEE1]  ">
+                            <div className="flex p-2  gap-2 justify-between items-center shadow-lg bg-[#D9EEE1] sticky top-0 z-20 ">
                                 <h2 className="text-2xl font-bold"> পারসেজ রিকুইজিশন নং- {pr_number}</h2>
                                 <p className="font-bold text-center "> </p>
                                 <div className="flex gap-2 justify-between items-center">

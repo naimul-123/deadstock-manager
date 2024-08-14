@@ -34,9 +34,8 @@ export async function PUT(request) {
 export async function GET(request) {
 
     try {
-        const searchParams = request.nextUrl.searchParams;
+        const { searchParams } = new URL(request.url)
         const vendor_id = searchParams.get("vendor_id")
-        console.log(vendor_id);
         if (vendor_id) {
             const query = { vendor_id: parseInt(vendor_id) }
             const result = await vendorsCollection.findOne(query, { projection: { _id: 0, vendor_name_en: 0, vendor_add_en: 0 } });

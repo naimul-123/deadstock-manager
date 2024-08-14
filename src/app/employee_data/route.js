@@ -45,7 +45,7 @@ export async function GET(request) {
         const client = await clientPromise;
         const db = client.db('deadstock');
         const employeeCollection = db.collection('employees')
-        const searchParams = request.nextUrl.searchParams;
+        const { searchParams } = new URL(request.url)
         const sap = searchParams.get("sap")
         let result;
 

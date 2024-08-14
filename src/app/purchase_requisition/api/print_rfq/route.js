@@ -9,9 +9,9 @@ const assetGlinfoCollection = db.collection('assetGlinfo')
 export async function GET(request) {
 
     try {
-        const searchParams = request.nextUrl.searchParams;
+        const { searchParams } = new URL(request.url)
         const pr = searchParams.get("pr")
-        console.log(pr);
+
         let query = { pr_number: { $exists: true }, committeeInfo: { $exists: true }, rfqInfo: { $exists: true } }
         if (pr) {
             query.pr_number = pr

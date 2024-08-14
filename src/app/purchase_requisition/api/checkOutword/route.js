@@ -34,7 +34,7 @@ export async function PUT(request) {
 export async function GET(request) {
 
     try {
-        const searchParams = request.nextUrl.searchParams;
+        const { searchParams } = new URL(request.url)
         const outwordNo = searchParams.get("outwordNo")
         const currentYear = new Date().getFullYear();
         const startDateStr = `${currentYear}-01-01`;

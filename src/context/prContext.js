@@ -83,6 +83,34 @@ export const PrProvider = ({ children }) => {
             console.error(`Error posting projection`, error)
         }
     });
+    const valueMutation = useMutation({
+        mutationFn: (projectionData) => putData('/purchase_requisition/api/valuation', projectionData),
+        onSuccess: (result) => {
+            console.log(result);
+            if (result.result?.modifiedCount === 1) {
+
+                Swal.fire({
+                    title: "Success!",
+                    text: result.message,
+                    icon: "success"
+                });
+                prRefetch();
+                projectionRefetch();
+
+                setPr(null)
+            }
+            else {
+                Swal.fire({
+                    title: "Error!",
+                    text: result.message,
+                    icon: "error"
+                });
+            }
+        },
+        onError: (error) => {
+            console.error(`Error posting projection`, error)
+        }
+    });
     const rfqSetup = useMutation({
         mutationFn: (rfqData) => putData('/purchase_requisition/api/rfq_setup', rfqData),
         onSuccess: (result) => {
@@ -111,7 +139,7 @@ export const PrProvider = ({ children }) => {
     const getProjectId = (id) => {
         setProjectId(id)
     }
-    const PrInfo = { getProjectId, projections, mutation, prnumbers, pr_number, prNumberLoading, prData, prDataLoading, handlePrNumber, rfqSetup, rfqprnumbers, rfqPrNumber, handleRfqPrNumber, rfqData }
+    const PrInfo = { getProjectId, projections, mutation, prnumbers, pr_number, prNumberLoading, prData, prDataLoading, handlePrNumber, rfqSetup, rfqprnumbers, rfqPrNumber, handleRfqPrNumber, rfqData, valueMutation }
     return (
         <PrContext.Provider value={PrInfo}>{children}</PrContext.Provider>
     );

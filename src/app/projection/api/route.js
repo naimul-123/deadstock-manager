@@ -44,7 +44,7 @@ export async function GET(request) {
         const client = await clientPromise;
         const db = client.db('deadstock');
         const procurementCollection = db.collection('procurements')
-        const searchParams = request.nextUrl.searchParams;
+        const { searchParams } = new URL(request.url)
         const id = searchParams.get("id")
         // console.log(id);
         let query = { pr_number: { $exists: false } };

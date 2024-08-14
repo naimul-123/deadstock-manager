@@ -34,7 +34,7 @@ export async function PUT(request) {
 export async function GET(request) {
 
     try {
-        const searchParams = request.nextUrl.searchParams;
+        const { searchParams } = new URL(request.url)
         const pr = searchParams.get("pr")
         let query = { pr_number: { $exists: true }, committeeInfo: { $exists: false } }
         let result

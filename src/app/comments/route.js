@@ -2,7 +2,7 @@ import { NextRequest } from 'next/server';
 import { comments } from './data'
 
 export async function GET(request) {
-    const searchParams = request.nextUrl.searchParams;
+    const { searchParams } = new URL(request.url)
     const query = searchParams.get("query")
     const filteredComments = query ?
         comments.filter(comment => comment.text.includes(query)) :

@@ -9,7 +9,7 @@ import { PrProvider } from '@/context/prContext';
 const queryClient = new QueryClient();
 const Prlayout = ({ children }) => {
 
-  const paths = ['create_requisition', 'print_pr_noting', 'rfq_maintain', 'add_vendors_value', 'request_for_asset_number', 'valuation']
+  const paths = ['create_requisition', 'print_pr_noting', 'rfq_maintain', 'valuation', 'request_for_asset_number',]
 
   return (
 

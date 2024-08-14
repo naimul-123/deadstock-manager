@@ -7,22 +7,19 @@ const procurementCollection = db.collection('procurements')
 export async function PUT(request) {
     try {
 
-        const { id, pr_number, projectionApproveInfo, prNotingHierarchy } = await request.json();
-        const count = await procurementCollection.countDocuments({ pr_number: pr_number })
-        if (count === 0) {
-            const result = await procurementCollection.updateOne({
-                _id: new ObjectId(id)
-            }, {
+        const { pr_number, valueInfo } = await request.json();
+
+        const query = { pr_number: pr_number }
+        console.log(valueInfo);
+        return NextResponse.json({ message: 'Rfq value', result: valueInfo })
+        if (pr_number) {
+            const result = await procurementCollection.updateOne(query, {
                 $set: {
-                    pr_number: pr_number,
-                    projectionApproveInfo: projectionApproveInfo,
-                    prNotingHierarchy: prNotingHierarchy
+                    committeeInfo: committeeInfo,
+                    rfqInfo: rfqInfo
                 }
             })
-            return NextResponse.json({ message: 'Document inserted', result })
-        }
-        else {
-            return NextResponse.json({ message: 'This purchase requisition number already inserted in another projection. check and resubmit the purchase requisition number.' })
+            return NextResponse.json({ message: 'Rfq info has been updated successfully', result })
         }
 
     } catch (error) {
@@ -36,7 +33,7 @@ export async function GET(request) {
     try {
         const { searchParams } = new URL(request.url)
         const pr = searchParams.get("pr")
-        let query = { pr_number: { $exists: true }, committeeInfo: { $exists: true }, rfqInfo: { $exists: true } }
+        let query = { pr_number: { $exists: true }, committeeInfo: { $exists: false } }
         let result
         const options = { projection: { pr_number: 1, _id: 0 } }
         if (pr) {

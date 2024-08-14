@@ -409,7 +409,7 @@ const Project = ({ params }) => {
         window.print()
     }
 
-    console.log(projection)
+
     if (prNumberLoading) {
         return <div className="shrink-0 max-w-screen-md w-full flex flex-col justify-center items-center mx-auto card">
             <span className="loading loading-spinner text-info"></span>
@@ -488,7 +488,7 @@ const Project = ({ params }) => {
 
                 </div>
             }
-            <PrList pr_number={pr_number} prdata={prnumbers} heading=" একটি পিআর নাম্বার সিলেক্ট করুন " handlePrNumber={handlePrNumber}></PrList>
+            <PrList pr_number={pr_number} path="/print_pr_noting" prdata={prnumbers} heading=" একটি পিআর নাম্বার সিলেক্ট করুন " handlePrNumber={handlePrNumber}></PrList>
 
 
         </div>
